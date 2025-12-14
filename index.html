@@ -1,648 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataBloom AI & Tech - Premium AI Training & Consulting</title>
-    <link rel="icon" type="image/png" href="/Databloom-ai/logo.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --primary-dark: #0f1b2e;
-            --primary-teal: #1e8a96;
-            --accent-gold: #d4af37;
-            --light-bg: #f8f9fa;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
-            --border-subtle: #e8e8e8;
-            --success: #1e8a96;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--light-bg);
-        }
+  <meta charset="UTF-8" />
+  <title>DataBloom AI & Tech - Premium AI Training & Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/Databloom-ai/logo.png" />
 
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2f4a 100%);
-            color: var(--text-light);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            background: linear-gradient(135deg, var(--accent-gold), #e8c547);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .logo-tagline {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            opacity: 0.8;
-            margin-left: 5px;
-        }
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin-left: 2.5rem;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            opacity: 0.9;
-        }
-        nav a:hover {
-            color: var(--accent-gold);
-            opacity: 1;
-        }
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXX');
+  </script>
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0f1b2e 0%, #1a3a52 50%, #1e8a96 100%);
-            background-attachment: fixed;
-            color: var(--text-light);
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(30, 138, 150, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            letter-spacing: -1px;
-        }
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold), #c19a2c);
-            color: var(--primary-dark);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-            cursor: pointer;
-            border: none;
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
-        }
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --primary-dark:#0f1b2e;
+      --primary-teal:#1e8a96;
+      --accent-gold:#d4af37;
+      --light-bg:#f8f9fa;
+      --text-dark:#1a1a1a;
+      --text-light:#ffffff;
+      --border-subtle:#e8e8e8;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Segoe UI',Trebuchet MS,sans-serif;
+      line-height:1.6;
+      color:var(--text-dark);
+      background:var(--light-bg);
+    }
+    header{
+      background:linear-gradient(135deg,var(--primary-dark) 0%,#1a2f4a 100%);
+      color:var(--text-light);
+      padding:1.5rem 0;
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
+    }
+    .nav-container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .logo-container{display:flex;align-items:center}
+    .logo{
+      font-size:1.2rem;
+      font-weight:700;
+      letter-spacing:.5px;
+      background:linear-gradient(135deg,var(--accent-gold),#e8c547);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .logo-tagline{
+      font-size:.75rem;
+      color:var(--text-light);
+      opacity:.8;
+      margin-left:5px;
+    }
+    nav a{
+      color:var(--text-light);
+      text-decoration:none;
+      margin-left:2.5rem;
+      font-size:.95rem;
+      transition:color .3s ease;
+      opacity:.9;
+    }
+    nav a:hover{color:var(--accent-gold);opacity:1}
 
-        /* About Section */
-        .about {
-            max-width: 1200px;
-            margin: 6rem auto;
-            padding: 0 2rem;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-dark);
-            text-align: center;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: var(--primary-teal);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-dark);
-        }
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        .feature-list {
-            list-style: none;
-        }
-        .feature-list li {
-            padding: 0.8rem 0;
-            padding-left: 2.5rem;
-            position: relative;
-            color: #555;
-        }
-        .feature-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold);
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-        .about-visual {
-            background: linear-gradient(135deg, rgba(30, 138, 150, 0.1), rgba(212, 175, 55, 0.05));
-            border-radius: 15px;
-            padding: 3rem;
-            border: 2px solid rgba(30, 138, 150, 0.2);
-            text-align: center;
-        }
-        .about-visual h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-teal);
-        }
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 2rem;
-            gap: 2rem;
-        }
-        .stat {
-            text-align: center;
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-        .stat-label {
-            color: #777;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
+    .hero{
+      background:linear-gradient(135deg,#0f1b2e 0%,#1a3a52 50%,#1e8a96 100%);
+      background-attachment:fixed;
+      color:var(--text-light);
+      padding:6rem 2rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 20% 50%,rgba(30,138,150,.1) 0%,transparent 50%);
+      pointer-events:none;
+    }
+    .hero-content{
+      max-width:900px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+    .hero h1{
+      font-size:3.5rem;
+      font-weight:700;
+      margin-bottom:1.5rem;
+      line-height:1.2;
+      letter-spacing:-1px;
+    }
+    .hero p{
+      font-size:1.4rem;
+      margin:0 auto 2.5rem;
+      opacity:.95;
+      max-width:700px;
+    }
+    .cta-button{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--accent-gold),#c19a2c);
+      color:var(--primary-dark);
+      padding:1rem 2.5rem;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:1.05rem;
+      transition:all .3s ease;
+      box-shadow:0 8px 25px rgba(212,175,55,.3);
+      border:none;
+      cursor:pointer;
+    }
+    .cta-button:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 35px rgba(212,175,55,.4);
+    }
 
-        /* Logo Section */
-        .logo-section {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .logo-image {
-            max-width: 120px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
+    .about,.services{
+      max-width:1200px;
+      margin:6rem auto;
+      padding:0 2rem;
+    }
+    .section-title{
+      font-size:2.5rem;
+      font-weight:700;
+      margin-bottom:1rem;
+      color:var(--primary-dark);
+      text-align:center;
+    }
+    .section-subtitle{
+      text-align:center;
+      color:var(--primary-teal);
+      margin-bottom:3rem;
+      font-size:1.1rem;
+      opacity:.8;
+    }
+    .about-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;
+      align-items:center;
+    }
+    .about-text h3{
+      font-size:1.8rem;
+      margin-bottom:1.5rem;
+      color:var(--primary-dark);
+    }
+    .about-text p{
+      margin-bottom:1.5rem;
+      color:#555;
+      font-size:1.05rem;
+      line-height:1.8;
+    }
+    .feature-list{list-style:none}
+    .feature-list li{
+      padding:.8rem 0 .8rem 2.5rem;
+      position:relative;
+      color:#555;
+    }
+    .feature-list li::before{
+      content:'✓';
+      position:absolute;
+      left:0;
+      color:var(--accent-gold);
+      font-weight:700;
+      font-size:1.3rem;
+    }
+    .about-visual{
+      background:linear-gradient(135deg,rgba(30,138,150,.1),rgba(212,175,55,.05));
+      border-radius:15px;
+      padding:3rem;
+      border:2px solid rgba(30,138,150,.2);
+      text-align:center;
+    }
+    .about-visual h4{
+      font-size:1.3rem;
+      margin-bottom:1rem;
+      color:var(--primary-teal);
+    }
+    .stats{
+      display:flex;
+      justify-content:space-around;
+      margin-top:2rem;
+      gap:2rem;
+    }
+    .stat{text-align:center}
+    .stat-number{
+      font-size:2.5rem;
+      font-weight:700;
+      color:var(--accent-gold);
+    }
+    .stat-label{
+      color:#777;
+      font-size:.95rem;
+      margin-top:.5rem;
+    }
 
-        /* Testimonials Section */
-        .testimonials {
-            background: linear-gradient(135deg, var(--primary-dark), #1a3a52);
-            color: var(--text-light);
-            padding: 5rem 2rem;
-            margin: 4rem 0;
-        }
-        .testimonials-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .testimonials .section-title {
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-        .testimonials .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 3rem;
-        }
-        .testimonial-carousel {
-            overflow: hidden;
-            position: relative;
-        }
-        .testimonial-track {
-            display: flex;
-            gap: 2rem;
-            animation: scroll-left 30s linear infinite;
-        }
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .testimonial-track:hover {
-            animation-play-state: paused;
-        }
-        .testimonial-card {
-            background: rgba(30, 138, 150, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            flex: 0 0 320px;
-            min-width: 320px;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(30, 138, 150, 0.2);
-            border-color: var(--accent-gold);
-        }
-        .stars {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .testimonial-text {
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--accent-gold);
-            font-size: 0.95rem;
-        }
-        .testimonial-role {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-top: 0.3rem;
-        }
+    .logo-section{text-align:center;margin-bottom:3rem}
+    .logo-image{max-width:120px;height:auto;margin-bottom:1rem}
 
-        /* Services Section */
-        .services {
-            max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 2rem;
-        }
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        .service-card {
-            background: var(--light-bg);
-            border: 2px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        .service-card:hover {
-            border-color: var(--primary-teal);
-            box-shadow: 0 10px 30px rgba(30, 138, 150, 0.15);
-            transform: translateY(-5px);
-        }
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .service-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        .service-card p {
-            color: #666;
-            line-height: 1.7;
-        }
+    .testimonials{
+      background:linear-gradient(135deg,var(--primary-dark),#1a3a52);
+      color:var(--text-light);
+      padding:5rem 2rem;
+      margin:4rem 0;
+    }
+    .testimonials-container{
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .testimonials .section-title{color:var(--text-light);margin-bottom:.5rem}
+    .testimonials .section-subtitle{color:rgba(255,255,255,.7);margin-bottom:3rem}
+    .testimonial-carousel{overflow:hidden;position:relative}
+    .testimonial-track{
+      display:flex;
+      gap:2rem;
+      animation:scroll-left 30s linear infinite;
+    }
+    .testimonial-track:hover{animation-play-state:paused}
+    @keyframes scroll-left{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+    .testimonial-card{
+      background:rgba(30,138,150,.1);
+      border:1px solid rgba(212,175,55,.2);
+      border-radius:12px;
+      padding:2rem;
+      backdrop-filter:blur(10px);
+      transition:all .3s ease;
+      flex:0 0 320px;
+      min-width:320px;
+    }
+    .testimonial-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 12px 30px rgba(30,138,150,.2);
+      border-color:var(--accent-gold);
+    }
+    .stars{color:var(--accent-gold);margin-bottom:1rem;font-size:1.1rem}
+    .testimonial-text{
+      font-size:.95rem;
+      margin-bottom:1.5rem;
+      line-height:1.7;
+      opacity:.95;
+    }
+    .testimonial-author{
+      font-weight:600;
+      color:var(--accent-gold);
+      font-size:.95rem;
+    }
+    .testimonial-role{
+      font-size:.85rem;
+      opacity:.7;
+      margin-top:.3rem;
+    }
 
-        /* CTA Section (Lead Form) */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-teal) 0%, #158a99 100%);
-            color: var(--text-light);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
-        }
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            text-align: left;
-        }
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            background: rgba(0, 0, 0, 0.1);
-            color: var(--text-light);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .contact-form select {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            border-color: var(--accent-gold);
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .contact-form select option {
-            background: var(--primary-dark);
-            color: var(--text-light);
-        }
-        .contact-form .cta-button {
-            width: 100%;
-            margin-top: 1rem;
-        }
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2.5rem;
+      margin-top:3rem;
+    }
+    .service-card{
+      background:var(--light-bg);
+      border:2px solid var(--border-subtle);
+      border-radius:12px;
+      padding:2.5rem;
+      transition:all .3s ease;
+      text-align:center;
+    }
+    .service-card:hover{
+      border-color:var(--primary-teal);
+      box-shadow:0 10px 30px rgba(30,138,150,.15);
+      transform:translateY(-5px);
+    }
+    .service-icon{font-size:3rem;margin-bottom:1rem}
+    .service-card h3{
+      color:var(--primary-dark);
+      margin-bottom:1rem;
+      font-size:1.3rem;
+    }
+    .service-card p{color:#666;line-height:1.7}
 
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: var(--text-light);
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+    .cta-section{
+      background:linear-gradient(135deg,var(--primary-teal) 0%,#158a99 100%);
+      color:var(--text-light);
+      padding:4rem 2rem;
+      text-align:center;
+      margin:4rem 0;
+    }
+    .cta-section h2{font-size:2.2rem;margin-bottom:1.5rem}
+    .cta-section p{
+      font-size:1.1rem;
+      margin:0 auto 2rem;
+      opacity:.95;
+      max-width:600px;
+    }
+    .contact-form{
+      max-width:500px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      text-align:left;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea{
+      width:100%;
+      padding:1rem 1.25rem;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.4);
+      background:rgba(0,0,0,.1);
+      color:var(--text-light);
+      font-size:1rem;
+      transition:all .3s ease;
+      outline:none;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder{color:rgba(255,255,255,.7)}
+    .contact-form input:focus,
+    .contact-form textarea:focus{
+      border-color:var(--accent-gold);
+      background:rgba(0,0,0,.2);
+    }
+    .contact-form select option{
+      background:var(--primary-dark);
+      color:var(--text-light);
+    }
+    .contact-form .cta-button{
+      width:100%;
+      margin-top:1rem;
+      background:var(--accent-gold);
+      color:var(--primary-dark);
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            nav a {
-                margin-left: 1rem;
-                font-size: 0.85rem;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .stats {
-                flex-direction: column;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    footer{
+      background:var(--primary-dark);
+      color:var(--text-light);
+      padding:2rem;
+      text-align:center;
+      font-size:.9rem;
+      opacity:.8;
+    }
+
+    @media (max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1.1rem}
+      nav a{margin-left:1rem;font-size:.85rem}
+      .about-content{grid-template-columns:1fr;gap:2rem}
+      .stats{flex-direction:column}
+      .section-title{font-size:2rem}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="/Databloom-ai/logo.png" alt="DataBloom AI Logo Icon" style="height: 40px; margin-right: 12px;">
-                <span style="display: flex; flex-direction: column; line-height: 1.1;">
-                    <span class="logo">DATABLOOM</span>
-                    <span class="logo-tagline">AI &amp; TECH</span>
-                </span>
-            </div>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-            </nav>
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="/Databloom-ai/logo.png" alt="DataBloom AI Logo" style="height:40px;margin-right:12px" />
+        <span style="display:flex;flex-direction:column;line-height:1.1">
+          <span class="logo">DATABLOOM</span>
+          <span class="logo-tagline">AI &amp; TECH</span>
+        </span>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Master AI for Business &amp; Career Growth</h1>
+      <p>We provide hands-on, non-technical AI training for professionals and students, focused on practical skills that create immediate impact.</p>
+      <a href="#contact" class="cta-button">Get Free Consultation Today</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title">Why Choose DataBloom?</h2>
+    <p class="section-subtitle">Real Experience. Real Results. Real Growth.</p>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>AI Training Built on Real-World Experience</h3>
+        <p>DataBloom AI &amp; Tech combines teaching excellence with practical industry expertise. We have trained hundreds of college students and corporate teams across leading institutions in Delhi.</p>
+        <ul class="feature-list">
+          <li>100% student recommendation rate</li>
+          <li>Proven curriculum across 20, 40, and 60-hour programs</li>
+          <li>Focus on non-technical learners</li>
+          <li>Hands-on, project-based learning</li>
+          <li>Certified industry trainers</li>
+          <li>Customized corporate programs</li>
+        </ul>
+        <p style="margin-top:2rem"><strong>Our expertise:</strong> Generative AI, Prompt Engineering, Workflow Automation, NLP, Large Language Models, and Business Process Optimization.</p>
+      </div>
+      <div class="about-visual">
+        <h4>Our Track Record</h4>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Students Trained</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Recommendation Rate</div>
+          </div>
         </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Master AI for Business &amp; Career Growth</h1>
-            <p>We provide hands-on, non-technical AI training for professionals and students. <strong>We guarantee a 100% practical skill upgrade for immediate impact.</strong></p>
-            <a href="#contact" class="cta-button">Get Free Consultation Today</a>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Years Combined Expertise</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Elite Universities</div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="about" id="about">
-        <h2 class="section-title">Why Choose DataBloom?</h2>
-        <p class="section-subtitle">Real Experience. Real Results. Real Growth.</p>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>AI Training Built on Real-World Experience</h3>
-                <p>DataBloom AI &amp; Tech combines teaching excellence with practical industry expertise. We have trained hundreds of college students and corporate teams across Delhi's leading institutions.</p>
-                <ul class="feature-list">
-                    <li>100% student recommendation rate</li>
-                    <li>Proven curriculum across 20, 40, and 60-hour programs</li>
-                    <li>Focus on non-technical learners</li>
-                    <li>Hands-on, project-based learning</li>
-                    <li>Certified industry trainers</li>
-                    <li>Customized corporate programs</li>
-                </ul>
-                <p style="margin-top: 2rem;"><strong>Our Expertise:</strong> Generative AI, Prompt Engineering, Workflow Automation, NLP, Large Language Models, and Business Process Optimization.</p>
-            </div>
-            <div class="about-visual">
-                <h4>Our Track Record</h4>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Students Trained</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Recommendation Rate</div>
-                    </div>
-                </div>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-label">Years Combined Expertise</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Elite Universities</div>
-                    </div>
-                </div>
-            </div>
+  <section class="services" id="services">
+    <h2 class="section-title">Our Training Programs</h2>
+    <p class="section-subtitle">Customized AI Education for Your Needs</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>College Programs</h3>
+        <p>20 to 40‑hour intensive workshops designed for students in commerce, arts, and management, ideal for curriculum enhancement and skill development.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Corporate Training</h3>
+        <p>Tailored AI and prompt engineering programs for teams and departments to boost productivity through hands-on automation and tool mastery.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Custom Consulting</h3>
+        <p>Bespoke AI solutions aligned with your specific business challenges and goals, from workflow design to implementation support.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-container">
+      <div class="logo-section">
+        <img src="/Databloom-ai/logo.png" alt="DataBloom AI &amp; Tech Logo" class="logo-image" />
+      </div>
+      <h2 class="section-title">Student Success Stories</h2>
+      <p class="section-subtitle">Hear From Our Learners</p>
+      <div class="testimonial-carousel">
+        <div class="testimonial-track">
+          <!-- cards repeated intentionally for scrolling effect -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">The training was practical and accessible. Using AI in daily work finally feels simple and effective.</p>
+            <div class="testimonial-author">Priya Sharma</div>
+            <div class="testimonial-role">Commerce Student, Delhi University</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">Complex concepts were broken into clear modules, making the program valuable even for non‑technical professionals.</p>
+            <div class="testimonial-author">Rajesh Kumar</div>
+            <div class="testimonial-role">Operations Manager</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">High‑quality instruction and real examples helped me confidently use generative AI tools in my teaching.</p>
+            <div class="testimonial-author">Anjali Patel</div>
+            <div class="testimonial-role">Faculty Member, Institute of Home Economics</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">The hands‑on approach made AI tools easy to adopt for content creation and workflow automation in my business.</p>
+            <div class="testimonial-author">Vikram Singh</div>
+            <div class="testimonial-role">Entrepreneur &amp; Freelancer</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">The curriculum covers everything needed to work confidently with modern AI tools in an HR environment.</p>
+            <div class="testimonial-author">Neha Desai</div>
+            <div class="testimonial-role">HR Professional</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">Clear explanations and structured practice made AI approachable, even without a technical background.</p>
+            <div class="testimonial-author">Arjun Bhat</div>
+            <div class="testimonial-role">Business Analyst, Agrasen College</div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="services" id="services">
-        <h2 class="section-title">Our Training Programs</h2>
-        <p class="section-subtitle">Customized AI Education for Your Needs</p>
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-icon">🎓</div>
-                <h3>College Programs</h3>
-                <p>20 to 40-hour intensive workshops designed for students in commerce, arts, and management. Perfect for curriculum enhancement and skill development.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏢</div>
-                <h3>Corporate Training</h3>
-                <p>Tailored AI and prompt engineering programs for teams and departments. Boost productivity through hands-on automation and tool mastery.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💡</div>
-                <h3>Custom Consulting</h3>
-                <p>Need specialized training or guidance? We design bespoke AI solutions aligned with your specific business challenges and goals.</p>
-            </div>
-        </div>
-    </section>
+  <section class="cta-section" id="contact">
+    <h2>Ready to Transform Your Team?</h2>
+    <p>Contact us for a free program consultation and a tailored AI upskilling plan for your college or organization.</p>
+    <form action="[YOUR LIVE FORMSPREE URL HERE]" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Work Email" required />
+      <select name="interest" required>
+        <option value="">I am interested in...</option>
+        <option value="corporate">Corporate Training</option>
+        <option value="college">College Programs</option>
+        <option value="consulting">Custom Consulting</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Tell us briefly about your team or learning goals..."></textarea>
+      <button type="submit" class="cta-button">Get Free Consultation</button>
+    </form>
+  </section>
 
-    <section class="testimonials" id="testimonials">
-        <div class="testimonials-container">
-            <div class="logo-section">
-                <img src="/Databloom-ai/logo.png" alt="DataBloom AI &amp; Tech Logo" class="logo-image">
-            </div>
-            <h2 class="section-title">Student Success Stories</h2>
-            <p class="section-subtitle">Hear From Our Learners</p>
-            <div class="testimonial-carousel">
-                <div class="testimonial-track">
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"The training was incredibly practical and accessible. I finally understand how to use AI in my daily work. Highly recommend!"</p>
-                        <div class="testimonial-author">Priya Sharma</div>
-                        <div class="testimonial-role">Commerce Student, Delhi University</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Best AI training I've attended. The instructor broke down complex concepts into easy-to-understand modules. Valuable for non-technical professionals."</p>
-                        <div class="testimonial-author">Rajesh Kumar</div>
-                        <div class="testimonial-role">Operations Manager</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Exceptional quality of instruction. I gained confidence using generative AI tools and learned real-world applications. Worth every moment!"</p>
-                        <div class="testimonial-author">Anjali Patel</div>
-                        <div class="testimonial-role">Faculty Member, Institute of Home Economics</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"The hands-on approach made everything clear. I can now confidently use AI for content creation and workflow automation."</p>
-                        <div class="testimonial-author">Vikram Singh</div>
-                        <div class="testimonial-role">Entrepreneur &amp; Freelancer</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Outstanding trainer with deep knowledge. The curriculum covers everything you need to master modern AI tools. Highly recommended!"</p>
-                        <div class="testimonial-author">Neha Desai</div>
-                        <div class="testimonial-role">HR Professional</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Finally, AI training that doesn't require a technical background. Clear explanations, practical examples, and amazing support throughout."</p>
-                        <div class="testimonial-author">Arjun Bhat</div>
-                        <div class="testimonial-role">Business Analyst, Agrasen College</div>
-                    </div>
-                    <!-- Duplicate set for seamless loop -->
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"The training was incredibly practical and accessible. I finally understand how to use AI in my daily work. Highly recommend!"</p>
-                        <div class="testimonial-author">Priya Sharma</div>
-                        <div class="testimonial-role">Commerce Student, Delhi University</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Best AI training I've attended. The instructor broke down complex concepts into easy-to-understand modules. Valuable for non-technical professionals."</p>
-                        <div class="testimonial-author">Rajesh Kumar</div>
-                        <div class="testimonial-role">Operations Manager</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Exceptional quality of instruction. I gained confidence using generative AI tools and learned real-world applications. Worth every moment!"</p>
-                        <div class="testimonial-author">Anjali Patel</div>
-                        <div class="testimonial-role">Faculty Member, Institute of Home Economics</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"The hands-on approach made everything clear. I can now confidently use AI for content creation and workflow automation."</p>
-                        <div class="testimonial-author">Vikram Singh</div>
-                        <div class="testimonial-role">Entrepreneur &amp; Freelancer</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Outstanding trainer with deep knowledge. The curriculum covers everything you need to master modern AI tools. Highly recommended!"</p>
-                        <div class="testimonial-author">Neha Desai</div>
-                        <div class="testimonial-role">HR Professional</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"Finally, AI training that doesn't require a technical background. Clear explanations, practical examples, and amazing support throughout."</p>
-                        <div class="testimonial-author">Arjun Bhat</div>
-                        <div class="testimonial-role">Business Analyst, Agrasen College</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section" id="contact">
-        <h2>Ready to Transform Your Team?</h2>
-        <p>Contact us today for a free program consultation. Let's design the perfect AI upskilling plan for your college or corporation.</p>
-        <form action="https://formspree.io/f/movgrgzb" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Work Email" required>
-            <select name="interest" required>
-                <option value="">I am interested in...</option>
-                <option value="corporate">Corporate Training</option>
-                <option value="college">College Programs</option>
-                <option value="consulting">Custom Consulting</option>
-            </select>
-            <textarea name="message" placeholder="Tell us briefly about your team or learning goals..." rows="4"></textarea>
-            <button type="submit" class="cta-button" style="background: var(--accent-gold); color: var(--primary-dark);">Get Free Consultation</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 DataBloom AI &amp; Tech. Transforming potential into expertise. All rights reserved.</p>
-        <p>Email: <a href="mailto:vinay@databloomaiandtech.com" style="color: inherit; text-decoration: underline;">vinay@databloomaiandtech.com</a> | Linkedin: https://www.linkedin.com/company/108932112 </p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 DataBloom AI &amp; Tech. Transforming potential into expertise. All rights reserved.</p>
+    <p>Email: vinay@databloomaiandtech.com | Website: databloomaiandtech.com</p>
+  </footer>
 </body>
 </html>
