@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataBloom AI & Tech - Premium AI Training & Consulting</title>
+    <link rel="icon" type="image/png" href="/Databloom-ai/logo.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary-dark: #0f1b2e;
             --primary-teal: #1e8a96;
@@ -21,18 +21,15 @@
             --border-subtle: #e8e8e8;
             --success: #1e8a96;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Segoe UI', Trebuchet MS, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background: var(--light-bg);
         }
-
         /* Header & Navigation */
         header {
             background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2f4a 100%);
@@ -43,7 +40,6 @@
             z-index: 100;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -52,9 +48,13 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        /* Logo Styling for the Combined Element */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.2rem; /* Adjusted for better fit with icon */
             font-weight: 700;
             letter-spacing: 0.5px;
             background: linear-gradient(135deg, var(--accent-gold), #e8c547);
@@ -62,7 +62,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-left: 5px; /* Added spacing from main text */
+        }
         nav a {
             color: var(--text-light);
             text-decoration: none;
@@ -71,12 +76,10 @@
             transition: color 0.3s ease;
             opacity: 0.9;
         }
-
         nav a:hover {
             color: var(--accent-gold);
             opacity: 1;
         }
-
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #0f1b2e 0%, #1a3a52 50%, #1e8a96 100%);
@@ -87,7 +90,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -98,14 +100,12 @@
             background: radial-gradient(circle at 20% 50%, rgba(30, 138, 150, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
-
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -113,7 +113,6 @@
             line-height: 1.2;
             letter-spacing: -1px;
         }
-
         .hero p {
             font-size: 1.4rem;
             margin-bottom: 2.5rem;
@@ -122,7 +121,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent-gold), #c19a2c);
@@ -137,19 +135,16 @@
             cursor: pointer;
             border: none;
         }
-
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
         }
-
         /* About Section */
         .about {
             max-width: 1200px;
             margin: 6rem auto;
             padding: 0 2rem;
         }
-
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -157,7 +152,6 @@
             color: var(--primary-dark);
             text-align: center;
         }
-
         .section-subtitle {
             text-align: center;
             color: var(--primary-teal);
@@ -165,38 +159,32 @@
             font-size: 1.1rem;
             opacity: 0.8;
         }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
-
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: var(--primary-dark);
         }
-
         .about-text p {
             margin-bottom: 1.5rem;
             color: #555;
             font-size: 1.05rem;
             line-height: 1.8;
         }
-
         .feature-list {
             list-style: none;
         }
-
         .feature-list li {
             padding: 0.8rem 0;
             padding-left: 2.5rem;
             position: relative;
             color: #555;
         }
-
         .feature-list li:before {
             content: '✓';
             position: absolute;
@@ -205,7 +193,6 @@
             font-weight: bold;
             font-size: 1.3rem;
         }
-
         .about-visual {
             background: linear-gradient(135deg, rgba(30, 138, 150, 0.1), rgba(212, 175, 55, 0.05));
             border-radius: 15px;
@@ -213,48 +200,40 @@
             border: 2px solid rgba(30, 138, 150, 0.2);
             text-align: center;
         }
-
         .about-visual h4 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: var(--primary-teal);
         }
-
         .stats {
             display: flex;
             justify-content: space-around;
             margin-top: 2rem;
             gap: 2rem;
         }
-
         .stat {
             text-align: center;
         }
-
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--accent-gold);
         }
-
         .stat-label {
             color: #777;
             font-size: 0.95rem;
             margin-top: 0.5rem;
         }
-
         /* Logo Section */
         .logo-section {
             text-align: center;
             margin-bottom: 3rem;
         }
-
         .logo-image {
             max-width: 120px;
             height: auto;
             margin-bottom: 1rem;
         }
-
         /* Testimonials Section */
         .testimonials {
             background: linear-gradient(135deg, var(--primary-dark), #1a3a52);
@@ -262,34 +241,28 @@
             padding: 5rem 2rem;
             margin: 4rem 0;
         }
-
         .testimonials-container {
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .testimonials .section-title {
             color: var(--text-light);
             margin-bottom: 0.5rem;
         }
-
         .testimonials .section-subtitle {
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 3rem;
         }
-
         /* Carousel Container */
         .testimonial-carousel {
             overflow: hidden;
             position: relative;
         }
-
         .testimonial-track {
             display: flex;
             gap: 2rem;
             animation: scroll-left 30s linear infinite;
         }
-
         @keyframes scroll-left {
             0% {
                 transform: translateX(0);
@@ -298,11 +271,9 @@
                 transform: translateX(-50%);
             }
         }
-
         .testimonial-track:hover {
             animation-play-state: paused;
         }
-
         .testimonial-card {
             background: rgba(30, 138, 150, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -313,52 +284,44 @@
             flex: 0 0 320px;
             min-width: 320px;
         }
-
         .testimonial-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(30, 138, 150, 0.2);
             border-color: var(--accent-gold);
         }
-
         .stars {
             color: var(--accent-gold);
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
-
         .testimonial-text {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
             line-height: 1.7;
             opacity: 0.95;
         }
-
         .testimonial-author {
             font-weight: 600;
             color: var(--accent-gold);
             font-size: 0.95rem;
         }
-
         .testimonial-role {
             font-size: 0.85rem;
             opacity: 0.7;
             margin-top: 0.3rem;
         }
-
         /* Services Section */
         .services {
             max-width: 1200px;
             margin: 5rem auto;
             padding: 0 2rem;
         }
-
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
-
         .service-card {
             background: var(--light-bg);
             border: 2px solid var(--border-subtle);
@@ -367,29 +330,24 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-
         .service-card:hover {
             border-color: var(--primary-teal);
             box-shadow: 0 10px 30px rgba(30, 138, 150, 0.15);
             transform: translateY(-5px);
         }
-
         .service-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-
         .service-card h3 {
             color: var(--primary-dark);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
-
         .service-card p {
             color: #666;
             line-height: 1.7;
         }
-
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--primary-teal) 0%, #158a99 100%);
@@ -398,12 +356,10 @@
             text-align: center;
             margin: 4rem 0;
         }
-
         .cta-section h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
         }
-
         .cta-section p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
@@ -412,7 +368,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         /* Footer */
         footer {
             background: var(--primary-dark);
@@ -422,7 +377,6 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
-
         /* Chat Widget */
         .chat-widget {
             position: fixed;
@@ -430,7 +384,6 @@
             right: 2rem;
             z-index: 999;
         }
-
         .chat-button {
             width: 60px;
             height: 60px;
@@ -446,12 +399,10 @@
             align-items: center;
             justify-content: center;
         }
-
         .chat-button:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
         }
-
         .chat-window {
             display: none;
             position: absolute;
@@ -465,29 +416,24 @@
             flex-direction: column;
             overflow: hidden;
         }
-
         .chat-window.active {
             display: flex;
         }
-
         .chat-header {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary-teal));
             color: var(--text-light);
             padding: 1.5rem;
             border-radius: 15px 15px 0 0;
         }
-
         .chat-header h3 {
             margin: 0;
             font-size: 1.2rem;
         }
-
         .chat-header p {
             margin: 0.5rem 0 0 0;
             font-size: 0.85rem;
             opacity: 0.9;
         }
-
         .chat-messages {
             flex: 1;
             overflow-y: auto;
@@ -496,20 +442,16 @@
             flex-direction: column;
             gap: 1rem;
         }
-
         .message {
             display: flex;
             gap: 0.75rem;
         }
-
         .message.bot {
             justify-content: flex-start;
         }
-
         .message.user {
             justify-content: flex-end;
         }
-
         .message-bubble {
             max-width: 70%;
             padding: 0.75rem 1rem;
@@ -517,26 +459,22 @@
             font-size: 0.9rem;
             line-height: 1.4;
         }
-
         .message.bot .message-bubble {
             background: var(--light-bg);
             color: var(--text-dark);
             border-left: 3px solid var(--primary-teal);
         }
-
         .message.user .message-bubble {
             background: var(--primary-teal);
             color: var(--text-light);
             border-radius: 12px;
         }
-
         .chat-input-area {
             padding: 1.5rem;
             border-top: 1px solid var(--border-subtle);
             display: flex;
             gap: 0.75rem;
         }
-
         .chat-input {
             flex: 1;
             border: 1px solid var(--border-subtle);
@@ -546,11 +484,9 @@
             outline: none;
             transition: border-color 0.3s ease;
         }
-
         .chat-input:focus {
             border-color: var(--primary-teal);
         }
-
         .chat-send {
             background: var(--primary-teal);
             color: var(--text-light);
@@ -564,36 +500,29 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-
         .chat-send:hover {
             background: #158a99;
             transform: scale(1.05);
         }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.2rem;
             }
-
             .hero p {
                 font-size: 1.1rem;
             }
-
             nav a {
                 margin-left: 1rem;
                 font-size: 0.85rem;
             }
-
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-
             .stats {
                 flex-direction: column;
             }
-
             .chat-window {
                 width: 100%;
                 height: 100%;
@@ -601,7 +530,6 @@
                 bottom: 0;
                 right: 0;
             }
-
             .section-title {
                 font-size: 2rem;
             }
@@ -609,10 +537,17 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="nav-container">
-            <div class="logo">DataBloom</div>
+            <div class="logo-container">
+                <img src="/Databloom-ai/logo.png" alt="DataBloom AI Logo Icon" style="height: 40px; margin-right: 12px;">
+                
+                <span style="display: flex; flex-direction: column; line-height: 1.1;">
+                    <span class="logo" style="font-size: 1.2rem;">DATABLOOM</span>
+                    <span class="logo-tagline">AI & TECH</span>
+                </span>
+            </div>
+            
             <nav>
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -622,8 +557,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Transform Your Team with AI Excellence</h1>
@@ -631,18 +564,14 @@
             <button class="cta-button" onclick="openChat()">Get Started Today</button>
         </div>
     </section>
-
-    <!-- About Section -->
     <section class="about" id="about">
         <h2 class="section-title">Why Choose DataBloom?</h2>
         <p class="section-subtitle">Real Experience. Real Results. Real Growth.</p>
-        
-        <div class="about-content">
+                <div class="about-content">
             <div class="about-text">
                 <h3>AI Training Built on Real-World Experience</h3>
                 <p>DataBloom AI & Tech combines teaching excellence with practical industry expertise. We've trained hundreds of college students and corporate teams across Delhi's leading institutions.</p>
-                
-                <ul class="feature-list">
+                                <ul class="feature-list">
                     <li>100% student recommendation rate</li>
                     <li>Proven curriculum across 20, 40, and 60-hour programs</li>
                     <li>Focus on non-technical learners</li>
@@ -650,10 +579,8 @@
                     <li>Certified industry trainers</li>
                     <li>Customized corporate programs</li>
                 </ul>
-
                 <p style="margin-top: 2rem;"><strong>Our Expertise:</strong> Generative AI, Prompt Engineering, Workflow Automation, NLP, Large Language Models, and Business Process Optimization.</p>
             </div>
-
             <div class="about-visual">
                 <h4>Our Track Record</h4>
                 <div class="stats">
@@ -679,25 +606,20 @@
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
     <section class="services" id="services">
         <h2 class="section-title">Our Training Programs</h2>
         <p class="section-subtitle">Customized AI Education for Your Needs</p>
-        
-        <div class="service-grid">
+                <div class="service-grid">
             <div class="service-card">
                 <div class="service-icon">🎓</div>
                 <h3>College Programs</h3>
                 <p>20 to 40-hour intensive workshops designed for students in commerce, arts, and management. Perfect for curriculum enhancement and skill development.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">🏢</div>
                 <h3>Corporate Training</h3>
                 <p>Tailored AI and prompt engineering programs for teams and departments. Boost productivity through hands-on automation and tool mastery.</p>
             </div>
-
             <div class="service-card">
                 <div class="service-icon">💡</div>
                 <h3>Custom Consulting</h3>
@@ -705,97 +627,81 @@
             </div>
         </div>
     </section>
-
-    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="testimonials-container">
             <div class="logo-section">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/26c53065-b146-4ac9-9663-8d78654678cc" alt="DataBloom AI & Tech Logo" class="logo-image">
+                <img src="/Databloom-ai/logo.png" alt="DataBloom AI & Tech Logo" class="logo-image">
             </div>
             <h2 class="section-title">Student Success Stories</h2>
             <p class="section-subtitle">Hear From Our Learners</p>
-
             <div class="testimonial-carousel">
                 <div class="testimonial-track">
-                    <!-- First Set of Cards -->
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"The training was incredibly practical and accessible. I finally understand how to use AI in my daily work. Highly recommend!"</p>
                         <div class="testimonial-author">Priya Sharma</div>
                         <div class="testimonial-role">Commerce Student, Delhi University</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Best AI training I've attended. The instructor broke down complex concepts into easy-to-understand modules. Valuable for non-technical professionals."</p>
                         <div class="testimonial-author">Rajesh Kumar</div>
                         <div class="testimonial-role">Operations Manager</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Exceptional quality of instruction. I gained confidence using generative AI tools and learned real-world applications. Worth every moment!"</p>
                         <div class="testimonial-author">Anjali Patel</div>
                         <div class="testimonial-role">Faculty Member, Institute of Home Economics</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"The hands-on approach made everything clear. I can now confidently use AI for content creation and workflow automation."</p>
                         <div class="testimonial-author">Vikram Singh</div>
                         <div class="testimonial-role">Entrepreneur & Freelancer</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Outstanding trainer with deep knowledge. The curriculum covers everything you need to master modern AI tools. Highly recommended!"</p>
                         <div class="testimonial-author">Neha Desai</div>
                         <div class="testimonial-role">HR Professional</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Finally, AI training that doesn't require a technical background. Clear explanations, practical examples, and amazing support throughout."</p>
                         <div class="testimonial-author">Arjun Bhat</div>
                         <div class="testimonial-role">Business Analyst, Agrasen College</div>
                     </div>
-
-                    <!-- Duplicate Set for Seamless Loop -->
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"The training was incredibly practical and accessible. I finally understand how to use AI in my daily work. Highly recommend!"</p>
                         <div class="testimonial-author">Priya Sharma</div>
                         <div class="testimonial-role">Commerce Student, Delhi University</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Best AI training I've attended. The instructor broke down complex concepts into easy-to-understand modules. Valuable for non-technical professionals."</p>
                         <div class="testimonial-author">Rajesh Kumar</div>
                         <div class="testimonial-role">Operations Manager</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Exceptional quality of instruction. I gained confidence using generative AI tools and learned real-world applications. Worth every moment!"</p>
                         <div class="testimonial-author">Anjali Patel</div>
                         <div class="testimonial-role">Faculty Member, Institute of Home Economics</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"The hands-on approach made everything clear. I can now confidently use AI for content creation and workflow automation."</p>
                         <div class="testimonial-author">Vikram Singh</div>
                         <div class="testimonial-role">Entrepreneur & Freelancer</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Outstanding trainer with deep knowledge. The curriculum covers everything you need to master modern AI tools. Highly recommended!"</p>
                         <div class="testimonial-author">Neha Desai</div>
                         <div class="testimonial-role">HR Professional</div>
                     </div>
-
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p class="testimonial-text">"Finally, AI training that doesn't require a technical background. Clear explanations, practical examples, and amazing support throughout."</p>
@@ -806,87 +712,68 @@
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <h2>Ready to Master AI?</h2>
         <p>Join hundreds of professionals who've transformed their careers with DataBloom. Let's chat about how we can help you or your team.</p>
         <button class="cta-button" onclick="openChat()" style="background: rgba(255, 255, 255, 0.2); border: 2px solid var(--accent-gold); color: var(--text-light);">Start Your AI Journey</button>
     </section>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 DataBloom AI & Tech. Transforming potential into expertise. All rights reserved.</p>
-        <p>Email: saarthi@databloomaiandtech.com </p>
+        <p>Email: vinay@databloomaiandtech.com | Website: databloomaiandtech.com</p>
     </footer>
-
-    <!-- Chat Widget -->
     <div class="chat-widget">
         <button class="chat-button" id="chatToggle" onclick="toggleChat()">💬</button>
-        
-        <div class="chat-window" id="chatWindow">
+                <div class="chat-window" id="chatWindow">
             <div class="chat-header">
                 <h3>DataBloom Assistant</h3>
                 <p>Hello! How can we help you today?</p>
             </div>
-
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
                     <div class="message-bubble">Hi! 👋 I'm the DataBloom AI Assistant. I can help you learn about our training programs, pricing, schedules, and answer any questions. What interests you?</div>
                 </div>
             </div>
-
             <div class="chat-input-area">
                 <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." />
                 <button class="chat-send" onclick="sendMessage()">→</button>
             </div>
         </div>
     </div>
-
     <script>
         // Chat Widget Logic
         function toggleChat() {
             const chatWindow = document.getElementById('chatWindow');
             chatWindow.classList.toggle('active');
         }
-
         function openChat() {
             const chatWindow = document.getElementById('chatWindow');
             chatWindow.classList.add('active');
             document.getElementById('chatInput').focus();
         }
-
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
-
             if (message === '') return;
-
             // Add user message
             addMessage(message, 'user');
             input.value = '';
-
             // Simulate bot response with delay
             setTimeout(() => {
                 const response = getBotResponse(message.toLowerCase());
                 addMessage(response, 'bot');
             }, 500);
         }
-
         function addMessage(text, sender) {
             const messagesDiv = document.getElementById('chatMessages');
             const messageEl = document.createElement('div');
             messageEl.className = `message ${sender}`;
-            
-            const bubble = document.createElement('div');
+                        const bubble = document.createElement('div');
             bubble.className = 'message-bubble';
             bubble.textContent = text;
-            
-            messageEl.appendChild(bubble);
+                        messageEl.appendChild(bubble);
             messagesDiv.appendChild(messageEl);
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
-
         function getBotResponse(userMessage) {
             const responses = {
                 'hello': 'Hello! 👋 How can I help you today? Ask about our programs, training duration, or anything else!',
@@ -900,16 +787,13 @@
                 'testimonial': '100% of our students recommend our training! Students consistently praise the practical approach and clear instruction.',
                 'default': 'Great question! For specific details, please reach out to us at vinay@databloomaiandtech.com or click on our services section. How else can I help?'
             };
-
             for (let key in responses) {
                 if (userMessage.includes(key)) {
                     return responses[key];
                 }
             }
-
             return responses['default'];
         }
-
         // Allow Enter key to send message
         document.getElementById('chatInput')?.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
