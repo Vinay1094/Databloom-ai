@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8" />
- <title>DataBloom AI & Tech - AI Training & Consulting for Colleges & Corporates</title>
- <meta name="description" content="Non-technical AI training for college students and corporate teams. Boost productivity with prompt engineering, automation, and AI workshops across India." />
+ <title>DataBloom AI & Tech | Build an AI-Ready Future</title>
+ <meta name="description" content="We empower Schools, Colleges, Corporates & Professionals with practical AI skills that create real impact. Across India." />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <link rel="icon" type="image/png" href="/Databloom-ai/logo.png" />
  <!-- Google Analytics -->
@@ -16,297 +16,608 @@
  </script>
  <style>
    *{margin:0;padding:0;box-sizing:border-box}
-   :root{--primary-dark:#0f1b2e;--primary-teal:#1e8a96;--accent-gold:#d4af37;--light-bg:#f8f9fa;--text-dark:#1a1a1a;--text-light:#ffffff;--border-subtle:#e8e8e8}
+   :root{
+     --bg-dark:#020b14;
+     --card-navy:#071624;
+     --text-light:#ffffff;
+     --accent-teal:#00a499;
+     --accent-gold:#d4af37;
+     --accent-purple:#5c3db3;
+     --accent-brown:#8a6225;
+     --text-muted:#a0aec0;
+     --light-bg:#f7fafc;
+     --text-dark:#1a202c;
+   }
    html{scroll-behavior:smooth}
-   body{font-family:'Segoe UI',Trebuchet MS,sans-serif;line-height:1.6;color:var(--text-dark);background:var(--light-bg)}
-   header{background:linear-gradient(135deg,var(--primary-dark) 0%,#1a2f4a 100%);color:var(--text-light);padding:1.5rem 0;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-   .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
-   .logo-container{display:flex;align-items:center}
-   .logo{font-size:1.2rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,var(--accent-gold),#e8c547);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-   .logo-tagline{font-size:.75rem;color:var(--text-light);opacity:.8;margin-left:5px}
-   nav{display:flex;align-items:center;gap:2rem}
-   nav a{color:var(--text-light);text-decoration:none;font-size:.95rem;transition:color .3s ease;opacity:.9}
-   nav a:hover{color:var(--accent-gold);opacity:1}
-   .book-call-btn{background:var(--accent-gold);color:var(--primary-dark);padding:.7rem 1.5rem;border-radius:25px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s ease;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(212,175,55,.3)}
-   .book-call-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,.4)}
-   .hero{background:linear-gradient(135deg,#0f1b2e 0%,#1a3a52 50%,#1e8a96 100%);background-attachment:fixed;color:var(--text-light);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
-   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(30,138,150,.1) 0%,transparent 50%);pointer-events:none}
-   .hero-content{max-width:900px;margin:0 auto;position:relative;z-index:1}
-   .hero h1{font-size:3.5rem;font-weight:700;margin-bottom:.8rem;line-height:1.2;letter-spacing:-1px}
-   .hero-subheading{font-size:1.3rem;color:rgba(255,255,255,.85);margin-bottom:2rem;font-weight:500}
-   .hero-outcomes{max-width:700px;margin:0 auto 2.5rem;display:grid;grid-template-columns:1fr;gap:1rem;text-align:left;padding:1.5rem;background:rgba(0,0,0,.15);border-radius:10px}
-   .outcome-item{display:flex;align-items:center;gap:1rem;font-size:1.05rem}
-   .outcome-item::before{content:'✓';color:var(--accent-gold);font-weight:bold;font-size:1.3rem;flex-shrink:0}
-   .hero p{font-size:1.25rem;margin:0 auto 0;opacity:.95;max-width:700px}
-   .cta-button{display:inline-block;background:linear-gradient(135deg,var(--accent-gold),#c19a2c);color:var(--primary-dark);padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:1.05rem;transition:all .3s ease;box-shadow:0 8px 25px rgba(212,175,55,.3);border:none;cursor:pointer;margin-top:1.5rem}
-   .cta-button:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(212,175,55,.4)}
-   .stats-bar{background:var(--primary-dark);padding:3rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center;max-width:1200px;margin:-2rem auto 4rem;position:relative;z-index:10;border-radius:10px;box-shadow:0 8px 25px rgba(0,0,0,.2)}
-   .stat-item{color:var(--text-light)}
-   .stat-number{font-size:2.5rem;font-weight:700;color:var(--accent-gold);margin-bottom:.5rem}
-   .stat-label{color:rgba(255,255,255,.7);font-size:.95rem}
-   .about,.services{max-width:1200px;margin:6rem auto;padding:0 2rem}
-   .section-title{font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:var(--primary-dark);text-align:center}
-   .section-subtitle{text-align:center;color:var(--primary-teal);margin-bottom:3rem;font-size:1.1rem;opacity:.8}
-   .about-content{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-   .about-text h3{font-size:1.8rem;margin-bottom:1.5rem;color:var(--primary-dark)}
-   .about-text p{margin-bottom:1.5rem;color:#555;font-size:1.05rem;line-height:1.8}
-   .feature-list{list-style:none}
-   .feature-list li{padding:.8rem 0 .8rem 2.5rem;position:relative;color:#555}
-   .feature-list li::before{content:'✓';position:absolute;left:0;color:var(--accent-gold);font-weight:700;font-size:1.3rem}
-   .about-visual{background:linear-gradient(135deg,rgba(30,138,150,.1),rgba(212,175,55,.05));border-radius:15px;padding:3rem;border:2px solid rgba(30,138,150,.2);text-align:center}
-   .about-visual h4{font-size:1.3rem;margin-bottom:1rem;color:var(--primary-teal)}
-   .module-card{background:var(--light-bg);padding:2rem;border-radius:10px;border-left:4px solid var(--accent-gold);margin-bottom:2rem}
-   .module-card h4{color:var(--primary-dark);margin-bottom:.8rem;font-size:1.1rem}
-   .module-card p{color:#666;font-size:.95rem}
-   .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;margin-top:3rem}
-   .service-card{background:var(--light-bg);border:2px solid var(--border-subtle);border-radius:12px;padding:2.5rem;transition:all .3s ease;text-align:center}
-   .service-card:hover{border-color:var(--primary-teal);box-shadow:0 10px 30px rgba(30,138,150,.15);transform:translateY(-5px)}
-   .service-icon{font-size:3rem;margin-bottom:1rem}
-   .service-card h3{color:var(--primary-dark);margin-bottom:1rem;font-size:1.3rem}
-   .service-card p{color:#666;line-height:1.7}
-   .testimonials{background:linear-gradient(135deg,var(--primary-dark),#1a3a52);color:var(--text-light);padding:5rem 2rem;margin:4rem 0}
-   .testimonials-container{max-width:1200px;margin:0 auto}
-   .testimonials .section-title{color:var(--text-light);margin-bottom:.5rem}
-   .testimonials .section-subtitle{color:rgba(255,255,255,.7);margin-bottom:3rem}
-   .testimonial-carousel{overflow:hidden;position:relative}
-   .testimonial-track{display:flex;gap:2rem;animation:scroll-left 30s linear infinite}
-   .testimonial-track:hover{animation-play-state:paused}
-   @keyframes scroll-left{0%{transform:translateX(0)} 100%{transform:translateX(-50%)}}
-   .testimonial-card{background:rgba(30,138,150,.1);border:1px solid rgba(212,175,55,.2);border-radius:12px;padding:2rem;backdrop-filter:blur(10px);transition:all .3s ease;flex:0 0 320px;min-width:320px}
-   .testimonial-card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(30,138,150,.2);border-color:var(--accent-gold)}
-   .stars{color:var(--accent-gold);margin-bottom:1rem;font-size:1.1rem}
-   .testimonial-text{font-size:.95rem;margin-bottom:1.5rem;line-height:1.7;opacity:.95}
-   .testimonial-author{font-weight:600;color:var(--accent-gold);font-size:.95rem}
-   .testimonial-role{font-size:.85rem;opacity:.7;margin-top:.3rem}
-   .cta-section{background:linear-gradient(135deg,var(--primary-teal) 0%,#158a99 100%);color:var(--text-light);padding:4rem 2rem;text-align:center;margin:4rem 0}
-   .cta-section h2{font-size:2.2rem;margin-bottom:1.5rem}
-   .cta-section p{font-size:1.1rem;margin:0 auto 2rem;opacity:.95;max-width:600px}
-   .contact-form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:15px;text-align:left}
-   .form-group{display:flex;flex-direction:column}
-   .form-group label{margin-bottom:.5rem;font-weight:600;color:var(--text-light);font-size:.9rem}
-   .contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:1rem 1.25rem;border-radius:8px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.1);color:var(--text-light);font-size:1rem;transition:all .3s ease;outline:none}
-   .contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,.7)}
-   .contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent-gold);background:rgba(0,0,0,.2)}
-   .contact-form select option{background:var(--primary-dark);color:var(--text-light)}
-   .contact-form .cta-button{width:100%;margin-top:1rem;background:var(--accent-gold);color:var(--primary-dark)}
-   .trust-elements{text-align:center;margin:1.5rem 0;font-size:.9rem;color:rgba(255,255,255,.8)}
-   .trust-item{padding:.5rem;display:inline-block;margin:0 1rem}
-   footer{background:var(--primary-dark);color:var(--text-light);padding:2rem;text-align:center;font-size:.9rem;opacity:.8}
-   @media (max-width:768px){.hero h1{font-size:2.2rem}.hero p{font-size:1.1rem}nav{gap:1rem}nav a{font-size:.85rem}.about-content{grid-template-columns:1fr;gap:2rem}.section-title{font-size:2rem}.stats-bar{margin:-1rem auto 3rem}.service-grid{grid-template-columns:1fr}}
+   body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:var(--text-dark);background-color:#ffffff}
+   
+   /* Header styles */
+   header{background-color:var(--bg-dark);padding:1.2rem 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.05)}
+   .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:between;align-items:center}
+   .logo-container{display:flex;align-items:center;gap:10px}
+   .logo-text{font-size:1.4rem;font-weight:700;color:var(--text-light);letter-spacing:1px}
+   .logo-text span{color:var(--accent-teal)}
+   nav{display:flex;align-items:center;gap:2rem;margin-left:auto}
+   nav a{color:var(--text-light);text-decoration:none;font-size:.95rem;opacity:.85;transition:all .3s}
+   nav a:hover{opacity:1;color:var(--accent-teal)}
+   
+   /* Unified Buttons */
+   .btn-gold{background:var(--accent-gold);color:var(--bg-dark);padding:.6rem 1.3rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;border:none;cursor:pointer}
+   .btn-gold:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(212,175,55,.3)}
+   .btn-teal{background:var(--accent-teal);color:var(--text-light);padding:.8rem 1.8rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;transition:all .3s}
+   .btn-teal:hover{background:#00877e;transform:translateY(-2px)}
+   .btn-outline{border:1px solid rgba(255,255,255,0.3);color:var(--text-light);padding:.8rem 1.8rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+   .btn-outline:hover{background:rgba(255,255,255,0.05);border-color:var(--text-light)}
+
+   /* Hero Section */
+   .hero{background:linear-gradient(150deg, var(--bg-dark) 60%, #062033 100%);color:var(--text-light);padding:6rem 2rem;position:relative;overflow:hidden}
+   .hero-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center}
+   .hero-tagline{color:var(--accent-teal);font-weight:600;font-size:1.1rem;margin-bottom:1rem;display:block}
+   .hero h1{font-size:3.8rem;font-weight:800;line-height:1.15;margin-bottom:1.5rem}
+   .hero h1 span{color:var(--accent-teal)}
+   .hero p.hero-desc{font-size:1.2rem;color:var(--text-muted);margin-bottom:2.5rem;max-width:600px}
+   .hero p.hero-desc strong{color:var(--accent-gold)}
+   .hero-actions{display:flex;gap:1.5rem;align-items:center;margin-bottom:3rem}
+   .hero-rating{display:flex;align-items:center;gap:12px}
+   .avatar-group{display:flex;align-items:center}
+   .avatar-group img{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg-dark);margin-right:-10px}
+   .rating-text{font-size:.9rem;color:var(--text-muted)}
+   .rating-text strong{color:var(--text-light)}
+   
+   /* Decorative Tree Visual */
+   .tree-container{position:relative;display:flex;justify-content:center;align-items:center}
+   .tree-graphic{width:100%;max-width:400px;height:auto}
+
+   /* Quick Stats Bar */
+   .stats-wrapper{background:#ffffff;padding:0 2rem;margin-top:-3rem;position:relative;z-index:10}
+   .stats-grid{max-width:1200px;margin:0 auto;background:#ffffff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.08);padding:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;border:1px solid #edf2f7}
+   .stat-card{display:flex;align-items:center;gap:15px;padding-left:1rem}
+   .stat-card:not(:last-child){border-right:1px solid #edf2f7}
+   .stat-icon{font-size:2rem;color:var(--accent-teal)}
+   .stat-info h3{font-size:1.8rem;font-weight:700;color:var(--text-dark);line-height:1.2}
+   .stat-info p{font-size:.9rem;color:#718096;font-weight:500}
+
+   /* Question Block Section */
+   .problem-section{max-width:1200px;margin:7rem auto;padding:0 2rem;display:grid;grid-template-columns:1.3fr 0.7fr;gap:4rem}
+   .problem-header h2{font-size:2.5rem;font-weight:800;color:var(--bg-dark);line-height:1.2;margin-bottom:2.5rem}
+   .problem-header h2 span{color:var(--accent-teal)}
+   .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+   .problem-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:1.5rem;transition:all .3s}
+   .problem-card:hover{box-shadow:0 8px 20px rgba(0,0,0,0.05);transform:translateY(-2px)}
+   .prob-icon{font-size:1.5rem;margin-bottom:1rem;display:block}
+   .problem-card h4{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;color:var(--bg-dark)}
+   .problem-card p{font-size:.9rem;color:#4a5568}
+   .side-help-card{background:#041729;color:var(--text-light);padding:2.5rem;border-radius:12px;position:relative;border-left:4px solid var(--accent-teal)}
+   .side-help-card h3{font-size:1.5rem;margin-bottom:1rem}
+   .side-help-card h3 span{color:var(--accent-teal)}
+   .side-help-card p{font-size:.95rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.7}
+
+   /* Programs / Course Catalog Section */
+   .programs-section{background-color:var(--light-bg);padding:6rem 2rem}
+   .section-intro{text-align:center;margin-bottom:4rem}
+   .section-intro span{color:var(--accent-teal);text-transform:uppercase;font-size:.85rem;letter-spacing:1.5px;font-weight:700;display:block;margin-bottom:.5rem}
+   .section-intro h2{font-size:2.6rem;font-weight:800;color:var(--bg-dark)}
+   .courses-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;align-items:stretch}
+   
+   .course-card{border-radius:10px;padding:2rem;color:var(--text-light);display:flex;flex-direction:column;justify-content:space-between;position:relative;transition:all .3s}
+   .course-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.15)}
+   .course-badge{position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.15);padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:600}
+   .course-card h3{font-size:1.5rem;font-weight:700;margin:1rem 0 .5rem}
+   .course-card p.desc{font-size:.9rem;opacity:.85;margin-bottom:2rem;line-height:1.5}
+   .course-features{list-style:none;margin-bottom:2.5rem}
+   .course-features li{font-size:.9rem;margin-bottom:.8rem;display:flex;align-items:center;gap:10px;opacity:.9}
+   .course-price{font-size:1.6rem;font-weight:700;margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between}
+   
+   .card-teal{background-color:#012429}
+   .card-blue{background-color:#033047}
+   .card-purple{background-color:#21124a}
+   .card-brown{background-color:#3d2b11}
+   
+   .btn-enroll{width:100%;text-align:center;padding:.7rem;border-radius:6px;font-weight:600;font-size:.9rem;text-decoration:none;display:inline-block;transition:all.2s;border:none;cursor:pointer}
+   .btn-enroll-teal{background:var(--accent-teal);color:var(--text-light)}
+   .btn-enroll-teal:hover{background:#00bebe}
+   .btn-enroll-blue{background:#0072b3;color:var(--text-light)}
+   .btn-enroll-blue:hover{background:#008be0}
+   .btn-enroll-purple{background:var(--accent-purple);color:var(--text-light)}
+   .btn-enroll-purple:hover{opacity:.9}
+   .btn-enroll-brown{background:var(--accent-gold);color:var(--bg-dark)}
+   .btn-enroll-brown:hover{opacity:.9}
+
+   /* 5-Step Learning Journey */
+   .journey-section{max-width:1200px;margin:7rem auto;padding:0 2rem}
+   .journey-timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:4rem;position:relative}
+   .journey-timeline::before{content:'';position:absolute;top:2.2rem;left:10%;right:10%;height:2px;border-top:2px dashed #e2e8f0;z-index:1}
+   .journey-node{text-align:center;position:relative;z-index:2}
+   .journey-icon-wrap{width:4.5rem;height:4.5rem;border-radius:50%;background:#ffffff;border:2px solid var(--accent-teal);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.5rem;color:var(--accent-teal);box-shadow:0 4px 10px rgba(0,0,0,0.05)}
+   .journey-node h4{font-size:1.1rem;font-weight:700;color:var(--bg-dark);margin-bottom:.5rem}
+   .journey-node p{font-size:.85rem;color:#718096;padding:0 0.5rem;line-height:1.5}
+
+   /* Testimonials Grid Layout */
+   .review-section{border-top:1px solid #edf2f7;padding:6rem 2rem;background:#ffffff}
+   .review-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+   .review-card{background:#ffffff;border:1px solid #edf2f7;border-radius:12px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.02)}
+   .rev-stars{color:var(--accent-gold);margin-bottom:1rem;font-size:1rem}
+   .rev-text{font-size:.95rem;color:#4a5568;font-style:italic;margin-bottom:1.5rem;line-height:1.6}
+   .rev-user{display:flex;align-items:center;gap:12px}
+   .rev-user img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+   .rev-details h5{font-size:.95rem;font-weight:700;color:var(--bg-dark)}
+   .rev-details p{font-size:.8rem;color:#718096}
+   .score-box{background:var(--light-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:12px;border:1px dashed #cbd5e0}
+   .score-box h3{font-size:2.5rem;color:var(--bg-dark);font-weight:800}
+   .score-box p{font-size:.85rem;color:#4a5568}
+
+   /* Footer Consultation Call Block */
+   .footer-cta{background-color:#011424;color:var(--text-light);padding:5rem 2rem}
+   .footer-cta-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center}
+   .footer-cta-info h2{font-size:2.5rem;font-weight:800;margin-bottom:1.5rem;line-height:1.2}
+   .footer-cta-info p{color:var(--text-muted);font-size:1.1rem;margin-bottom:2rem}
+   
+   /* Contact / Booking Form Container */
+   .consultation-form-box{background:#ffffff;padding:2.5rem;border-radius:12px;box-shadow:0 15px 35px rgba(0,0,0,0.2)}
+   .consultation-form-box h4{color:var(--bg-dark);font-size:1.3rem;margin-bottom:1.5rem;font-weight:700}
+   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+   .form-control{width:100%;padding:.85rem 1rem;border:1px solid #cbd5e0;border-radius:6px;font-size:.95rem;outline:none;background:#f8fafc}
+   .form-control:focus{border-color:var(--accent-teal);background:#ffffff}
+   .btn-submit-form{width:100%;background:var(--accent-teal);color:var(--text-light);padding:1rem;border-radius:6px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all .3s;margin-top:0.5rem}
+   .btn-submit-form:hover{background:#00877e}
+
+   /* Bottom Corporate Directory Links */
+   footer{background-color:var(--bg-dark);color:var(--text-muted);padding:4rem 2rem 2rem;font-size:.9rem;border-top:1px solid rgba(255,255,255,0.05)}
+   .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+   .footer-brand p{margin-top:1rem;line-height:1.6}
+   .footer-col h5{color:var(--text-light);font-weight:600;margin-bottom:1.2rem;font-size:1rem}
+   .footer-col ul{list-style:none}
+   .footer-col ul li{margin-bottom:.7rem}
+   .footer-col ul li a{color:var(--text-muted);text-decoration:none;transition:color .2s}
+   .footer-col ul li a:hover{color:var(--text-light)}
+   .footer-newsletter input{width:100%;padding:.7rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:white;margin-bottom:.5rem;outline:none}
+   .footer-bottom{max-width:1200px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+   .footer-bottom a{color:var(--text-muted);text-decoration:none;margin-left:1.5rem}
+   
+   /* Modal Framework implementation */
+   .payment-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(2,11,20,0.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:1000;visibility:hidden;opacity:0;transition:all .3s ease-in-out}
+   .payment-modal.active{visibility:visible;opacity:1}
+   .modal-body{background:#ffffff;width:90%;max-width:550px;border-radius:12px;padding:2.5rem;position:relative;box-shadow:0 20px 40px rgba(0,0,0,0.3);text-align:center}
+   .close-modal{position:absolute;top:1rem;right:1.2rem;font-size:1.8rem;background:none;border:none;color:#a0aec0;cursor:pointer;transition:color .2s}
+   .close-modal:hover{color:var(--text-dark)}
+   .modal-body h3{font-size:1.6rem;color:var(--bg-dark);margin-bottom:.8rem;font-weight:800}
+   .modal-body p{font-size:.95rem;color:#4a5568;margin-bottom:2rem}
+   .modal-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+   .modal-btn{padding:1.2rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.05rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:all .3s}
+   .m-btn-form{background:#f0fcfb;border:2px solid var(--accent-teal);color:var(--accent-teal)}
+   .m-btn-form:hover{background:var(--accent-teal);color:white}
+   .m-btn-pay{background:linear-gradient(135deg, #10b981, #059669);color:white;border:none}
+   .m-btn-pay:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(16,185,129,0.3)}
+
+   /* Responsive styles */
+   @media (max-width:1024px){
+     .courses-grid{grid-template-columns:repeat(2,1fr)}
+     .review-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+     .journey-timeline{grid-template-columns:1fr;gap:2.5rem}
+     .journey-timeline::before{display:none}
+     .stats-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+     .stat-card:not(:last-child){border-right:none}
+   }
+   @media (max-width:768px){
+     .hero h1{font-size:2.5rem}
+     .hero-grid,.problem-section,.footer-cta-container{grid-template-columns:1fr;gap:3rem}
+     .problem-grid{grid-template-columns:1fr}
+     .courses-grid{grid-template-columns:1fr}
+     .review-grid{grid-template-columns:1fr}
+     .form-row{grid-template-columns:1fr}
+     nav{display:none}
+   }
  </style>
 </head>
 <body>
+
  <header>
   <div class="nav-container">
    <div class="logo-container">
-    <img src="/Databloom-ai/logo.png" alt="DataBloom AI Logo" style="height:40px;margin-right:12px" />
-    <span style="display:flex;flex-direction:column;line-height:1.1">
-     <span class="logo">DATABLOOM</span>
-     <span class="logo-tagline">AI & TECH</span>
-    </span>
+    <div class="logo-text">DATABLOOM <span>AI & TECH</span></div>
    </div>
    <nav>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="book-call-btn">Book a Call</a>
+    <a href="#programs">Programs</a>
+    <a href="#whowehelp">Who We Help</a>
+    <a href="#success">Success Stories</a>
+    <a href="#about">About Us</a>
+    <a href="#contact" class="btn-gold">Book Free Consultation</a>
    </nav>
   </div>
  </header>
  
  <section class="hero" id="home">
-  <div class="hero-content">
-   <h1>Master AI for Business & Career Growth</h1>
-   <p class="hero-subheading">For colleges, corporate L&D teams, and non-technical professionals</p>
-   <div class="hero-outcomes">
-    <div class="outcome-item">Increase team productivity by 30% using AI workflows</div>
-    <div class="outcome-item">Turn non-technical staff into confident AI users in 4 weeks</div>
-    <div class="outcome-item">Deploy custom AI solutions aligned with your business goals</div>
+  <div class="hero-grid">
+   <div class="hero-content">
+    <span class="hero-tagline"> From Data Seeds to AI Expertise.</span>
+    <h1>Build an AI-Ready <span>Future.</span></h1>
+    <p class="hero-desc">We empower Schools, Colleges, Corporates & Professionals with practical AI skills that create <strong>real impact</strong>.</p>
+    
+    <div class="hero-actions">
+     <a href="#contact" class="btn-teal">Book Free Consultation ➔</a>
+     <a href="#programs" class="btn-outline">Explore Programs ➔</a>
+    </div>
+    
+    <div class="hero-rating">
+     <div class="avatar-group">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Learner"/>
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Learner"/>
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Learner"/>
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="Learner"/>
+     </div>
+     <div class="rating-text">⭐⭐⭐⭐⭐ <br><strong>4.9/5</strong> from 1,000+ learners</div>
+    </div>
    </div>
-   <p>We provide hands-on, non-technical AI training for professionals and students, focused on practical skills that create immediate impact.</p>
-   <a href="#contact" class="cta-button">Book 20-Minute Strategy Call</a>
+   
+   <div class="tree-container">
+     <!-- Centralized graphic element matching original visual hierarchy -->
+     <svg class="tree-graphic" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <circle cx="200" cy="200" r="140" stroke="#00a499" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+       <circle cx="200" cy="200" r="180" stroke="#00a499" stroke-width="1" opacity="0.15"/>
+       <path d="M200 320 V140 M200 260 L160 220 M200 220 L240 180 M200 180 L170 150" stroke="#00a499" stroke-width="3" stroke-linecap="round"/>
+       <circle cx="200" cy="120" r="12" fill="#00a499"/>
+       <circle cx="160" cy="220" r="8" fill="#d4af37"/>
+       <circle cx="240" cy="180" r="8" fill="#00a499"/>
+       <text x="200" y="80" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle" letter-spacing="1">PRACTICAL SKILLS</text>
+       <text x="90" y="170" fill="#a0aec0" font-size="10" text-anchor="middle">REAL PROJECTS</text>
+       <text x="310" y="170" fill="#a0aec0" font-size="10" text-anchor="middle">CAREER GROWTH</text>
+       <text x="90" y="250" fill="#a0aec0" font-size="10" text-anchor="middle">AI CONFIDENCE</text>
+       <text x="310" y="250" fill="#a0aec0" font-size="10" text-anchor="middle">FUTURE READY</text>
+     </svg>
+   </div>
   </div>
  </section>
- 
- <div class="stats-bar">
-  <div class="stat-item">
-   <div class="stat-number">500+</div>
-   <div class="stat-label">Students Trained</div>
-  </div>
-  <div class="stat-item">
-   <div class="stat-number">100%</div>
-   <div class="stat-label">Recommendation Rate</div>
-  </div>
-  <div class="stat-item">
-   <div class="stat-number">8+</div>
-   <div class="stat-label">Years Expertise</div>
-  </div>
-  <div class="stat-item">
-   <div class="stat-number">5</div>
-   <div class="stat-label">Elite Universities</div>
+
+ <div class="stats-wrapper">
+  <div class="stats-grid">
+   <div class="stat-card">
+    <div class="stat-icon">👥</div>
+    <div class="stat-info">
+     <h3>1,000+</h3>
+     <p>Learners Trained</p>
+    </div>
+   </div>
+   <div class="stat-card">
+    <div class="stat-icon">🏢</div>
+    <div class="stat-info">
+     <h3>10+</h3>
+     <p>Colleges & Universities</p>
+    </div>
+   </div>
+   <div class="stat-card">
+    <div class="stat-icon">🛠️</div>
+    <div class="stat-info">
+     <h3>25+</h3>
+     <p>Corporate Workshops</p>
+    </div>
+   </div>
+   <div class="stat-card">
+    <div class="stat-icon">☁️</div>
+    <div class="stat-info">
+     <h3>Google Cloud</h3>
+     <p>AI Certified Professional</p>
+    </div>
+   </div>
   </div>
  </div>
- 
- <section class="about" id="about">
-  <h2 class="section-title">Why Choose DataBloom?</h2>
-  <p class="section-subtitle">Real Experience. Real Results. Real Growth.</p>
-  <div class="about-content">
-   <div class="about-text">
-    <h3>AI Training Built on Real-World Experience</h3>
-    <p>DataBloom AI & Tech combines teaching excellence with practical industry expertise. We have trained hundreds of college students and corporate teams across leading institutions in Delhi.</p>
-    <ul class="feature-list">
-     <li>100% student recommendation rate</li>
-     <li>Proven curriculum across 20, 40, and 60-hour programs</li>
-     <li>Focus on non-technical learners</li>
-     <li>Hands-on, project-based learning</li>
-     <li>Certified industry trainers</li>
-     <li>Customized corporate programs</li>
+
+ <section class="problem-section" id="whowehelp">
+  <div class="problem-left">
+   <h2>AI is Changing Everything. <br>The Question is – <span>Are You Ready?</span></h2>
+   
+   <div class="problem-grid">
+    <div class="problem-card">
+     <span class="prob-icon">🎓</span>
+     <h4>Students</h4>
+     <p>Worried about getting the right jobs tomorrow?</p>
+    </div>
+    <div class="problem-card">
+     <span class="prob-icon">🏛️</span>
+     <h4>Colleges</h4>
+     <p>Struggling to improve placements and relevance?</p>
+    </div>
+    <div class="problem-card">
+     <span class="prob-icon">💼</span>
+     <h4>Companies</h4>
+     <p>Finding it hard to upskill teams with AI expertise?</p>
+    </div>
+    <div class="problem-card">
+     <span class="prob-icon">🧑‍💼</span>
+     <h4>Professionals</h4>
+     <p>Afraid of becoming irrelevant in the AI era?</p>
+    </div>
+   </div>
+  </div>
+  
+  <div class="side-help-card">
+   <h3>You're not alone. <br><span>We're here to help.</span></h3>
+   <p>Databloom bridges the gap between potential and practical AI skills that create real-world impact.</p>
+   <a href="#contact" class="btn-teal" style="width: 100%; justify-content: center;">Book Free Consultation ➔</a>
+  </div>
+ </section>
+
+ <section class="programs-section" id="programs">
+  <div class="section-intro">
+   <span>Our Programs</span>
+   <h2>Practical AI Training for Every Goal</h2>
+  </div>
+  
+  <div class="courses-grid">
+   <!-- Plan 1 -->
+   <div class="course-card card-teal">
+    <span class="course-badge">20 HOURS</span>
+    <div>
+     <h3>AI Job Ready</h3>
+     <p class="desc">Perfect for students & professionals who want job-ready AI skills.</p>
+     <ul class="course-features">
+      <li>💼 Hands-on Projects</li>
+      <li>📊 Industry Use Cases</li>
+      <li>📜 Certificate of Completion</li>
+     </ul>
+    </div>
+    <div>
+     <div class="course-price">
+      <span>₹2,499</span>
+      <button onclick="openModal('AI Job Ready Registration', 'https://forms.google.com/your-form-id-1', 'https://rzp.io/l/your-link-1')" class="btn-enroll btn-enroll-teal">Enroll Now ➔</button>
+     </div>
+    </div>
+   </div>
+
+   <!-- Plan 2 -->
+   <div class="course-card card-blue">
+    <span class="course-badge">33 HOURS</span>
+    <div>
+     <h3>AI Mastery</h3>
+     <p class="desc">From basics to intermediate – build, implement & scale AI solutions.</p>
+     <ul class="course-features">
+      <li>⚙️ End-to-End Projects</li>
+      <li>🗂️ Portfolio Building</li>
+      <li>📜 Certificate of Completion</li>
+     </ul>
+    </div>
+    <div>
+     <div class="course-price">
+      <span>₹6,999</span>
+      <button onclick="openModal('AI Mastery Registration', 'https://forms.google.com/your-form-id-2', 'https://rzp.io/l/your-link-2')" class="btn-enroll btn-enroll-blue">Enroll Now ➔</button>
+     </div>
+    </div>
+   </div>
+
+   <!-- Plan 3 -->
+   <div class="course-card card-purple">
+    <span class="course-badge">Custom</span>
+    <div>
+     <h3>Corporate Training</h3>
+     <p class="desc">Custom AI training programs designed for your teams and business goals.</p>
+     <ul class="course-features">
+      <li>🛠️ Custom Curriculum</li>
+      <li>🌐 On-site / Online</li>
+      <li>📈 Measurable Impact</li>
+     </ul>
+    </div>
+    <div>
+     <div class="course-price" style="border:none;">
+      <a href="#contact" class="btn-enroll btn-enroll-purple">Book Consultation ➔</a>
+     </div>
+    </div>
+   </div>
+
+   <!-- Plan 4 -->
+   <div class="course-card card-brown">
+    <span class="course-badge">Custom</span>
+    <div>
+     <h3>Schools & Colleges</h3>
+     <p class="desc">Future-ready AI programs for institutions & educators.</p>
+     <ul class="course-features">
+      <li>👨‍🎓 Student Workshops</li>
+      <li>👩‍🏫 Faculty Training</li>
+      <li>📚 Curriculum Support</li>
+     </ul>
+    </div>
+    <div>
+     <div class="course-price" style="border:none;">
+      <a href="#contact" class="btn-enroll btn-enroll-brown">Book Consultation ➔</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="journey-section">
+  <div class="section-intro">
+   <span>How We Work</span>
+   <h2>Our Proven 5-Step Learning Journey</h2>
+  </div>
+  
+  <div class="journey-timeline">
+   <div class="journey-node">
+    <div class="journey-icon-wrap">📖</div>
+    <h4>1. Discover</h4>
+    <p>Understand AI concepts in simple real-world context.</p>
+   </div>
+   <div class="journey-node">
+    <div class="journey-icon-wrap">💻</div>
+    <h4>2. Learn</h4>
+    <p>Interactive sessions with practical examples.</p>
+   </div>
+   <div class="journey-node">
+    <div class="journey-icon-wrap">⚙️</div>
+    <h4>3. Practice</h4>
+    <p>Hands-on exercises and guided implementations.</p>
+   </div>
+   <div class="journey-node">
+    <div class="journey-icon-wrap">🏗️</div>
+    <h4>4. Build</h4>
+    <p>Real-world projects to build confidence and portfolio.</p>
+   </div>
+   <div class="journey-node">
+    <div class="journey-icon-wrap">🚀</div>
+    <h4>5. Lead</h4>
+    <p>Apply skills, solve problems, create impact.</p>
+   </div>
+  </div>
+ </section>
+
+ <section class="review-section" id="success">
+  <div class="section-intro">
+   <span>Trusted by Learners & Organizations</span>
+  </div>
+  
+  <div class="review-grid">
+   <div class="review-card">
+    <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+    <p class="rev-text">"The best AI workshop I've ever attended. Everything was practical and career-focused."</p>
+    <div class="rev-user">
+     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Priya"/>
+     <div class="rev-details">
+      <h5>Priya S.</h5>
+      <p>B.Tech Student</p>
+     </div>
+    </div>
+   </div>
+
+   <div class="review-card">
+    <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+    <p class="rev-text">"Our team is now more productive after the AI training by Databloom."</p>
+    <div class="rev-user">
+     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Rahul"/>
+     <div class="rev-details">
+      <h5>Rahul Mehta</h5>
+      <p>Operations Manager</p>
+     </div>
+    </div>
+   </div>
+
+   <div class="review-card">
+    <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+    <p class="rev-text">"Databloom programs are a game changer for our students."</p>
+    <div class="rev-user">
+     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Neha"/>
+     <div class="rev-details">
+      <h5>Dr. Neha Sharma</h5>
+      <p>Dean, Delhi University College</p>
+     </div>
+    </div>
+   </div>
+
+   <div class="score-box">
+    <h3>4.9/5</h3>
+    <p>⭐⭐⭐⭐⭐</p>
+    <p style="margin-top:.5rem; font-weight:600;">Based on 1,000+<br>learner feedbacks</p>
+   </div>
+  </div>
+ </section>
+
+ <section class="footer-cta" id="contact">
+  <div class="footer-cta-container">
+   <div class="footer-cta-info">
+    <h2>Ready to Transform Your Future with AI?</h2>
+    <p>Book a free consultation call and let's discuss how we can help you grow.</p>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a499" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <span>Response within 24 hours</span>
+    </div>
+   </div>
+   
+   <div class="consultation-form-box">
+    <h4>Book Your Free AI Consultation</h4>
+    <form action="https://formspree.io/f/movgrgzb" method="POST">
+     <div class="form-row">
+      <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+      <input type="email" name="email" class="form-control" placeholder="Email Address" required />
+     </div>
+     <div class="form-row" style="grid-template-columns:1fr;">
+      <input type="text" name="organization" class="form-control" placeholder="Organization / College / Role" required />
+     </div>
+     <div class="form-row" style="grid-template-columns:1fr;">
+      <textarea name="message" class="form-control" rows="3" placeholder="Your Message"></textarea>
+     </div>
+     <button type="submit" class="btn-submit-form">Book My Free Call ➔</button>
+    </form>
+   </div>
+  </div>
+ </section>
+
+ <footer>
+  <div class="footer-grid">
+   <div class="footer-brand">
+    <div class="logo-text" style="font-size:1.2rem">DATABLOOM <span>AI & TECH</span></div>
+    <p>From Data Seeds to AI Expertise.<br>Empowering people & organizations to grow with AI.</p>
+   </div>
+   <div class="footer-col">
+    <h5>Quick Links</h5>
+    <ul>
+     <li><a href="#home">Home</a></li>
+     <li><a href="#programs">Programs</a></li>
+     <li><a href="#whowehelp">Who We Help</a></li>
+     <li><a href="#success">Success Stories</a></li>
     </ul>
    </div>
-   <div class="about-visual">
-    <h4>Our Track Record</h4>
-    <p style="margin-top:1.5rem;color:rgba(255,255,255,.8);font-size:1rem"><strong>Expertise:</strong> Generative AI, Prompt Engineering, Workflow Automation, NLP, Large Language Models, and Business Process Optimization.</p>
+   <div class="footer-col">
+    <h5>Programs</h5>
+    <ul>
+     <li><a href="#programs">AI Job Ready</a></li>
+     <li><a href="#programs">AI Mastery</a></li>
+     <li><a href="#programs">Corporate Training</a></li>
+     <li><a href="#programs">Schools & Colleges</a></li>
+    </ul>
+   </div>
+   <div class="footer-col footer-newsletter">
+    <h5>Connect</h5>
+    <p style="font-size:.85rem; margin-bottom:1rem;">📧 hello@databloomaiandtech.com <br>📞 +91 98765 43210</p>
+    <input type="email" placeholder="Enter your email" />
+    <button class="btn-gold" style="width:100%; padding:.5rem;">Subscribe</button>
    </div>
   </div>
- </section>
- 
- <section class="services" id="services">
-  <h2 class="section-title">Our Training Programs</h2>
-  <p class="section-subtitle">Customized AI Education for Your Needs</p>
-  
-  <div style="margin:4rem 0">
-   <h3 style="color:var(--primary-dark);margin-bottom:2rem;text-align:center;font-size:1.8rem">Sample Training Modules</h3>
-   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-bottom:4rem">
-    <div class="module-card">
-     <h4>Prompt Engineering for Business Tasks</h4>
-     <p>Master ChatGPT, Claude, and other LLMs to automate content creation, email writing, and business analysis.</p>
-    </div>
-    <div class="module-card">
-     <h4>AI for HR & Recruitment</h4>
-     <p>Use AI to streamline candidate screening, interview prep, and employee training at scale.</p>
-    </div>
-    <div class="module-card">
-     <h4>AI for Content & Marketing</h4>
-     <p>Generate high-quality marketing copy, social media content, and campaign ideas using AI tools.</p>
-    </div>
-    <div class="module-card">
-     <h4>Building Simple AI Workflows (No Code)</h4>
-     <p>Create automation using N8N, Zapier, and Make to connect AI tools with your business systems.</p>
-    </div>
+  <div class="footer-bottom">
+   <p>© 2026 Databloom AI & Tech. All rights reserved.</p>
+   <div>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
    </div>
   </div>
-  
-  <div class="service-grid">
-   <div class="service-card">
-    <div class="service-icon">🎓</div>
-    <h3>College Programs</h3>
-    <p><strong>Duration:</strong> 20 to 40-hour intensive workshops</p>
-    <p><strong>Format:</strong> Onsite or hybrid</p>
-    <p style="margin-top:1rem">Designed for students in commerce, arts, and management, ideal for curriculum enhancement and skill development.</p>
-   </div>
-   <div class="service-card">
-    <div class="service-icon">🏢</div>
-    <h3>Corporate Training</h3>
-    <p><strong>Duration:</strong> 2-5 day programs or ongoing modules</p>
-    <p><strong>Format:</strong> Customized onsite or online</p>
-    <p style="margin-top:1rem">Tailored AI and prompt engineering programs for teams to boost productivity through hands-on automation and tool mastery.</p>
-   </div>
-   <div class="service-card">
-    <div class="service-icon">💡</div>
-    <h3>Custom Consulting</h3>
-    <p><strong>Format:</strong> 1-on-1 advisory sessions</p>
-    <p><strong>Includes:</strong> Workflow design & implementation support</p>
-    <p style="margin-top:1rem">Bespoke AI solutions aligned with your specific business challenges and goals.</p>
-   </div>
-  </div>
- </section>
- 
- <section class="testimonials" id="testimonials">
-  <div class="testimonials-container">
-   <h2 class="section-title">Student Success Stories</h2>
-   <p class="section-subtitle">Hear From Our Learners</p>
-   <div class="testimonial-carousel">
-    <div class="testimonial-track">
-     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">The training was practical and accessible. Using AI in daily work finally feels simple and effective.</p>
-      <div class="testimonial-author">Priya Sharma</div>
-      <div class="testimonial-role">Commerce Student, Delhi University</div>
-     </div>
-     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Complex concepts were broken into clear modules, making the program valuable even for non-technical professionals.</p>
-      <div class="testimonial-author">Rajesh Kumar</div>
-      <div class="testimonial-role">Operations Manager</div>
-     </div>
-     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">High-quality instruction and real examples helped me confidently use generative AI tools in my teaching.</p>
-      <div class="testimonial-author">Anjali Patel</div>
-      <div class="testimonial-role">Faculty, Institute of Home Economics</div>
-     </div>
-     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">The hands-on approach made AI tools easy to adopt for content creation and workflow automation.</p>
-      <div class="testimonial-author">Vikram Singh</div>
-      <div class="testimonial-role">Entrepreneur & Freelancer</div>
-     </div>
-     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Everything needed to work confidently with modern AI tools in an HR environment was covered.</p>
-      <div class="testimonial-author">Neha Desai</div>
-      <div class="testimonial-role">HR Professional</div>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
- 
- <section class="cta-section" id="contact">
-  <h2>Ready to Transform Your Team?</h2>
-  <p>Contact us for a free program consultation and a tailored AI upskilling plan for your college or organization.</p>
-  
-  <form action="https://formspree.io/f/movgrgzb" method="POST" class="contact-form">
-   <div class="form-group">
-    <label for="name">Full Name *</label>
-    <input type="text" id="name" name="name" placeholder="Your Name" required />
-   </div>
-   <div class="form-group">
-    <label for="email">Work Email *</label>
-    <input type="email" id="email" name="email" placeholder="Your Work Email" required />
-   </div>
-   <div class="form-group">
-    <label for="organization">Organization *</label>
-    <input type="text" id="organization" name="organization" placeholder="College or Company Name" required />
-   </div>
-   <div class="form-group">
-    <label for="interest">I am interested in... *</label>
-    <select id="interest" name="interest" required>
-     <option value=""></option>
-     <option value="corporate">Corporate Training</option>
-     <option value="college">College Programs</option>
-     <option value="consulting">Custom Consulting</option>
-    </select>
-   </div>
-   <div class="form-group">
-    <label for="message">Tell us about your goals</label>
-    <textarea id="message" name="message" rows="4" placeholder="Briefly describe your team's learning goals..."></textarea>
-   </div>
-   
-   <div class="trust-elements">
-    <div class="trust-item">✓ Response within 24 hours</div>
-    <div class="trust-item">✓ Suitable for teams 10-500+</div>
-    <div class="trust-item">✓ No sales spam</div>
-   </div>
-   
-   <button type="submit" class="cta-button">Get Free Consultation</button>
-  </form>
- </section>
- 
- <footer>
-  <p>© 2025 DataBloom AI & Tech. Transforming potential into expertise. All rights reserved.</p>
-  <p style="margin-top:1rem;opacity:.6">Email: vinay@databloomaiandtech.com | LinkedIn: <a href="https://www.linkedin.com/company/108932112" style="color:var(--accent-gold);text-decoration:none">DataBloom AI & Tech</a></p>
  </footer>
+
+ <!-- Modular Payment Redirection Workspace -->
+ <div id="paymentModal" class="payment-modal">
+   <div class="modal-body">
+     <button onclick="closeModal()" class="close-modal">×</button>
+     <h3 id="modalTitle">Complete Enrollment</h3>
+     <p>To finalize registration, please submit the intake preferences questionnaire and complete your secure payment step via your preferred option.</p>
+     
+     <div class="modal-action-grid">
+       <a id="modalFormLink" href="#" target="_blank" class="modal-btn m-btn-form">
+         <span>📋 Step 1</span>
+         <strong>Fill Google Form</strong>
+       </a>
+       <a id="modalPayLink" href="#" target="_blank" class="modal-btn m-btn-pay">
+         <span>💳 Step 2</span>
+         <strong>Pay Securely</strong>
+       </a>
+     </div>
+   </div>
+ </div>
+
+ <script>
+   function openModal(courseTitle, googleFormUrl, paymentUrl) {
+     document.getElementById('modalTitle').innerText = courseTitle;
+     document.getElementById('modalFormLink').href = googleFormUrl;
+     document.getElementById('modalPayLink').href = paymentUrl;
+     document.getElementById('paymentModal').classList.add('active');
+   }
+
+   function closeModal() {
+     document.getElementById('paymentModal').classList.remove('active');
+   }
+
+   // Close modal if user clicks anywhere outside of the modal body container
+   window.onclick = function(event) {
+     const modal = document.getElementById('paymentModal');
+     if (event.target === modal) {
+       closeModal();
+     }
+   }
+ </script>
 </body>
 </html>
