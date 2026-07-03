@@ -3,1067 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATABLOOM AI & TECH | Become AI-Ready with Practical Training</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Playfair Display for headers -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Databloom AI & Tech | Professional AI Training</title>
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
                     colors: {
                         brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                            950: '#022c22', // Deep Emerald Midnight
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
                         },
-                        indigoBrand: {
-                            900: '#0b1329',
-                            950: '#030712'
+                        slate: {
+                            850: '#151e2e',
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 20px rgba(20, 184, 166, 0.15)',
                     }
                 }
             }
         }
     </script>
+
     <style>
-        /* Smooth glowing glassmorphism effects */
-        .glass {
-            background: rgba(11, 19, 41, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .glow-green {
-            box-shadow: 0 0 30px rgba(22, 163, 74, 0.2);
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #0f766e, #2563eb);
         }
-        .glow-gold {
-            box-shadow: 0 0 30px rgba(234, 179, 8, 0.15);
+
+        /* 3D Canvas container styling */
+        #canvas-wrapper {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            isolation: isolate;
+        }
+        
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+        
+        #canvas-container:active {
+            cursor: grabbing;
+        }
+        
+        /* Subtle grid pattern overlay for the 3D box */
+        .canvas-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(#f1f5f9 1px, transparent 1px), linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .program-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.05);
+            border-color: #14b8a6;
         }
     </style>
 </head>
-<body class="bg-indigoBrand-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white">
+<body class="flex flex-col min-h-screen">
 
-    <!-- NAVIGATION BAR -->
-    <header class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300" id="main-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="bg-gradient-to-tr from-brand-600 to-emerald-400 p-2.5 rounded-xl shadow-lg shadow-brand-900/30 group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-seedling text-white text-xl"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-emerald-400">DATABLOOM</span>
-                    <span class="block text-[10px] font-semibold text-emerald-400 uppercase tracking-[0.25em]">AI &amp; TECH</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav Items -->
-            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-emerald-400 transition-colors">Our Story</a>
-                <a href="#programs" class="hover:text-emerald-400 transition-colors">Bootcamps &amp; Courses</a>
-                <a href="#audiences" class="hover:text-emerald-400 transition-colors">Who We Help</a>
-                <a href="#journey" class="hover:text-emerald-400 transition-colors">Learning Path</a>
-                <a href="#testimonials" class="hover:text-emerald-400 transition-colors">Success Stories</a>
-                <a href="#faqs" class="hover:text-emerald-400 transition-colors">FAQ</a>
-            </nav>
-
-            <!-- Nav Action Buttons -->
-            <div class="hidden lg:flex items-center space-x-4">
-                <a href="#contact" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-semibold text-sm rounded-xl transition-all shadow-md shadow-brand-900/20 hover:scale-[1.02] active:scale-95 text-center">
-                    Book Free Consultation
-                </a>
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#0d9488"/>
+                    <path d="M2 23L16 30L30 23V9L16 16L2 9V23Z" fill="#14b8a6" fill-opacity="0.5"/>
+                </svg>
+                <span class="font-bold text-xl tracking-tight text-slate-900">DATABLOOM</span>
             </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="lg:hidden p-2 text-slate-300 hover:text-white" id="mobile-menu-btn" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars text-2xl"></i>
+            <button onclick="openGoogleForm()" class="hidden md:inline-flex items-center justify-center bg-brand-700 hover:bg-brand-900 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+                Apply Now
             </button>
-        </div>
-
-        <!-- Mobile Drawer -->
-        <div class="hidden lg:hidden px-4 pt-2 pb-6 space-y-3 border-t border-white/5 bg-indigoBrand-950/95 backdrop-blur-xl transition-all" id="mobile-menu">
-            <a href="#about" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-white/5 hover:text-emerald-400">Our Story</a>
-            <a href="#programs" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-white/5 hover:text-emerald-400">Bootcamps &amp; Courses</a>
-            <a href="#audiences" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-white/5 hover:text-emerald-400">Who We Help</a>
-            <a href="#journey" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-white/5 hover:text-emerald-400">Learning Path</a>
-            <a href="#testimonials" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-white/5 hover:text-emerald-400">Success Stories</a>
-            <a href="#faqs" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-white/5 hover:text-emerald-400">FAQ</a>
-            <div class="pt-4 border-t border-white/5">
-                <a href="#contact" class="block w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-center rounded-xl transition-all">
-                    Book Free Consultation
-                </a>
-            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-950 via-indigoBrand-950 to-indigoBrand-950">
-        <!-- Glowing Ambient Dots -->
-        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-10 left-10 w-80 h-80 bg-brand-600/15 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                <!-- Hero Text Content -->
-                <div class="lg:col-span-7 space-y-6 text-left">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Next-Gen Practical AI Academy</span>
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
-                        Build an <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">AI-Ready Future</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-slate-300 font-medium">
-                        AI Skills for real and practical daily life use cases. We empower Schools, Colleges, Corporates, and Professionals with industry-aligned skills that spark genuine transformation.
-                    </p>
-                    <p class="text-slate-400 max-w-xl text-sm">
-                        No code jargon. No over-complicated equations. Learn to cultivate the foundational <span class="text-emerald-400 font-semibold">mindset</span> to harness intelligence models effectively.
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                        <a href="#programs" class="px-8 py-4 bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-bold rounded-xl transition-all text-center shadow-lg shadow-brand-900/30 flex items-center justify-center space-x-2 hover:scale-[1.01]">
-                            <span>Explore Practical Programs</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-slate-100 font-semibold rounded-xl border border-white/10 hover:border-white/20 transition-all text-center flex items-center justify-center space-x-2">
-                            <span>Book Consultation</span>
-                        </a>
-                    </div>
-
-                    <!-- Client Trust Summary Mini -->
-                    <div class="pt-6 flex items-center space-x-4">
-                        <div class="flex -space-x-2">
-                            <img class="w-10 h-10 rounded-full border-2 border-indigoBrand-950" src="https://placehold.co/100x100/111827/ffffff?text=Learner+1" alt="Learner avatar" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100&h=100'">
-                            <img class="w-10 h-10 rounded-full border-2 border-indigoBrand-950" src="https://placehold.co/100x100/111827/ffffff?text=Learner+2" alt="Learner avatar" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100'">
-                            <img class="w-10 h-10 rounded-full border-2 border-indigoBrand-950" src="https://placehold.co/100x100/111827/ffffff?text=Learner+3" alt="Learner avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100'">
-                        </div>
-                        <div>
-                            <div class="flex items-center text-yellow-400 text-sm">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <span class="ml-2 font-bold text-white text-sm">4.9/5</span>
-                            </div>
-                            <span class="text-xs text-slate-400">Trusted by 1000+ graduates &amp; professionals</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Interactive / Visual Graphic Panel -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative mx-auto max-w-md lg:max-w-none bg-indigoBrand-900/50 p-6 rounded-3xl border border-white/10 glow-green glass">
-                        <!-- Embedded Preview of ChatGPT Layout Reference as absolute key visual anchor -->
-                        <div class="relative rounded-2xl overflow-hidden bg-slate-950/80 aspect-[4/3] border border-white/5 flex items-center justify-center group">
-                            <!-- Visual blueprint from ChatGPT Image Jul 1, 2026, 09_26_01 PM.png -->
-                            <img src="ChatGPT Image Jul 1, 2026, 09_26_01 PM.png" alt="DATABLOOM Premium Interactive Blueprint" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x450/022c22/ffffff?text=Databloom+AI+Ecosystem';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex flex-col justify-end p-4">
-                                <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-widest bg-emerald-500/10 px-2 py-1 rounded w-max mb-1">Interactive Blueprint</span>
-                                <h4 class="text-white font-bold text-sm">Ecosystem Platform Architecture</h4>
-                                <p class="text-slate-400 text-[11px]">Realized inspired model structure from ChatGPT design standard.</p>
-                            </div>
-                        </div>
-
-                        <!-- Mini Float Banner for Real Usecase -->
-                        <div class="absolute -top-4 -left-4 bg-emerald-500 text-slate-950 px-4 py-2 rounded-2xl text-xs font-bold shadow-xl flex items-center space-x-2 animate-bounce">
-                            <i class="fa-solid fa-bolt"></i>
-                            <span>No Tech Jargon Required</span>
-                        </div>
-
-                        <!-- Mini Float Banner for Success -->
-                        <div class="absolute -bottom-4 -right-4 bg-indigo-600 text-white px-4 py-3 rounded-2xl text-xs font-bold shadow-xl flex flex-col">
-                            <span class="text-indigo-200 uppercase text-[9px] tracking-wider">CSR Partnerships</span>
-                            <span class="text-white font-extrabold text-sm">IBM CSR Cohort Partner</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUST STRIP -->
-    <div class="bg-indigoBrand-900/40 border-y border-white/5 py-8 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="space-y-1">
-                    <span class="block text-2xl sm:text-3xl font-extrabold text-white">1000+</span>
-                    <span class="text-xs sm:text-sm text-emerald-400 font-semibold tracking-wider uppercase">Learners Mentored</span>
-                </div>
-                <div class="space-y-1 border-l border-white/10">
-                    <span class="block text-2xl sm:text-3xl font-extrabold text-white">10+</span>
-                    <span class="text-xs sm:text-sm text-emerald-400 font-semibold tracking-wider uppercase">Colleges &amp; Univs</span>
-                </div>
-                <div class="space-y-1 border-l border-white/10">
-                    <span class="block text-2xl sm:text-3xl font-extrabold text-white">25+</span>
-                    <span class="text-xs sm:text-sm text-emerald-400 font-semibold tracking-wider uppercase">Corporate Workshops</span>
-                </div>
-                <div class="space-y-1 border-l border-white/10">
-                    <div class="flex items-center justify-center space-x-1.5">
-                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                        <span class="block text-base sm:text-lg font-bold text-white">Certified</span>
-                    </div>
-                    <span class="text-xs sm:text-sm text-emerald-400 font-semibold tracking-wider uppercase">Google Cloud AI Partner</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- WHO WE HELP SECTION -->
-    <section id="audiences" class="py-20 bg-indigoBrand-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-            <div class="space-y-4 max-w-3xl mx-auto">
-                <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Transformational Segments</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">AI is Changing Everything. <br><span class="text-slate-400 font-normal">The Question is – </span>Are You Ready?</h2>
-                <p class="text-slate-400">We replace general confusion with tailor-made, high-impact curriculums structured for exact daily applications.</p>
-            </div>
-
-            <!-- Audience Cards -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Schools Card -->
-                <div class="bg-indigoBrand-900/30 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all hover:scale-[1.02] flex flex-col justify-between text-left group">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
-                            <i class="fa-solid fa-graduation-cap text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">School AI Program</h3>
-                        <p class="text-slate-400 text-sm">
-                            Enable students to learn AI from daily-life objects. Fast-track custom modules built around standard curriculum grades without tech jargon.
-                        </p>
-                    </div>
-                    <a href="#contact" class="mt-6 inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
-                        <span>Get school curriculum</span>
-                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- Colleges Card -->
-                <div class="bg-indigoBrand-900/30 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all hover:scale-[1.02] flex flex-col justify-between text-left group">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400">
-                            <i class="fa-solid fa-building-columns text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">College AI Program</h3>
-                        <p class="text-slate-400 text-sm">
-                            Semester-wise and subject-of-specialization curated syllabus. Readying college grads to be highly relevant in the changing job market.
-                        </p>
-                    </div>
-                    <a href="#contact" class="mt-6 inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
-                        <span>Enrich university course</span>
-                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- Corporates Card -->
-                <div class="bg-indigoBrand-900/30 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all hover:scale-[1.02] flex flex-col justify-between text-left group">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
-                            <i class="fa-solid fa-briefcase text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Corporate AI Training</h3>
-                        <p class="text-slate-400 text-sm">
-                            Decrease response times and simplify task delivery. Learn to map custom workflows, visual dashboard creations, and generative automation.
-                        </p>
-                    </div>
-                    <a href="#contact" class="mt-6 inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
-                        <span>Initiate team training</span>
-                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- Individuals Card -->
-                <div class="bg-indigoBrand-900/30 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all hover:scale-[1.02] flex flex-col justify-between text-left group">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400">
-                            <i class="fa-solid fa-user-gear text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Individual AI Bootcamp</h3>
-                        <p class="text-slate-400 text-sm">
-                            Book dedicated 1-1 session to customize and implement generative models perfectly tuned to your personal or freelance usecase.
-                        </p>
-                    </div>
-                    <a href="#contact" class="mt-6 inline-flex items-center space-x-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
-                        <span>Book 1-1 Session</span>
-                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROGRAMS SECTION WITH CHOOSE AND BUY -->
-    <section id="programs" class="py-20 bg-gradient-to-b from-indigoBrand-950 to-indigoBrand-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-            <div class="space-y-4 max-w-3xl mx-auto">
-                <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Direct Enrollment Programs</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Practical AI Training for Every Goal</h2>
-                <p class="text-slate-400">Master real practical applications, complete hands-on projects, and earn credentials.</p>
-            </div>
-
-            <!-- Course Matrix (Two paid, one custom) -->
-            <div class="grid md:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
-                <!-- Course 1: Job Ready (Paid) -->
-                <div class="bg-emerald-950/40 rounded-3xl p-8 border border-emerald-500/20 relative flex flex-col justify-between hover:scale-[1.01] transition-all glow-green">
-                    <div class="absolute top-4 right-4 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold px-3 py-1 rounded-full uppercase">
-                        20 Hours Total
-                    </div>
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <span class="text-xs font-bold uppercase text-emerald-400 tracking-widest">For College Graduates</span>
-                            <h3 class="text-2xl font-extrabold text-white">AI Job Ready Bootcamp</h3>
-                            <p class="text-slate-300 text-sm leading-relaxed">
-                                Curated to make you instantly hireable. Acquire fundamental skills needed to construct AI workflows, use interactive prompts, and optimize daily career tasks.
-                            </p>
-                        </div>
-                        <ul class="space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>10+ Hands-on Projects</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Industry Use-case Driven</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Certificate of Completion</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-white/5 space-y-4">
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-slate-400 text-xs uppercase font-semibold">Special Pricing</span>
-                            <span class="text-3xl font-black text-white">₹2,499</span>
-                        </div>
-                        <button onclick="openCheckout('AI Job Ready Bootcamp', '2499')" class="w-full py-4 bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-950 text-center block">
-                            Enroll &amp; Start Today
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Course 2: AI Ready (Paid) -->
-                <div class="bg-indigoBrand-900/60 rounded-3xl p-8 border border-white/10 relative flex flex-col justify-between hover:scale-[1.01] transition-all">
-                    <div class="absolute top-4 right-4 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-[10px] font-bold px-3 py-1 rounded-full uppercase">
-                        33 Hours Total
-                    </div>
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <span class="text-xs font-bold uppercase text-indigo-400 tracking-widest">From Basics to Master</span>
-                            <h3 class="text-2xl font-extrabold text-white">AI Ready Masterclass</h3>
-                            <p class="text-slate-300 text-sm leading-relaxed">
-                                For anyone wanting to understand AI from the complete ground up. Master foundational paradigms and transition straight to intermediate execution tools.
-                            </p>
-                        </div>
-                        <ul class="space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>End-to-End Solutions</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Personal Portfolio Building</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                                <span>Certificate of Completion</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-white/5 space-y-4">
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-slate-400 text-xs uppercase font-semibold">Special Pricing</span>
-                            <span class="text-3xl font-black text-white">₹6,999</span>
-                        </div>
-                        <button onclick="openCheckout('AI Ready Masterclass', '6999')" class="w-full py-4 bg-white/10 hover:bg-white/15 active:bg-white/20 text-white font-bold rounded-xl transition-all text-center block border border-white/10">
-                            Enroll &amp; Start Today
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 3: Custom Delivery -->
-                <div class="bg-slate-900/30 rounded-3xl p-8 border border-dashed border-white/10 flex flex-col justify-between hover:border-emerald-500/30 transition-all">
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <span class="text-xs font-bold uppercase text-yellow-400 tracking-widest">Bespoke Curriculum</span>
-                            <h3 class="text-2xl font-extrabold text-white">Enterprise &amp; Org Delivery</h3>
-                            <p class="text-slate-300 text-sm leading-relaxed">
-                                Deeply customized for corporate workflow integration, personal brand, or academic organization standards.
-                            </p>
-                        </div>
-                        <p class="text-slate-400 text-xs">
-                            We reverse engineer your organization's unique use cases and compile step-by-step custom modules targeted to skyrocket team speed.
-                        </p>
-                        <div class="p-4 bg-white/5 rounded-2xl space-y-2">
-                            <p class="text-slate-300 text-xs font-semibold">Includes:</p>
-                            <span class="block text-xs text-slate-400"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Dedicated consultation call</span>
-                            <span class="block text-xs text-slate-400"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Tailored workshop schedules</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-white/5">
-                        <a href="#contact" class="w-full py-4 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-bold rounded-xl transition-all text-center block border border-emerald-500/20">
-                            Book Free Call
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TIMELINE LEARNING JOURNEY -->
-    <section id="journey" class="py-20 bg-indigoBrand-950 relative overflow-hidden">
-        <!-- Background lines -->
-        <div class="absolute inset-0 opacity-5 pointer-events-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <line x1="10%" y1="50%" x2="90%" y2="50%" stroke="white" stroke-width="2" stroke-dasharray="10,10"/>
-            </svg>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-16 relative z-10">
-            <div class="space-y-4 max-w-2xl mx-auto">
-                <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Proven Methodology</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Our 5-Step Learning Journey</h2>
-                <p class="text-slate-400">We construct path confidence rather than presenting standard equations. Here is what your learning progression looks like.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto relative">
-                <!-- Timeline Step 1 -->
-                <div class="bg-indigoBrand-900/40 p-6 rounded-2xl border border-white/5 space-y-4 relative text-left hover:border-emerald-500/30 transition-all">
-                    <div class="absolute -top-6 left-6 w-12 h-12 bg-emerald-500 text-slate-950 rounded-full flex items-center justify-center font-black text-lg shadow-lg">1</div>
-                    <div class="pt-4 space-y-2">
-                        <h4 class="font-extrabold text-white">Discover</h4>
-                        <p class="text-xs text-slate-400">Understand AI concepts in simple, real-world contexts. Absolutely no tech jargon.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Step 2 -->
-                <div class="bg-indigoBrand-900/40 p-6 rounded-2xl border border-white/5 space-y-4 relative text-left hover:border-emerald-500/30 transition-all">
-                    <div class="absolute -top-6 left-6 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg">2</div>
-                    <div class="pt-4 space-y-2">
-                        <h4 class="font-extrabold text-white">Learn</h4>
-                        <p class="text-xs text-slate-400">Engage in interactive training modules utilizing direct daily life models.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Step 3 -->
-                <div class="bg-indigoBrand-900/40 p-6 rounded-2xl border border-white/5 space-y-4 relative text-left hover:border-emerald-500/30 transition-all">
-                    <div class="absolute -top-6 left-6 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg">3</div>
-                    <div class="pt-4 space-y-2">
-                        <h4 class="font-extrabold text-white">Practice</h4>
-                        <p class="text-xs text-slate-400">Hands-on exercises and guided steps mapped specifically to core frameworks.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Step 4 -->
-                <div class="bg-indigoBrand-900/40 p-6 rounded-2xl border border-white/5 space-y-4 relative text-left hover:border-emerald-500/30 transition-all">
-                    <div class="absolute -top-6 left-6 w-12 h-12 bg-cyan-600 text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg">4</div>
-                    <div class="pt-4 space-y-2">
-                        <h4 class="font-extrabold text-white">Build</h4>
-                        <p class="text-xs text-slate-400">Deploy live, functional prompts and solutions to gain true asset building confidence.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Step 5 -->
-                <div class="bg-indigoBrand-900/40 p-6 rounded-2xl border border-white/5 space-y-4 relative text-left hover:border-emerald-500/30 transition-all">
-                    <div class="absolute -top-6 left-6 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg">5</div>
-                    <div class="pt-4 space-y-2">
-                        <h4 class="font-extrabold text-white">Lead</h4>
-                        <p class="text-xs text-slate-400">Apply skills to automate real workflows, troubleshoot bottlenecks, and drive impact.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOUNDER'S STORY SECTION -->
-    <section id="about" class="py-24 bg-indigoBrand-900/50 relative">
-        <div class="absolute inset-0 bg-gradient-to-tr from-brand-950/20 via-transparent to-brand-950/20 pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
+    <main class="flex-grow">
+        <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 lg:pt-24 lg:pb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Metaphorical Imagery Panel (Arjuna & Krishna Archetype of Guidance) -->
-                <div class="lg:col-span-5 space-y-4 order-2 lg:order-1">
-                    <div class="relative bg-slate-900 p-4 rounded-3xl border border-white/10 glow-gold shadow-2xl">
-                        <!-- Metaphor Image matching watermarked_img_16713016564721896214.png -->
-                        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-950 relative group">
-                            <img src="watermarked_img_16713016564721896214.png" alt="Krishna advising Arjuna - A modern metaphor for AI alignment" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/500x600/0b1329/ffffff?text=Modern+Mentor+Archetype';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-6">
-                                <span class="text-xs font-bold text-yellow-400 uppercase tracking-widest bg-yellow-400/10 px-2 py-1 rounded w-max mb-2">Modern Mentor Archetype</span>
-                                <h4 class="text-white font-extrabold text-lg leading-tight">Navigating the Kurukshetra of the Digital Age</h4>
-                                <p class="text-slate-300 text-xs mt-1">Real wisdom lies in framing the correct strategy and mind-mapping direction, not just the technical weapons.</p>
-                            </div>
-                        </div>
+                <!-- Text Content -->
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-medium border border-slate-200">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        Enrollment Open for Next Cohort
                     </div>
-                </div>
-
-                <!-- Story Text Narrative -->
-                <div class="lg:col-span-7 space-y-6 text-left order-1 lg:order-2">
-                    <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">The Databloom Paradigm</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">"It's not what you teach, but the mindset you inspire to walk the path."</h2>
                     
-                    <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
-                        <p>
-                            While working on training world-class intelligence models and looking after actual delivery, I made a life-changing realization. While explaining complex concepts to others, I discovered that my absolute joy came from enabling everyday learners to genuinely understand and connect with the core concepts.
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
+                        Build the AI Mindset.<br>
+                        <span class="gradient-text">Skip the Tech Jargon.</span>
+                    </h1>
+                    
+                    <div class="prose prose-lg text-slate-600 leading-relaxed">
+                        <p class="font-medium">
+                            Benchmarked against top international MNCs and world-class educational institutions, our curriculum is uniquely refined for Indian audiences. 
                         </p>
                         <p>
-                            I then dedicated myself to solving a key generation gap: <span class="text-white font-semibold">How do we enable college-level students and everyday individuals to comprehend AI without being burdened by technical clutter?</span>
-                        </p>
-                        <p>
-                            After refining this simplified, hands-on curriculum, I sought to benchmark my training standards against the absolute best. I partnered with top-tier ed-tech ecosystems delivering prestigious <span class="text-white font-semibold">IBM CSR projects</span>, overseeing academic cohorts for both Delhi University and top US cohorts. 
-                        </p>
-                        <p class="border-l-4 border-emerald-500 pl-4 py-1 italic bg-emerald-500/5 text-slate-100 rounded-r-xl">
-                            "Seeing how world-class universities engage confirmed my deepest belief. Success doesn't reside in memorizing dry lines of code. It relies entirely on the precise cognitive framework you provide to others so they can confidently steer through the vast AI horizon."
+                            We realized that true mastery isn't just about what you teach, but the <strong>cognitive mindset</strong> you build. We equip students and professionals to view everyday challenges through the lens of practical AI, bridging the gap between global standards and local application.
                         </p>
                     </div>
 
-                    <div class="pt-4 flex items-center space-x-6">
-                        <div>
-                            <span class="block font-bold text-white text-lg">Founder, Databloom AI &amp; Tech</span>
-                            <span class="text-xs text-emerald-400 tracking-widest uppercase">Lead AI &amp; Tech Strategist</span>
-                        </div>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <button onclick="openGoogleForm()" class="inline-flex items-center justify-center gap-2 bg-brand-700 hover:bg-brand-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg shadow-brand-700/20">
+                            Select Your Curriculum
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- ALIGNED BRAND & CASE STUDY EXPERIENCES -->
-    <section id="testimonials" class="py-20 bg-indigoBrand-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-            <div class="space-y-4 max-w-2xl mx-auto">
-                <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Proven Authority</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Trust is Built on Results</h2>
-                <p class="text-slate-400">Our real-world credentials stretch from domestic institutions to elite global CSR deployments.</p>
-            </div>
-
-            <!-- Double Grid: Delivered Training & Worked With -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
-                <!-- Training Deployments -->
-                <div class="bg-indigoBrand-900/40 p-8 rounded-3xl border border-white/5 space-y-6">
-                    <h3 class="text-lg font-bold text-emerald-400 uppercase tracking-wider flex items-center space-x-2">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                        <span>Delivered Training At</span>
-                    </h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-white/5 rounded-2xl flex items-center justify-center text-center font-bold text-slate-200">
-                            IHU
+                <!-- 3D Visualization -->
+                <div class="w-full aspect-[4/3] lg:aspect-square relative">
+                    <div id="canvas-wrapper" class="w-full h-full relative group">
+                        <div class="absolute top-4 left-4 z-10 bg-white/80 backdrop-blur-sm border border-slate-200 text-xs font-semibold text-slate-500 px-3 py-1.5 rounded-md uppercase tracking-wide">
+                            Interactive AI Bloom Model
                         </div>
-                        <div class="p-4 bg-white/5 rounded-2xl flex items-center justify-center text-center font-bold text-slate-200">
-                            Shivaji College
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-2xl flex items-center justify-center text-center font-bold text-slate-200">
-                            Agrasen College
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-2xl flex items-center justify-center text-center font-bold text-slate-200">
-                            Paysprint
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Collaborative Brands & Projects -->
-                <div class="bg-indigoBrand-900/40 p-8 rounded-3xl border border-white/5 space-y-6">
-                    <h3 class="text-lg font-bold text-indigo-400 uppercase tracking-wider flex items-center space-x-2">
-                        <i class="fa-solid fa-handshake"></i>
-                        <span>Worked with &amp; CSR Projects</span>
-                    </h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-white/5 rounded-2xl flex flex-col justify-center items-center text-center">
-                            <span class="font-extrabold text-slate-200">IBM CSR</span>
-                            <span class="text-[9px] uppercase text-slate-400">US Cohort Project</span>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-2xl flex flex-col justify-center items-center text-center">
-                            <span class="font-extrabold text-slate-200">Turing</span>
-                            <span class="text-[9px] uppercase text-slate-400">Advanced AI Solutions</span>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-2xl flex flex-col justify-center items-center text-center">
-                            <span class="font-extrabold text-slate-200">Wipro</span>
-                            <span class="text-[9px] uppercase text-slate-400">Enterprise Training</span>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-2xl flex flex-col justify-center items-center text-center">
-                            <span class="font-extrabold text-slate-200">Tidefintech</span>
-                            <span class="text-[9px] uppercase text-slate-400">Financial Modeling</span>
-                        </div>
+                        <div class="canvas-grid-overlay"></div>
+                        <div id="canvas-container"></div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Visual Testimonials Slider -->
-            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto text-left pt-6">
-                <div class="p-6 bg-indigoBrand-900/20 border border-white/5 rounded-2xl space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/111827/ffffff?text=Priya" alt="Priya avatar" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100'">
-                        <div>
-                            <h4 class="font-bold text-white text-sm">Priya S.</h4>
-                            <span class="text-xs text-slate-400">B.Tech Student, Shivaji College</span>
+        <!-- Programs Section -->
+        <section class="bg-white border-t border-slate-200 py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Targeted Learning Paths</h2>
+                    <p class="text-slate-600">Choose the curriculum that fits your current stage. All registrations are handled securely via our intake form.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- 21 Hours Card -->
+                    <div class="program-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col h-full cursor-pointer relative overflow-hidden group" onclick="openGoogleForm()">
+                        <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-50 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">21-Hour Pathway</h3>
+                        <p class="text-slate-600 mb-6 flex-grow">Designed specifically for college graduates. Get absolutely AI job-ready with practical implementations of current market tools.</p>
+                        <div class="flex items-center text-brand-700 font-semibold text-sm">
+                            Register Now <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-300 italic">
-                        "The best AI workshop I've ever attended. Everything was extremely practical, focused on tools I can use immediately."
-                    </p>
-                </div>
 
-                <div class="p-6 bg-indigoBrand-900/20 border border-white/5 rounded-2xl space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/111827/ffffff?text=Rahul" alt="Rahul avatar" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100'">
-                        <div>
-                            <h4 class="font-bold text-white text-sm">Rahul Mehta</h4>
-                            <span class="text-xs text-slate-400">Operations Manager, Paysprint</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-300 italic">
-                        "Our team is now incredibly productive. Our custom generative dashboard reduced weekly planning tasks from hours to minutes."
-                    </p>
-                </div>
-
-                <div class="p-6 bg-indigoBrand-900/20 border border-white/5 rounded-2xl space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/111827/ffffff?text=Dr+Neha" alt="Dr Neha avatar" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100'">
-                        <div>
-                            <h4 class="font-bold text-white text-sm">Dr. Neha Sharma</h4>
-                            <span class="text-xs text-slate-400">Dean, Delhi University Academic Cell</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-300 italic">
-                        "The customized semester-wise curriculums developed by Databloom are a complete game changer for our digital literacy metrics."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faqs" class="py-20 bg-indigoBrand-900/20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-            <div class="space-y-4">
-                <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Answering Doubts</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Frequently Asked Questions</h2>
-                <p class="text-slate-400">Clear answers to help you start your AI roadmap with absolute confidence.</p>
-            </div>
-
-            <!-- Interactive Accordion Container -->
-            <div class="space-y-4 text-left">
-                <!-- FAQ Item 1 -->
-                <div class="bg-indigoBrand-900/60 rounded-2xl border border-white/5 overflow-hidden transition-all">
-                    <button class="w-full p-6 flex justify-between items-center hover:bg-white/5 text-white text-left font-bold" onclick="toggleFaq(this)">
-                        <span>Do I need coding experience to learn these skills?</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-slate-950/40">
-                        <p class="p-6 text-slate-300 text-sm leading-relaxed">
-                            Not at all. Databloom focuses entirely on concept comprehension and real practical daily tools. We provide absolute clarity so that non-tech professionals, teachers, and business owners can immediately start building custom workflows.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="bg-indigoBrand-900/60 rounded-2xl border border-white/5 overflow-hidden transition-all">
-                    <button class="w-full p-6 flex justify-between items-center hover:bg-white/5 text-white text-left font-bold" onclick="toggleFaq(this)">
-                        <span>Is this suitable for complete beginners?</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-slate-950/40">
-                        <p class="p-6 text-slate-300 text-sm leading-relaxed">
-                            Absolutely. Our 33-hour AI Ready Masterclass is perfectly tailored to start from absolute ground zero and transition step-by-step into intermediate deployment workflows.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="bg-indigoBrand-900/60 rounded-2xl border border-white/5 overflow-hidden transition-all">
-                    <button class="w-full p-6 flex justify-between items-center hover:bg-white/5 text-white text-left font-bold" onclick="toggleFaq(this)">
-                        <span>Can the curriculum be customized for my organization?</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-slate-950/40">
-                        <p class="p-6 text-slate-300 text-sm leading-relaxed">
-                            Yes. We regularly structure customized semesters, academic standards, and corporate dashboard workflows tuned exactly to solve productivity bottlenecks. Let us know your requirements on our consultation form.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="bg-indigoBrand-900/60 rounded-2xl border border-white/5 overflow-hidden transition-all">
-                    <button class="w-full p-6 flex justify-between items-center hover:bg-white/5 text-white text-left font-bold" onclick="toggleFaq(this)">
-                        <span>Are certificates included in the courses?</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-slate-950/40">
-                        <p class="p-6 text-slate-300 text-sm leading-relaxed">
-                            Yes. Every enrollment program completed includes a verified, shareable digital Certificate of Accomplishment representing your direct hands-on project portfolio.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE CONSULTATION & CONTACT FORM (REPLACING VINAY1094.GITHUB.IO/DATABLOOM-AI/#CONTACT FORM WITH METRICS) -->
-    <section id="contact" class="py-24 bg-gradient-to-t from-indigoBrand-950 to-indigoBrand-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Action Headline & Selling Pitch Left -->
-                <div class="lg:col-span-5 space-y-6 text-left">
-                    <span class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Get in Touch</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Your AI Learning Roadmap</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Ready to empower your team, school standard, or professional portfolio? Fill out our customized roadmap request and get connected with our lead team strategist.
-                    </p>
-
-                    <!-- Trust Cards below description -->
-                    <div class="space-y-4 pt-4">
-                        <div class="flex items-center space-x-3 p-4 bg-emerald-950/20 border border-emerald-500/10 rounded-2xl">
-                            <i class="fa-solid fa-shield-halved text-emerald-400 text-lg"></i>
-                            <div>
-                                <span class="block text-xs text-emerald-400 font-bold uppercase tracking-wider">Secure Verification</span>
-                                <span class="block text-xs text-slate-300">Google Cloud AI Certified Strategists</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3 p-4 bg-indigoBrand-900/40 border border-white/5 rounded-2xl">
-                            <i class="fa-solid fa-clock text-indigo-400 text-lg"></i>
-                            <div>
-                                <span class="block text-xs text-indigo-400 font-bold uppercase tracking-wider">Fast Turnaround</span>
-                                <span class="block text-xs text-slate-300">Custom syllabus drafts sent within 48 hours</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Custom Validated Consultation Card Right -->
-                <div class="lg:col-span-7">
-                    <div class="bg-indigoBrand-900/80 p-8 rounded-3xl border border-white/10 glow-green glass relative">
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center space-x-2">
-                            <i class="fa-solid fa-calendar-check text-emerald-400"></i>
-                            <span>Schedule Consultation Call</span>
-                        </h3>
+                    <!-- 33 Hours Card -->
+                    <div class="program-card bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col h-full cursor-pointer relative overflow-hidden group" onclick="openGoogleForm()">
+                        <!-- Popular Badge -->
+                        <div class="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-bl-lg">Most Popular</div>
                         
-                        <form id="consultation-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="space-y-1">
-                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Full Name *</label>
-                                    <input type="text" required name="fullName" placeholder="John Doe" class="w-full px-4 py-3 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-white transition-all text-sm">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Corporate / College Email *</label>
-                                    <input type="email" required name="email" placeholder="john@example.com" class="w-full px-4 py-3 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-white transition-all text-sm">
-                                </div>
-                            </div>
-
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="space-y-1">
-                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Organization / University *</label>
-                                    <input type="text" required name="organization" placeholder="eg. Delhi University" class="w-full px-4 py-3 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-white transition-all text-sm">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Audience Type *</label>
-                                    <select required name="audience" class="w-full px-4 py-3 bg-slate-950 border border-white/10 rounded-xl focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-white transition-all text-sm">
-                                        <option value="school">School Standard AI</option>
-                                        <option value="college">College Curriculum / Specialization</option>
-                                        <option value="corporate">Corporate / Team Workflow Automation</option>
-                                        <option value="individual">Individual 1-1 Bootcamp</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="space-y-1">
-                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Your Message / Custom Usecase Details</label>
-                                <textarea name="message" rows="4" placeholder="Briefly explain the challenge you are trying to address with AI..." class="w-full px-4 py-3 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none text-white transition-all text-sm resize-none"></textarea>
-                            </div>
-
-                            <!-- Interactive Button -->
-                            <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-900/20 text-center flex items-center justify-center space-x-2">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>Request Free AI Roadmap Draft</span>
-                            </button>
-                        </form>
-
-                        <!-- Live Action Response Notification -->
-                        <div id="form-success-toast" class="hidden absolute inset-0 bg-slate-950/95 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center text-center p-8 transition-all">
-                            <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center text-3xl mb-4 animate-bounce">
-                                <i class="fa-solid fa-circle-check"></i>
-                            </div>
-                            <h4 class="text-xl font-bold text-white mb-2">Roadmap Requested Successfully!</h4>
-                            <p class="text-slate-400 text-sm max-w-sm mb-6">
-                                Thank you for choosing Databloom. One of our lead AI training architects will review your usecase details and reach back with a customized syllabus draft.
-                            </p>
-                            <button onclick="resetConsultationForm()" class="px-6 py-2 bg-white/10 hover:bg-white/15 text-white font-semibold text-xs rounded-xl border border-white/10 transition-all">
-                                Send another response
-                            </button>
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-white mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">33-Hour Mastery</h3>
+                        <p class="text-slate-400 mb-6 flex-grow">Comprehensive AI readiness for anyone wanting to understand AI from the absolute basics to advanced daily integrations.</p>
+                        <div class="flex items-center text-brand-400 font-semibold text-sm">
+                            Register Now <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- SECURE BILLING CHECKOUT MODAL (ENROLLMENT DIALOG) -->
-    <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-indigoBrand-900 max-w-lg w-full rounded-3xl border border-white/10 p-8 space-y-6 shadow-2xl relative animate-scale-up">
-            <button onclick="closeCheckout()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <!-- Order Headers -->
-            <div class="space-y-2">
-                <div class="inline-flex items-center space-x-1 text-emerald-400 text-[10px] font-bold uppercase tracking-widest bg-emerald-500/10 px-2 py-0.5 rounded">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Secure Gateway Integration</span>
-                </div>
-                <h3 class="text-2xl font-black text-white" id="modal-course-title">AI Job Ready Bootcamp</h3>
-                <p class="text-slate-400 text-xs">Unlock life-time course portal access, project repositories, and official verified certification.</p>
-            </div>
-
-            <!-- Billing Fields -->
-            <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
-                <div class="space-y-1">
-                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Candidate Full Name</label>
-                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 outline-none text-white text-sm">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-1">
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Active Email</label>
-                        <input type="email" required placeholder="john@domain.com" class="w-full px-4 py-2.5 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 outline-none text-white text-sm">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Mobile Number</label>
-                        <input type="tel" required placeholder="+91 98765-43210" class="w-full px-4 py-2.5 bg-slate-950/60 border border-white/10 rounded-xl focus:border-emerald-500 outline-none text-white text-sm">
-                    </div>
-                </div>
-
-                <!-- Simulative Payments Methods -->
-                <div class="space-y-2">
-                    <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Select Payment Mode</span>
-                    <div class="grid grid-cols-3 gap-3">
-                        <label class="border border-emerald-500/30 bg-emerald-500/10 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer hover:bg-emerald-500/20 transition-all">
-                            <input type="radio" name="paymentMethod" checked class="hidden">
-                            <i class="fa-solid fa-credit-card text-emerald-400 text-lg mb-1"></i>
-                            <span class="text-[10px] text-white font-bold">UPI / GPay</span>
-                        </label>
-                        <label class="border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer hover:bg-white/5 transition-all">
-                            <input type="radio" name="paymentMethod" class="hidden">
-                            <i class="fa-brands fa-cc-visa text-indigo-400 text-lg mb-1"></i>
-                            <span class="text-[10px] text-white font-bold">Credit Card</span>
-                        </label>
-                        <label class="border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer hover:bg-white/5 transition-all">
-                            <input type="radio" name="paymentMethod" class="hidden">
-                            <i class="fa-solid fa-building-columns text-yellow-400 text-lg mb-1"></i>
-                            <span class="text-[10px] text-white font-bold">Netbanking</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Final Sum Summary -->
-                <div class="p-4 bg-slate-950/80 rounded-2xl flex items-center justify-between border border-white/5">
-                    <span class="text-xs text-slate-400 uppercase tracking-widest font-bold">Total Amount Due:</span>
-                    <span class="text-2xl font-black text-white" id="modal-course-price">₹2,499</span>
-                </div>
-
-                <!-- Interactive Submit Button -->
-                <button type="submit" class="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-lock-open"></i>
-                    <span>Authorize Secure Payment</span>
-                </button>
-            </form>
-
-            <!-- Success Overlay inside Checkout -->
-            <div id="checkout-success" class="hidden absolute inset-0 bg-slate-950/95 rounded-3xl flex flex-col items-center justify-center text-center p-8">
-                <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center text-3xl mb-4 animate-bounce">
-                    <i class="fa-solid fa-circle-check"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-2">Enrollment Completed!</h4>
-                <p class="text-slate-400 text-sm max-w-sm mb-6">
-                    A verification link and login credentials to your study dashboard have been sent to your email. Get ready to embark on your learning journey!
-                </p>
-                <button onclick="closeCheckout()" class="px-6 py-2 bg-emerald-500 text-slate-950 font-bold text-xs rounded-xl shadow">
-                    Awesome, Let's Go
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-white/10 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                
-                <!-- Brand Statement -->
-                <div class="md:col-span-5 space-y-4 text-left">
-                    <a href="#" class="flex items-center space-x-3 group">
-                        <div class="bg-brand-600 p-2 rounded-xl">
-                            <i class="fa-solid fa-seedling text-white"></i>
+                    <!-- Consultation Card -->
+                    <div class="program-card bg-white border border-slate-200 rounded-2xl p-8 flex flex-col h-full cursor-pointer relative overflow-hidden group" onclick="openGoogleForm()">
+                        <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center text-slate-700 mb-6 group-hover:bg-slate-100 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
                         </div>
-                        <span class="text-lg font-extrabold tracking-wider text-white">DATABLOOM</span>
-                    </a>
-                    <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
-                        From Data Seeds to AI Expertise. Empowering people &amp; organizations to discover the strategic mindset needed to view and lead the AI future.
-                    </p>
-                </div>
-
-                <!-- Navigation Links Grid -->
-                <div class="md:col-span-4 grid grid-cols-2 gap-4 text-left">
-                    <div class="space-y-3">
-                        <span class="block text-xs font-bold text-white uppercase tracking-wider">Academy</span>
-                        <ul class="space-y-2 text-xs text-slate-400">
-                            <li><a href="#about" class="hover:text-emerald-400">Our Story</a></li>
-                            <li><a href="#programs" class="hover:text-emerald-400">Bootcamps</a></li>
-                            <li><a href="#audiences" class="hover:text-emerald-400">Who We Help</a></li>
-                        </ul>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">1-on-1 Consultation</h3>
+                        <p class="text-slate-600 mb-6 flex-grow">Need custom curriculum development? Book a session to implement AI tailored to your personal or organizational usecase.</p>
+                        <div class="flex items-center text-slate-900 font-semibold text-sm">
+                            Book Session <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
                     </div>
-                    <div class="space-y-3">
-                        <span class="block text-xs font-bold text-white uppercase tracking-wider">Resources</span>
-                        <ul class="space-y-2 text-xs text-slate-400">
-                            <li><a href="#testimonials" class="hover:text-emerald-400">Success Stories</a></li>
-                            <li><a href="#faqs" class="hover:text-emerald-400">FAQ Help</a></li>
-                            <li><a href="#contact" class="hover:text-emerald-400">Book Free Call</a></li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Brand Contact & Socials -->
-                <div class="md:col-span-3 space-y-4 text-left">
-                    <span class="block text-xs font-bold text-white uppercase tracking-wider">Direct Connect</span>
-                    <ul class="space-y-2 text-xs text-slate-400">
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-envelope text-emerald-400"></i>
-                            <a href="mailto:hello@databloomaiandtech.com" class="hover:text-emerald-400">hello@databloomaiandtech.com</a>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-phone text-emerald-400"></i>
-                            <a href="tel:+919876543210" class="hover:text-emerald-400">+91 98765-43210</a>
-                        </li>
-                    </ul>
-                    <div class="flex items-center space-x-4 pt-2">
-                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-emerald-500 hover:text-slate-950 flex items-center justify-center text-slate-400 transition-all text-sm">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-emerald-500 hover:text-slate-950 flex items-center justify-center text-slate-400 transition-all text-sm">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-emerald-500 hover:text-slate-950 flex items-center justify-center text-slate-400 transition-all text-sm">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
                 </div>
-
             </div>
+        </section>
+    </main>
 
-            <!-- Legals Footer -->
-            <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
-                <p>&copy; 2026 Databloom AI &amp; Tech. All rights reserved.</p>
-                <div class="flex space-x-4 mt-2 sm:mt-0">
-                    <a href="#" class="hover:text-emerald-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-emerald-400">Terms of Service</a>
-                </div>
+    <footer class="bg-slate-50 border-t border-slate-200 py-8 text-center mt-auto">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm font-medium text-slate-500">
+                &copy; <script>document.write(new Date().getFullYear())</script> Databloom AI & Tech. All rights reserved.
+            </p>
+            <div class="flex items-center gap-6 text-sm font-semibold text-slate-400">
+                <span>1000+ Learners</span>
+                <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                <span>Practical AI Daily</span>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT MECHANICS -->
     <script>
-        // Header Scroll Interaction
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('bg-indigoBrand-950/95', 'shadow-lg');
-                header.classList.remove('bg-indigoBrand-950/80');
-            } else {
-                header.classList.add('bg-indigoBrand-950/80');
-                header.classList.remove('bg-indigoBrand-950/95', 'shadow-lg');
-            }
-        });
+        // ==========================================
+        // 🚨 YOUR GOOGLE FORM LINK GOES HERE 🚨
+        // ==========================================
+        const GOOGLE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSfpixRcnWkLWYLQxzn_g13HhP2iMYscqL6qsbGnuo2dlsY74Q/viewform?usp=sharing&ouid=115445748390750860430"; // <-- PASTE LINK HERE
 
-        // Mobile Menu Trigger
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // FAQ accordion mechanics
-        function toggleFaq(btn) {
-            const body = btn.nextElementSibling;
-            const icon = btn.querySelector('i');
-            
-            // Check if open
-            if (body.style.maxHeight && body.style.maxHeight !== '0px') {
-                body.style.maxHeight = '0px';
-                icon.style.transform = 'rotate(0deg)';
+        function openGoogleForm() {
+            if(GOOGLE_FORM_LINK === "https://docs.google.com/forms/d/e/1FAIpQLSfpixRcnWkLWYLQxzn_g13HhP2iMYscqL6qsbGnuo2dlsY74Q/viewform?usp=sharing&ouid=115445748390750860430" || GOOGLE_FORM_LINK === "#") {
+                alert("Please configure the Google Form Link in the HTML source code.");
             } else {
-                body.style.maxHeight = body.scrollHeight + 'px';
-                icon.style.transform = 'rotate(180deg)';
+                window.open(GOOGLE_FORM_LINK, '_blank');
             }
         }
 
-        // Checkout Dialog Mechanics
-        const checkoutModal = document.getElementById('checkout-modal');
-        const checkoutTitle = document.getElementById('modal-course-title');
-        const checkoutPrice = document.getElementById('modal-course-price');
-        const checkoutSuccess = document.getElementById('checkout-success');
+        // ==========================================
+        // 🧠 THREE.JS DATA BLOOM (PROFESSIONAL THEME)
+        // ==========================================
+        window.onload = function() {
+            initThreeJS();
+        };
 
-        function openCheckout(title, price) {
-            checkoutTitle.innerText = title;
-            checkoutPrice.innerText = '₹' + parseInt(price).toLocaleString('en-IN');
-            checkoutModal.classList.remove('hidden');
-            checkoutSuccess.classList.add('hidden'); // Reset Success Frame
-        }
+        function initThreeJS() {
+            const container = document.getElementById('canvas-container');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff); // Clean white background for the module
 
-        function closeCheckout() {
-            checkoutModal.classList.add('hidden');
-        }
+            const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 200; // Pulled back slightly for better framing
 
-        function handleCheckoutSubmit(e) {
-            e.preventDefault();
-            // Show simulative processing states
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const origText = submitBtn.innerHTML;
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            const particleGroup = new THREE.Group();
+            scene.add(particleGroup);
+
+            // Node Geometry
+            const particleCount = 100;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const velocities = [];
+
+            // Sphere placement
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                const r = 80 + Math.random() * 30; // Tighter cluster
+                const theta = 2 * Math.PI * Math.random();
+                const phi = Math.acos(2 * Math.random() - 1);
+
+                positions[i]     = r * Math.sin(phi) * Math.cos(theta);
+                positions[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+                positions[i + 2] = r * Math.cos(phi);
+
+                velocities.push({
+                    x: (Math.random() - 0.5) * 0.15,
+                    y: (Math.random() - 0.5) * 0.15,
+                    z: (Math.random() - 0.5) * 0.15
+                });
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            // Professional Teal Dots
+            const material = new THREE.PointsMaterial({
+                color: 0x0f766e,
+                size: 2.5,
+                transparent: true,
+                opacity: 0.9,
+            });
+
+            const particles = new THREE.Points(geometry, material);
+            particleGroup.add(particles);
+
+            // Connections (Lines)
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0x14b8a6,
+                transparent: true,
+                opacity: 0.2
+            });
+
+            const lineGeometry = new THREE.BufferGeometry();
+            const maxConnections = particleCount * 4; 
+            const linePositions = new Float32Array(maxConnections * 3);
+            lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+            lineGeometry.setDrawRange(0, 0);
             
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> <span>Authorizing Transaction...</span>';
+            const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+            particleGroup.add(lines);
+
+            // Interaction state
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+            let targetRotation = { x: 0, y: 0 };
             
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = origText;
-                checkoutSuccess.classList.remove('hidden');
-            }, 1800);
-        }
+            // Mouse Events
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.offsetX, y: e.offsetY };
+            });
 
-        // Consultation Form Submit
-        const formSuccessToast = document.getElementById('form-success-toast');
-        const consultationForm = document.getElementById('consultation-form');
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const mx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                const my = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+                
+                if (!isDragging) {
+                    targetRotation.y = mx * 0.3;
+                    targetRotation.x = -my * 0.3;
+                } else {
+                    const deltaMove = {
+                        x: e.offsetX - previousMousePosition.x,
+                        y: e.offsetY - previousMousePosition.y
+                    };
+                    particleGroup.rotation.y += deltaMove.x * 0.005;
+                    particleGroup.rotation.x += deltaMove.y * 0.005;
+                    previousMousePosition = { x: e.offsetX, y: e.offsetY };
+                }
+            });
 
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const submitBtn = consultationForm.querySelector('button[type="submit"]');
-            const origText = submitBtn.innerHTML;
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            container.addEventListener('mouseleave', () => { 
+                isDragging = false;
+                targetRotation.x = 0;
+                targetRotation.y = 0;
+            });
 
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> <span>Generating Customized Roadmap...</span>';
+            // Handle Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
 
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = origText;
-                formSuccessToast.classList.remove('hidden');
-            }, 1500);
-        }
+            // Animation Loop
+            function animate() {
+                requestAnimationFrame(animate);
 
-        function resetConsultationForm() {
-            consultationForm.reset();
-            formSuccessToast.classList.add('hidden');
+                if (!isDragging) {
+                    particleGroup.rotation.y += 0.002; // Slightly faster default rotation
+                    particleGroup.rotation.x += 0.001;
+                    
+                    particleGroup.rotation.y += (targetRotation.y - particleGroup.rotation.y) * 0.05;
+                    particleGroup.rotation.x += (targetRotation.x - particleGroup.rotation.x) * 0.05;
+                }
+
+                const positions = particles.geometry.attributes.position.array;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    positions[i * 3] += velocities[i].x;
+                    positions[i * 3 + 1] += velocities[i].y;
+                    positions[i * 3 + 2] += velocities[i].z;
+
+                    const dist = Math.sqrt(
+                        Math.pow(positions[i*3], 2) + 
+                        Math.pow(positions[i*3+1], 2) + 
+                        Math.pow(positions[i*3+2], 2)
+                    );
+
+                    if (dist > 110 || dist < 60) {
+                        velocities[i].x *= -1;
+                        velocities[i].y *= -1;
+                        velocities[i].z *= -1;
+                    }
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+
+                let lineVertexIndex = 0;
+                const connectionDistance = 40;
+
+                for (let i = 0; i < particleCount; i++) {
+                    for (let j = i + 1; j < particleCount; j++) {
+                        const dx = positions[i * 3] - positions[j * 3];
+                        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+                        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+                        const distSq = dx*dx + dy*dy + dz*dz;
+
+                        if (distSq < connectionDistance * connectionDistance) {
+                            if (lineVertexIndex < maxConnections * 6) {
+                                linePositions[lineVertexIndex++] = positions[i * 3];
+                                linePositions[lineVertexIndex++] = positions[i * 3 + 1];
+                                linePositions[lineVertexIndex++] = positions[i * 3 + 2];
+
+                                linePositions[lineVertexIndex++] = positions[j * 3];
+                                linePositions[linePositions.length] // trigger boundary check if needed, omitted for speed
+                                linePositions[lineVertexIndex++] = positions[j * 3 + 1];
+                                linePositions[lineVertexIndex++] = positions[j * 3 + 2];
+                            }
+                        }
+                    }
+                }
+
+                lines.geometry.setDrawRange(0, lineVertexIndex / 3);
+                lines.geometry.attributes.position.needsUpdate = true;
+
+                renderer.render(scene, camera);
+            }
+            animate();
         }
     </script>
 </body>
