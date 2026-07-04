@@ -77,6 +77,7 @@
         }
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
 
         /* Vercel/Linear Inspired Spotlight Effect */
         .spotlight-wrapper {
@@ -138,6 +139,16 @@
             z-index: -1;
             pointer-events: none;
         }
+
+        /* Razorpay Button Overrides (to center and style their default button) */
+        .razorpay-wrapper form {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        .razorpay-wrapper .razorpay-payment-button {
+            width: 100% !important;
+        }
     </style>
 </head>
 <body class="relative selection:bg-brand-100 selection:text-brand-900">
@@ -155,7 +166,7 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#programs" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Programs</a>
                 <a href="#workflow" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Methodology</a>
-                <a href="YOUR_CONSULTATION_GOOGLE_FORM_LINK_HERE" target="_blank" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
                     Consultation
                 </a>
             </div>
@@ -195,7 +206,7 @@
                     Explore Programs
                     <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="YOUR_CONSULTATION_GOOGLE_FORM_LINK_HERE" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-medium text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-medium text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center">
                     Book Consultation
                 </a>
             </div>
@@ -246,7 +257,7 @@
                         </div>
                         <h3 class="text-xl font-display font-bold text-brand-900 mb-3">Enterprise</h3>
                         <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">Transform your organization. Strategic consulting and custom workforce upskilling.</p>
-                        <a href="#consultation" class="text-sm font-semibold text-brand-900 flex items-center group-hover:translate-x-1 transition-transform">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="text-sm font-semibold text-brand-900 flex items-center group-hover:translate-x-1 transition-transform">
                             Book Strategy <i data-lucide="arrow-right" class="ml-1 w-3.5 h-3.5"></i>
                         </a>
                     </div>
@@ -263,7 +274,8 @@
             </div>
 
             <div class="space-y-6">
-                <!-- Program 1 -->
+                
+                <!-- Program 1 (21 Hour) -->
                 <div class="spotlight-wrapper p-8 reveal">
                     <div class="spotlight-content flex flex-col md:flex-row md:items-start justify-between">
                         <div class="mb-6 md:mb-0">
@@ -276,9 +288,14 @@
                         </div>
                         
                         <div class="w-full md:w-64 flex flex-col gap-3">
-                            <button onclick="openEnrollModal('job-ready')" class="w-full px-5 py-3 rounded-full bg-brand-900 text-white text-sm font-medium hover:bg-gray-800 transition-all shadow-sm flex items-center justify-center">
-                                Enroll Now
-                            </button>
+                            <!-- ========================================== -->
+                            <!-- PASTE 21-HOUR RAZORPAY HTML CODE BELOW     -->
+                            <!-- ========================================== -->
+                            <div class="w-full flex justify-center razorpay-wrapper">
+                                <<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async> </script> </form>>
+                            </div>
+                            <!-- ========================================== -->
+
                             <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:bg-gray-50 transition-all flex items-center justify-between group">
                                 <span>Curriculum</span>
                                 <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
@@ -286,7 +303,6 @@
                         </div>
                     </div>
                     
-                    <!-- Expandable Curriculum -->
                     <div class="expand-content mt-4">
                         <div class="expand-inner">
                             <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -301,7 +317,7 @@
                     </div>
                 </div>
 
-                <!-- Program 2 (Mastery) -->
+                <!-- Program 2 (33 Hour) -->
                 <div class="spotlight-wrapper p-8 reveal delay-100 border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200"></div>
                     <div class="spotlight-content flex flex-col md:flex-row md:items-start justify-between">
@@ -315,9 +331,14 @@
                         </div>
                         
                         <div class="w-full md:w-64 flex flex-col gap-3">
-                            <button onclick="openEnrollModal('mastery')" class="w-full px-5 py-3 rounded-full bg-brand-900 text-white text-sm font-medium hover:bg-gray-800 transition-all shadow-md flex items-center justify-center">
-                                Enroll Now
-                            </button>
+                            <!-- ========================================== -->
+                            <!-- PASTE 33-HOUR RAZORPAY HTML CODE BELOW     -->
+                            <!-- ========================================== -->
+                            <div class="w-full flex justify-center razorpay-wrapper">
+                                <<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async> </script> </form>>
+                            </div>
+                            <!-- ========================================== -->
+                            
                             <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:bg-gray-50 transition-all flex items-center justify-between group">
                                 <span>Curriculum</span>
                                 <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
@@ -325,7 +346,6 @@
                         </div>
                     </div>
 
-                    <!-- Expandable Curriculum -->
                     <div class="expand-content mt-4">
                         <div class="expand-inner">
                             <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -340,7 +360,7 @@
                     </div>
                 </div>
 
-                <!-- Enterprise -->
+                <!-- Program 3 (Enterprise / Google Form Tab) -->
                 <div class="spotlight-wrapper p-8 reveal delay-200">
                     <div class="spotlight-content flex flex-col md:flex-row md:items-start justify-between">
                         <div class="mb-6 md:mb-0">
@@ -353,7 +373,7 @@
                         </div>
                         
                         <div class="w-full md:w-64 flex flex-col gap-3">
-                            <a href="YOUR_CONSULTATION_GOOGLE_FORM_LINK_HERE" target="_blank" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:border-gray-400 hover:bg-gray-50 transition-all text-center flex items-center justify-center">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:border-gray-400 hover:bg-gray-50 transition-all text-center flex items-center justify-center">
                                 Book Consultation
                             </a>
                             <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-transparent text-gray-500 text-sm font-medium hover:text-brand-900 transition-colors flex items-center justify-center">
@@ -362,7 +382,6 @@
                         </div>
                     </div>
 
-                    <!-- Expandable Curriculum -->
                     <div class="expand-content mt-4">
                         <div class="expand-inner">
                             <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -386,11 +405,9 @@
             </div>
 
             <div class="relative max-w-4xl mx-auto">
-                <!-- Linear connecting line -->
                 <div class="hidden md:block absolute top-8 left-[10%] w-[80%] h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent z-0"></div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-                    <!-- Step 1 -->
                     <div class="flex flex-col items-center text-center reveal">
                         <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm z-10 transition-transform hover:scale-110 duration-300">
                             <i data-lucide="book-open" class="w-5 h-5 text-brand-900"></i>
@@ -399,7 +416,6 @@
                         <p class="text-xs text-gray-500 font-medium">Master the underlying concepts.</p>
                     </div>
                     
-                    <!-- Step 2 -->
                     <div class="flex flex-col items-center text-center reveal delay-100">
                         <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm z-10 transition-transform hover:scale-110 duration-300">
                             <i data-lucide="hammer" class="w-5 h-5 text-brand-900"></i>
@@ -408,7 +424,6 @@
                         <p class="text-xs text-gray-500 font-medium">Construct practical solutions.</p>
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="flex flex-col items-center text-center reveal delay-200">
                         <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm z-10 transition-transform hover:scale-110 duration-300">
                             <i data-lucide="rocket" class="w-5 h-5 text-brand-900"></i>
@@ -417,7 +432,6 @@
                         <p class="text-xs text-gray-500 font-medium">Integrate into workflows.</p>
                     </div>
 
-                    <!-- Step 4 -->
                     <div class="flex flex-col items-center text-center reveal delay-300">
                         <div class="w-16 h-16 bg-brand-900 border border-brand-900 rounded-2xl flex items-center justify-center mb-6 shadow-lg z-10 transition-transform hover:scale-110 duration-300">
                             <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
@@ -470,7 +484,7 @@
                         Bridging the gap between theoretical AI and enterprise implementation. Leveraging Google Cloud certified expertise to craft intensive curriculums that deliver tangible, automated outcomes for modern organizations.
                     </p>
                     
-                    <a href="#consultation" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-gray-600 transition-colors group">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-gray-600 transition-colors group">
                         Book a Strategy Call <i data-lucide="arrow-right" class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -479,7 +493,6 @@
     </section>
 
     <section id="consultation" class="py-32 relative bg-brand-50 overflow-hidden text-center border-t border-gray-100">
-        <!-- Ambient subtle center glow -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white opacity-60 blur-[80px] rounded-full pointer-events-none"></div>
         
         <div class="max-w-2xl mx-auto px-6 relative z-10 reveal">
@@ -489,10 +502,10 @@
             <p class="text-gray-500 mb-10 text-sm font-medium">Join the professionals building the next era of technology.</p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button onclick="openEnrollModal('mastery')" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center">
+                <a href="#programs" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center">
                     Enroll Now
-                </button>
-                <a href="YOUR_CONSULTATION_GOOGLE_FORM_LINK_HERE" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center">
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center">
                     Book Consultation
                 </a>
             </div>
@@ -508,42 +521,26 @@
             </div>
             <div class="flex space-x-6">
                 <a href="#programs" class="hover:text-brand-900 transition-colors">Programs</a>
-                <a href="#consultation" class="hover:text-brand-900 transition-colors">Consulting</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="hover:text-brand-900 transition-colors">Consulting</a>
                 <a href="#" class="hover:text-brand-900 transition-colors">Privacy</a>
                 <a href="#" class="hover:text-brand-900 transition-colors">Terms</a>
             </div>
         </div>
     </footer>
 
-    <!-- Enrollment Lead Capture Modal -->
-    <div id="enrollModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/30 backdrop-blur-sm p-4 transition-opacity">
-        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-gray-100 transform transition-all">
-            <button onclick="closeEnrollModal()" class="absolute top-5 right-5 text-gray-400 hover:text-brand-900 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <h3 class="text-2xl font-display font-bold text-brand-900 mb-2">Almost there!</h3>
-            <p class="text-gray-500 text-sm mb-6 font-medium">Please enter your details to proceed to the secure payment gateway.</p>
+    
+    <!-- Unified Success Modal (Handles both Payment and Enquiry) -->
+    <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/40 backdrop-blur-sm p-4 transition-opacity">
+        <div class="bg-white rounded-3xl p-10 max-w-md w-full shadow-2xl relative border border-gray-100 text-center transform transition-all">
+            <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check-circle" class="w-10 h-10 text-emerald-500"></i>
+            </div>
+            <h3 id="successTitle" class="text-3xl font-display font-bold text-brand-900 mb-3">Successful!</h3>
+            <p id="successDesc" class="text-gray-500 text-sm mb-8 font-medium leading-relaxed">Thank you for your action.</p>
             
-            <form id="enrollForm" class="space-y-4">
-                <input type="hidden" id="selectedProgram" name="program" value="">
-                <div>
-                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">Full Name</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-900 focus:ring-1 focus:ring-brand-900 transition-all outline-none text-sm font-medium">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">Email Address</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-900 focus:ring-1 focus:ring-brand-900 transition-all outline-none text-sm font-medium">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">Phone Number</label>
-                    <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-900 focus:ring-1 focus:ring-brand-900 transition-all outline-none text-sm font-medium">
-                </div>
-                <div class="pt-4">
-                    <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-full bg-brand-900 text-white font-medium text-sm hover:bg-gray-800 transition-all shadow-md flex justify-center items-center">
-                        Proceed to Payment <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                    </button>
-                </div>
-            </form>
+            <button onclick="closeSuccessModal()" class="w-full py-3.5 rounded-full bg-brand-900 text-white font-medium text-sm hover:bg-gray-800 transition-all shadow-md flex justify-center items-center">
+                Return to Homepage
+            </button>
         </div>
     </div>
 
@@ -603,55 +600,38 @@
             }
         }
 
-        // Enrollment Lead Capture Logic
-        // IMPORTANT: Replace these URLs with your actual links
-        const PAYMENT_LINKS = {
-            'job-ready': 'YOUR_21_HOUR_PAYMENT_LINK_HERE',
-            'mastery': 'https://rzp.io/rzp/sy4m06Nb'
-        };
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQIROW1TNvBvG1t1EPgmS2bNOA7TnmIIC67uVNAx2p_x3g61wfBAbRvk0-fhA0BLTV3A/exec';
-
-        function openEnrollModal(programType) {
-            document.getElementById('enrollModal').classList.remove('hidden');
-            document.getElementById('enrollModal').classList.add('flex');
-            document.getElementById('selectedProgram').value = programType;
+        // Close Modal Logic
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+            // Clean up the URL bar so the modal doesn't trigger again if they refresh
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
 
-        function closeEnrollModal() {
-            document.getElementById('enrollModal').classList.add('hidden');
-            document.getElementById('enrollModal').classList.remove('flex');
-        }
+        // Check URL for success parameters when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const successType = urlParams.get('success');
 
-        document.getElementById('enrollForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading spinner
-            submitBtn.innerHTML = '<div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div> Processing...';
-            submitBtn.disabled = true;
+            if (successType === 'payment' || successType === 'enquiry') {
+                const modal = document.getElementById('successModal');
+                const title = document.getElementById('successTitle');
+                const desc = document.getElementById('successDesc');
 
-            const formData = new FormData(this);
-            const programType = document.getElementById('selectedProgram').value;
+                if (successType === 'payment') {
+                    title.innerText = "Payment Successful!";
+                    desc.innerText = "Thank you for enrolling in Databloom AI & Tech. We have received your details and will contact you shortly with your onboarding instructions.";
+                } else if (successType === 'enquiry') {
+                    title.innerText = "Enquiry Received!";
+                    desc.innerText = "Thank you for reaching out to Databloom AI & Tech. Our team will review your requirements and get back to you shortly.";
+                }
 
-            // Fallback: If you haven't set up the Google Script yet, skip tracking and just redirect to payment so your site doesn't break.
-            if(GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyQIROW1TNvBvG1t1EPgmS2bNOA7TnmIIC67uVNAx2p_x3g61wfBAbRvk0-fhA0BLTV3A/exec') {
-                window.location.href = PAYMENT_LINKS[programType];
-                return;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                
+                // Re-initialize icons just in case they render late in the modal
+                lucide.createIcons();
             }
-
-            // Send data to Google Sheet silently, then redirect
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Crucial for ignoring cross-origin security blocks on the frontend
-            }).then(() => {
-                window.location.href = PAYMENT_LINKS[programType];
-            }).catch(error => {
-                // If tracking fails, still let them pay!
-                console.error('Tracking Error, redirecting to payment...', error);
-                window.location.href = PAYMENT_LINKS[programType];
-            });
         });
     </script>
 </body>
