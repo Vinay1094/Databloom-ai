@@ -1,9 +1,10 @@
+<!-- STREAMING_CHUNK:Configuring metadata, fonts, and tailwind settings... -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databloom AI & Tech</title>
+    <title>Databloom AI & Tech | Premium AI Training & Enterprise Consulting</title>
     <meta name="description" content="Premium AI training and enterprise consulting. Master Artificial Intelligence.">
     
     <!-- Fonts: Manrope (Display) & Inter (Body) -->
@@ -51,6 +52,7 @@
         }
     </script>
 
+    <!-- STREAMING_CHUNK:Adding styling for custom spotlights, animations, and scrollbars... -->
     <style>
         body {
             background-color: #ffffff;
@@ -148,17 +150,38 @@
         }
         .razorpay-wrapper .razorpay-payment-button {
             width: 100% !important;
+            background-color: #111111 !important;
+            border-radius: 9999px !important;
+            padding: 12px 24px !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            border: 1px solid #111111 !important;
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1) !important;
+            transition: all 0.3s ease !important;
+        }
+        .razorpay-wrapper .razorpay-payment-button:hover {
+            background-color: #222222 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
         }
     </style>
 </head>
 <body class="relative selection:bg-brand-100 selection:text-brand-900">
 
+    <!-- STREAMING_CHUNK:Building the sticky glass-morphism navbar... -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="absolute inset-0 bg-white/60 backdrop-blur-md border-b border-gray-100/50"></div>
         <div class="max-w-6xl mx-auto px-6 relative flex justify-between items-center h-16">
             <a href="#" class="flex items-center space-x-3 group">
-                <!-- Clean Minimalist Geometric Logo Placeholder -->
-                <img src="https://placehold.co/100x100/111111/ffffff?text=DB" alt="Databloom Logo" class="w-6 h-6 rounded-md object-contain">
+                <!-- Inline Geometric Vector Brand Mark -->
+                <div class="w-8 h-8 bg-brand-900 rounded-lg flex items-center justify-center shadow-md shadow-black/5 group-hover:scale-105 transition-transform">
+                    <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
                 <span class="font-display font-bold text-lg tracking-tight text-brand-900">Databloom</span>
             </a>
             
@@ -172,6 +195,7 @@
         </div>
     </nav>
 
+    <!-- STREAMING_CHUNK:Rendering hero section with ambient glows and floating badges... -->
     <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-16">
         <div class="ambient-glow"></div>
         
@@ -212,6 +236,7 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Designing audience path cards with hover spotlight states... -->
     <section id="journey" class="py-24 bg-brand-50 relative border-t border-gray-100/50">
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="mb-16 reveal">
@@ -265,6 +290,7 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Constructing the curriculums and payment buttons section... -->
     <section id="programs" class="py-32 bg-white relative">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-20 reveal">
@@ -288,7 +314,9 @@
                         
                         <div class="w-full md:w-64 flex flex-col gap-3">
                             <div class="w-full flex justify-center razorpay-wrapper">
-                                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async> </script> </form>
+                                <form>
+                                    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async></script>
+                                </form>
                             </div>
 
                             <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:bg-gray-50 transition-all flex items-center justify-between group">
@@ -298,6 +326,7 @@
                         </div>
                     </div>
                     
+                    <!-- STREAMING_CHUNK:Detailing curriculum expandable contents... -->
                     <div class="expand-content mt-4">
                         <div class="expand-inner">
                             <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -327,7 +356,9 @@
                         
                         <div class="w-full md:w-64 flex flex-col gap-3">
                             <div class="w-full flex justify-center razorpay-wrapper">
-                                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async> </script> </form>
+                                <form>
+                                    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async></script>
+                                </form>
                             </div>
                             
                             <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:bg-gray-50 transition-all flex items-center justify-between group">
@@ -389,6 +420,7 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Structuring the Databloom methodology workflow... -->
     <section id="workflow" class="py-32 bg-brand-50 border-y border-gray-100/50">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-24 reveal">
@@ -435,6 +467,7 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Creating numeric milestone achievements... -->
     <section class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-gray-100">
@@ -460,12 +493,13 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Formatting founders biography with a curated portrait... -->
     <section class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="spotlight-wrapper p-10 md:p-12 flex flex-col md:flex-row items-center gap-10 reveal">
-                <!-- Premium High-Quality Portrait Placeholder Asset -->
-                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-50 flex-shrink-0 relative overflow-hidden border border-gray-100 shadow-sm flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80" alt="Founder Portrait" class="w-full h-full object-cover">
+                <!-- Premium High-Quality Technical Portrait Asset -->
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-50 flex-shrink-0 relative overflow-hidden border border-gray-100 shadow-md flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600&h=600" alt="Founder Portrait" class="w-full h-full object-cover">
                 </div>
                 
                 <div class="text-center md:text-left">
@@ -474,7 +508,7 @@
                     
                     <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium max-w-lg">
                         I built Databloom because most AI courses teach the tool and skip the thinking. After a decade inside enterprise AI — evaluating models for Apple and OpenAI at Turing, fixing broken systems at TIDE Fintech and Wipro — I got the chance to deliver IBM SkillsBuild's Generative AI cohorts for learners across the US. Working on the curriculum what to teach then it clicked: the world's best programs don't teach AI as a feature list. They teach design thinking — the "why" behind every solution — so the tool becomes secondary to the judgment.
-                        Databloom brings that same rigor home. Whether you're a fresh graduate, a corporate team, or a college classroom, we don't hand you prompts to memorize — we build the reasoning that makes you dangerous with any tool, today or the next one..
+                        Databloom brings that same rigor home. Whether you're a fresh graduate, a corporate team, or a college classroom, we don't hand you prompts to memorize — we build the reasoning that makes you dangerous with any tool, today or the next one.
                     </p>
                     
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-gray-600 transition-colors group">
@@ -485,6 +519,7 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Building persistent call-to-action and conversion sections... -->
     <section id="consultation" class="py-32 relative bg-brand-50 overflow-hidden text-center border-t border-gray-100">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white opacity-60 blur-[80px] rounded-full pointer-events-none"></div>
         
@@ -505,11 +540,18 @@
         </div>
     </section>
 
+    <!-- STREAMING_CHUNK:Creating the footers brand layout and legal links... -->
     <footer class="bg-white py-10 border-t border-gray-100">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-gray-400">
             <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                <!-- Matching Global Minimalist Footer Logo Placeholder -->
-                <img src="https://placehold.co/100x100/111111/ffffff?text=DB" alt="Databloom Logo" class="w-5 h-5 rounded-md object-contain">
+                <!-- Matching Global Minimalist Vector Brand Mark -->
+                <div class="w-6 h-6 bg-brand-900 rounded flex items-center justify-center">
+                    <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
                 <span class="text-brand-900 font-bold font-display tracking-tight text-sm">Databloom</span>
                 <span class="ml-2">&copy; 2026.</span>
             </div>
@@ -522,6 +564,7 @@
         </div>
     </footer>
 
+    <!-- STREAMING_CHUNK:Defining success feedback modals... -->
     <!-- Unified Success Modal (Handles both Payment and Enquiry) -->
     <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/40 backdrop-blur-sm p-4 transition-opacity">
         <div class="bg-white rounded-3xl p-10 max-w-md w-full shadow-2xl relative border border-gray-100 text-center transform transition-all">
@@ -537,6 +580,7 @@
         </div>
     </div>
 
+    <!-- STREAMING_CHUNK:Writing reactive scripts for dynamic animations, scrolls, and spotlight coordinates... -->
     <script>
         // Initialize Icons
         lucide.createIcons();
@@ -627,3 +671,4 @@
     </script>
 </body>
 </html>
+```eof
