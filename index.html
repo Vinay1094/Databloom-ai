@@ -16,7 +16,6 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- STREAMING_CHUNK:Configuring custom Tailwind themes and keyframes... -->
     <script>
         tailwind.config = {
             theme: {
@@ -52,7 +51,6 @@
         }
     </script>
 
-    <!-- STREAMING_CHUNK:Defining CSS rules for spotlight overlays and expand layouts... -->
     <style>
         body {
             background-color: #ffffff;
@@ -169,22 +167,20 @@
 </head>
 <body class="relative selection:bg-brand-100 selection:text-brand-900">
 
-    <!-- STREAMING_CHUNK:Declaring global GitHub image configuration parameters... -->
     <script>
         /**
          * EASY GITHUB IMAGE CONFIGURATION
-         * Paste your GitHub Pages raw file paths or absolute repository links here!
-         * If the URL fails or is empty, the browser falls back gracefully to local files or premium placeholders.
+         * Converted from web link format to direct RAW link format so the browser loads them perfectly!
          */
         const IMAGE_CONFIG = {
-            // PASTE YOUR LOGO LINK HERE (e.g., "https://raw.githubusercontent.com/username/repo/main/Logo%20for%20DATABLOOM%20A.png")
-            logoUrl: "https://github.com/Vinay1094/Databloom-ai/blob/f2fd2de5aa5d2d05afbd8a80d73864476e63571c/assets/Logo%20.png",
+            // FIXED RAW GITHUB LINK FOR YOUR LOGO
+            logoUrl: "https://raw.githubusercontent.com/Vinay1094/Databloom-ai/f2fd2de5aa5d2d05afbd8a80d73864476e63571c/assets/Logo%20.png",
 
-            // PASTE YOUR FOUNDER IMAGE LINK HERE (e.g., "https://raw.githubusercontent.com/username/repo/main/Gemini_Generated_Image_3bvsa13bvsa13bvs.png")
-            founderUrl: "https://github.com/Vinay1094/Databloom-ai/blob/f1132bcb37ba51ff73f3dc1fcd062c65934f6b37/assets/Founders%20pic%20.png"
+            // FIXED RAW GITHUB LINK FOR YOUR FOUNDER PROFILE PICTURE
+            founderUrl: "https://raw.githubusercontent.com/Vinay1094/Databloom-ai/f1132bcb37ba51ff73f3dc1fcd062c65934f6b37/assets/Founders%20pic%20.png"
         };
 
-        // Apply image paths programmatically when Document Object Model is active
+        // Inject configuration objects programmatically
         window.addEventListener('DOMContentLoaded', () => {
             const navLogo = document.getElementById('nav-logo');
             const footerLogo = document.getElementById('footer-logo');
@@ -196,12 +192,11 @@
         });
     </script>
 
-    <!-- STREAMING_CHUNK:Constructing header navigation bar structures... -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="absolute inset-0 bg-white/60 backdrop-blur-md border-b border-gray-100/50"></div>
         <div class="max-w-6xl mx-auto px-6 relative flex justify-between items-center h-16">
             <a href="#" class="flex items-center space-x-3 group">
-                <!-- Navigation Brand Logo (Uses JS IMAGE_CONFIG) -->
+                <!-- Converted GitHub Navigation Logo -->
                 <img id="nav-logo" alt="Databloom Logo" class="w-8 h-8 rounded-lg object-contain transform group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/111111/ffffff?text=DB'">
                 <span class="font-display font-bold text-lg tracking-tight text-brand-900">Databloom</span>
             </a>
@@ -216,7 +211,6 @@
         </div>
     </nav>
 
-    <!-- STREAMING_CHUNK:Designing interactive responsive hero elements... -->
     <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-16">
         <div class="ambient-glow"></div>
         
@@ -257,7 +251,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Structuring target segment pathway cards... -->
     <section id="journey" class="py-24 bg-brand-50 relative border-t border-gray-100/50">
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="mb-16 reveal">
@@ -311,7 +304,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Developing premium pricing grid with Razorpay forms... -->
     <section id="programs" class="py-32 bg-white relative">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-20 reveal">
@@ -440,7 +432,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Creating the sequential methodology workflow steps... -->
     <section id="workflow" class="py-32 bg-brand-50 border-y border-gray-100/50">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-24 reveal">
@@ -487,7 +478,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Adding metric count counters and ratings blocks... -->
     <section class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-gray-100">
@@ -513,7 +503,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Building founder profile bio with the fallback portrait... -->
     <section class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="spotlight-wrapper p-10 md:p-12 flex flex-col md:flex-row items-center gap-10 reveal">
@@ -539,7 +528,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Adding consultation conversion components... -->
     <section id="consultation" class="py-32 relative bg-brand-50 overflow-hidden text-center border-t border-gray-100">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white opacity-60 blur-[80px] rounded-full pointer-events-none"></div>
         
@@ -560,7 +548,6 @@
         </div>
     </section>
 
-    <!-- STREAMING_CHUNK:Building bottom brand details and navigation footers... -->
     <footer class="bg-white py-10 border-t border-gray-100">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-gray-400">
             <div class="flex items-center space-x-3 mb-4 md:mb-0">
@@ -578,7 +565,6 @@
         </div>
     </footer>
 
-    <!-- STREAMING_CHUNK:Writing dynamic feedback popups/modals layout... -->
     <!-- Unified Success Modal (Handles both Payment and Enquiry) -->
     <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/40 backdrop-blur-sm p-4 transition-opacity">
         <div class="bg-white rounded-3xl p-10 max-w-md w-full shadow-2xl relative border border-gray-100 text-center transform transition-all">
@@ -594,7 +580,6 @@
         </div>
     </div>
 
-    <!-- STREAMING_CHUNK:Implementing layout scrolling scripts and click triggers... -->
     <script>
         // Initialize Icons
         lucide.createIcons();
@@ -685,4 +670,3 @@
     </script>
 </body>
 </html>
-```eof
