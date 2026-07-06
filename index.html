@@ -157,9 +157,8 @@
         <div class="absolute inset-0 bg-white/60 backdrop-blur-md border-b border-gray-100/50"></div>
         <div class="max-w-6xl mx-auto px-6 relative flex justify-between items-center h-16">
             <a href="#" class="flex items-center space-x-2 group">
-                <div class="w-6 h-6 bg-brand-900 rounded-md flex items-center justify-center">
-                    <i data-lucide="layers" class="w-3.5 h-3.5 text-white"></i>
-                </div>
+                <!-- EDIT HERE: Replace the source below with your actual logo file path or URL -->
+                <img src="path/to/your-logo.png" alt="Databloom Logo" class="w-6 h-6 object-contain">
                 <span class="font-display font-bold text-lg tracking-tight text-brand-900">Databloom</span>
             </a>
             
@@ -292,7 +291,7 @@
                             <!-- PASTE 21-HOUR RAZORPAY HTML CODE BELOW     -->
                             <!-- ========================================== -->
                             <div class="w-full flex justify-center razorpay-wrapper">
-                                <<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async> </script> </form>>
+                                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async> </script> </form>
                             </div>
                             <!-- ========================================== -->
 
@@ -335,7 +334,7 @@
                             <!-- PASTE 33-HOUR RAZORPAY HTML CODE BELOW     -->
                             <!-- ========================================== -->
                             <div class="w-full flex justify-center razorpay-wrapper">
-                                <<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async> </script> </form>>
+                                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async> </script> </form>
                             </div>
                             <!-- ========================================== -->
                             
@@ -472,8 +471,10 @@
     <section class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="spotlight-wrapper p-10 md:p-12 flex flex-col md:flex-row items-center gap-10 reveal">
+                <!-- Founder Image Container -->
                 <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-50 flex-shrink-0 relative overflow-hidden border border-gray-100 shadow-sm flex items-center justify-center">
-                    <i data-lucide="user" class="w-12 h-12 text-gray-300"></i>
+                    <!-- EDIT HERE: Replace the source below with your founder's actual profile photo link/path -->
+                    <img src="path/to/founder-pic.jpg" alt="Founder Portrait" class="w-full h-full object-cover">
                 </div>
                 
                 <div class="text-center md:text-left">
@@ -481,8 +482,8 @@
                     <p class="text-gray-500 font-semibold text-[11px] tracking-widest uppercase mb-5">Founder, Databloom AI & Tech</p>
                     
                     <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium max-w-lg">
-                        We built Databloom because most AI courses teach the tool and skip the thinking. After a decade inside enterprise AI — evaluating models for Apple and OpenAI at Turing, fixing broken systems at TIDE Fintech and Wipro — I got the chance to deliver IBM SkillsBuild's Generative AI cohorts for learners across the US. Working on the curriculum what to teach then it clicked: the world's best programs don't teach AI as a feature list. They teach design thinking — the "why" behind every solution — so the tool becomes secondary to the judgment.
-Databloom brings that same rigor home. Whether you're a fresh graduate, a corporate team, or a college classroom, we don't hand you prompts to memorize — we build the reasoning that makes you dangerous with any tool, today or the next one..
+                        I built Databloom because most AI courses teach the tool and skip the thinking. After a decade inside enterprise AI — evaluating models for Apple and OpenAI at Turing, fixing broken systems at TIDE Fintech and Wipro — I got the chance to deliver IBM SkillsBuild's Generative AI cohorts for learners across the US. Working on the curriculum what to teach then it clicked: the world's best programs don't teach AI as a feature list. They teach design thinking — the "why" behind every solution — so the tool becomes secondary to the judgment.
+                        Databloom brings that same rigor home. Whether you're a fresh graduate, a corporate team, or a college classroom, we don't hand you prompts to memorize — we build the reasoning that makes you dangerous with any tool, today or the next one..
                     </p>
                     
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-gray-600 transition-colors group">
@@ -516,7 +517,8 @@ Databloom brings that same rigor home. Whether you're a fresh graduate, a corpor
     <footer class="bg-white py-10 border-t border-gray-100">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-gray-400">
             <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                <i data-lucide="layers" class="w-4 h-4 text-brand-900"></i>
+                <!-- EDIT HERE: Replace the source below with your actual footer logo path/URL -->
+                <img src="path/to/your-logo.png" alt="Databloom Logo" class="w-5 h-5 object-contain">
                 <span class="text-brand-900 font-bold font-display tracking-tight text-sm">Databloom</span>
                 <span class="ml-2">&copy; 2026.</span>
             </div>
@@ -581,7 +583,7 @@ Databloom brings that same rigor home. Whether you're a fresh graduate, a corpor
             wrapper.addEventListener('mousemove', e => {
                 const rect = wrapper.getBoundingClientRect();
                 const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                const y = e.clientY - top; // Fixed standard offset calculation
                 wrapper.style.setProperty('--mouse-x', `${x}px`);
                 wrapper.style.setProperty('--mouse-y', `${y}px`);
             });
