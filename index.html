@@ -1,15 +1,17 @@
+:Databloom Redesign:index.html
+<!-- STREAMING_CHUNK:Configuring metadata, fonts, and tailwind settings... -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databloom AI & Tech | Premium AI Training & Enterprise Consulting</title>
-    <meta name="description" content="Premium AI training and enterprise consulting. Master Artificial Intelligence.">
+    <title>Databloom | Preparing India for the AI Age</title>
+    <meta name="description" content="Databloom designs AI education systems that help students, professionals, and organizations think better, work better, and build responsibly.">
     
-    <!-- Fonts: Manrope (Display) & Inter (Body) -->
+    <!-- Fonts: Manrope (Display Authority) & Inter (Premium Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,9 +28,11 @@
                     },
                     colors: {
                         brand: {
-                            50: '#f8f9fa',
-                            100: '#f1f3f5',
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            800: '#1f2937',
                             900: '#111111',
+                            active: '#2563eb'
                         }
                     },
                     animation: {
@@ -43,7 +47,7 @@
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -51,6 +55,7 @@
         }
     </script>
 
+    <!-- STREAMING_CHUNK:Defining global style overrides and CSS modules... -->
     <style>
         body {
             background-color: #ffffff;
@@ -132,7 +137,7 @@
             position: absolute;
             width: 80vw;
             height: 80vh;
-            background: radial-gradient(circle, rgba(240,240,240,1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(243,244,246,0.8) 0%, rgba(255,255,255,0) 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -140,7 +145,25 @@
             pointer-events: none;
         }
 
-        /* Razorpay Button Overrides (to center and style their default button) */
+        /* Custom Bulletproof Timeline Line */
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 2px;
+            background: #e5e7eb;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-line::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Razorpay Custom Overrides */
         .razorpay-wrapper form {
             display: flex;
             width: 100%;
@@ -155,414 +178,752 @@
             font-size: 0.875rem !important;
             font-weight: 500 !important;
             border: 1px solid #111111 !important;
-            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1) !important;
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.05) !important;
             transition: all 0.3s ease !important;
+            color: #ffffff !important;
         }
         .razorpay-wrapper .razorpay-payment-button:hover {
             background-color: #222222 !important;
             transform: translateY(-1px) !important;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important;
         }
     </style>
 </head>
 <body class="relative selection:bg-brand-100 selection:text-brand-900">
 
-    <script>
-        /**
-         * EASY GITHUB IMAGE CONFIGURATION
-         * Converted from web link format to direct RAW link format so the browser loads them perfectly!
-         */
-        const IMAGE_CONFIG = {
-            // FIXED RAW GITHUB LINK FOR YOUR LOGO
-            logoUrl: "https://raw.githubusercontent.com/Vinay1094/Databloom-ai/f2fd2de5aa5d2d05afbd8a80d73864476e63571c/assets/Logo%20.png",
-
-            // FIXED RAW GITHUB LINK FOR YOUR FOUNDER PROFILE PICTURE
-            founderUrl: "https://raw.githubusercontent.com/Vinay1094/Databloom-ai/f1132bcb37ba51ff73f3dc1fcd062c65934f6b37/assets/Founders%20pic%20.png"
-        };
-
-        // Inject configuration objects programmatically
-        window.addEventListener('DOMContentLoaded', () => {
-            const navLogo = document.getElementById('nav-logo');
-            const footerLogo = document.getElementById('footer-logo');
-            const founderImg = document.getElementById('founder-img');
-
-            if (navLogo) navLogo.src = IMAGE_CONFIG.logoUrl;
-            if (footerLogo) footerLogo.src = IMAGE_CONFIG.logoUrl;
-            if (founderImg) founderImg.src = IMAGE_CONFIG.founderUrl;
-        });
-    </script>
-
+    <!-- STREAMING_CHUNK:Rendering navigation header with integrated assets... -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="absolute inset-0 bg-white/60 backdrop-blur-md border-b border-gray-100/50"></div>
+        <div class="absolute inset-0 bg-white/70 backdrop-blur-md border-b border-gray-100/55"></div>
         <div class="max-w-6xl mx-auto px-6 relative flex justify-between items-center h-16">
             <a href="#" class="flex items-center space-x-3 group">
-                <!-- Converted GitHub Navigation Logo -->
-                <img id="nav-logo" alt="Databloom Logo" class="w-8 h-8 rounded-lg object-contain transform group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/111111/ffffff?text=DB'">
-                <span class="font-display font-bold text-lg tracking-tight text-brand-900">Databloom</span>
+                <img src="Logo for DATABLOOM A.png" alt="Databloom Logo" class="w-8 h-8 rounded-lg object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/100x100/111111/ffffff?text=DB'">
+                <span class="font-display font-extrabold text-lg tracking-tight text-brand-900">Databloom</span>
             </a>
             
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#programs" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Programs</a>
-                <a href="#workflow" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Methodology</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                <a href="#philosophy" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Philosophy</a>
+                <a href="#systems" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Learning Systems</a>
+                <a href="#proof" class="text-sm font-medium text-gray-500 hover:text-brand-900 transition-colors">Outcomes</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="px-4 py-2 rounded-full text-sm font-medium bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-[0_2px_10px_rgba(0,0,0,0.05)]">
                     Consultation
                 </a>
             </div>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-16">
+    <!-- STREAMING_CHUNK:Designing overlapping-safe premium hero section... -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
         <div class="ambient-glow"></div>
         
-        <!-- Floating Glass UI Elements -->
-        <div class="absolute top-1/4 left-[15%] hidden lg:flex items-center space-x-2 px-4 py-2 bg-white/70 backdrop-blur-md border border-gray-100 rounded-full shadow-sm animate-float">
-            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
-            <span class="text-xs font-medium text-gray-600">AI Agents Active</span>
+        <!-- Safe Floating Badge Indicators to Avoid Text Overlapping -->
+        <div class="absolute top-[22%] left-[4%] hidden xl:flex items-center space-x-2 px-4 py-2.5 bg-white/90 backdrop-blur-md border border-gray-200/60 rounded-full shadow-sm animate-float max-w-xs">
+            <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+            <span class="text-xs font-semibold text-gray-800">DU Programs Validated</span>
         </div>
-        <div class="absolute bottom-1/3 right-[15%] hidden lg:flex items-center space-x-2 px-4 py-2 bg-white/70 backdrop-blur-md border border-gray-100 rounded-full shadow-sm animate-float-delayed">
-            <i data-lucide="cpu" class="w-3 h-3 text-gray-500"></i>
-            <span class="text-xs font-medium text-gray-600">LLM Integrated</span>
+        <div class="absolute bottom-[22%] right-[4%] hidden xl:flex items-center space-x-2 px-4 py-2.5 bg-white/90 backdrop-blur-md border border-gray-200/60 rounded-full shadow-sm animate-float-delayed max-w-xs">
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+            <span class="text-xs font-semibold text-gray-800">Intellectual Property Verified</span>
         </div>
 
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center w-full">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-gray-50 border border-gray-200 rounded-full mb-8 reveal">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="w-3 h-3">
-                <span class="text-[11px] font-semibold text-gray-600 tracking-wider uppercase">Cloud AI Certified</span>
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center w-full">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 bg-gray-50 border border-gray-200 rounded-full mb-8 reveal">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-900 animate-pulse"></span>
+                <span class="text-[11px] font-bold text-gray-700 tracking-wider uppercase">BUILDING AN AI-READY INDIA</span>
             </div>
 
-            <h1 class="text-6xl md:text-7xl lg:text-[5.5rem] font-display font-extrabold tracking-tighter mb-6 reveal delay-100 leading-[1.05] text-brand-900">
-                Job-Ready in Weeks.<br>
-                Future-Ready for Life.
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] font-display font-extrabold tracking-tighter mb-6 reveal delay-100 leading-[1.1] text-brand-900 max-w-4xl mx-auto">
+                We prepare people for a future where AI becomes everyone's colleague.
             </h1>
             
-            <p class="mt-6 max-w-xl mx-auto text-lg text-gray-500 font-medium reveal delay-200 leading-relaxed">
-                Helping modern teams and individuals master Artificial Intelligence through practical training, real-world workflows, and enterprise consulting.
+            <p class="mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-600 font-medium reveal delay-200 leading-relaxed">
+                Databloom designs AI education systems that help students, professionals, and organizations think better, work better, and build responsibly with Artificial Intelligence.
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center reveal delay-200">
-                <a href="#programs" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-medium text-sm bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] flex items-center justify-center group">
+                <a href="#systems" class="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-sm bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-md flex items-center justify-center group">
                     Explore Programs
                     <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-medium text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center">
-                    Book Consultation
+                <a href="#proof" class="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center">
+                    See Real Outcomes
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="journey" class="py-24 bg-brand-50 relative border-t border-gray-100/50">
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="mb-16 reveal">
-                <h2 class="text-3xl font-display font-bold text-brand-900 tracking-tight">Who are you?</h2>
-                <p class="text-gray-500 mt-2 text-sm font-medium">Tailored expertise for your specific context.</p>
+    <!-- STREAMING_CHUNK:Constructing overall impact metrics dashboard... -->
+    <section class="py-16 bg-brand-50 border-y border-gray-100 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Already Impacting AI Education</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center">
+                <div class="reveal">
+                    <div class="text-4xl md:text-5xl font-display font-extrabold text-brand-900 tracking-tight">3</div>
+                    <p class="text-sm font-semibold text-gray-600 mt-2">Delhi University Institutions</p>
+                </div>
+                <div class="reveal delay-100">
+                    <div class="text-4xl md:text-5xl font-display font-extrabold text-brand-900 tracking-tight">80+</div>
+                    <p class="text-sm font-semibold text-gray-600 mt-2">Hours Delivered</p>
+                </div>
+                <div class="reveal delay-200">
+                    <div class="text-4xl md:text-5xl font-display font-extrabold text-brand-900 tracking-tight">Thousands</div>
+                    <p class="text-sm font-semibold text-gray-600 mt-2">of Prompt Exercises Designed</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-200/50 flex flex-wrap justify-center gap-6 md:gap-12 text-xs font-semibold text-gray-500 text-center">
+                <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-brand-900"></i> 100% Hands-on Learning</span>
+                <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-brand-900"></i> Industry Projects</span>
+                <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-brand-900"></i> Verified Student Feedback</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Developing manifesto and philosophy sections... -->
+    <section id="philosophy" class="py-32 bg-white relative">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-4 reveal">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 block mb-3">Our Core Manifesto</span>
+                    <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight leading-tight">
+                        Why Databloom Exists
+                    </h2>
+                </div>
+                <div class="lg:col-span-8 reveal delay-100">
+                    <div class="text-2xl md:text-3xl font-display font-medium text-gray-800 leading-relaxed border-l-4 border-brand-900 pl-6 md:pl-10">
+                        "Education has always taught people <span class="text-gray-400 italic">what to know</span>.<br class="hidden md:block"> The AI era demands people learn <span class="text-brand-900 font-extrabold">how to think</span>.<br class="hidden md:block"> Databloom exists to bridge that gap."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Building the 5 Pillars of Verification & Proof... -->
+    <section id="pillars-proof" class="py-24 bg-brand-50/50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-500">ACADEMIC & WORKFORCE EVIDENCE</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight mt-3">The 5 Pillars of Verification & Proof</h2>
+                <p class="text-gray-500 mt-4">We back every system we market with hard, structural delivery outcomes and verifiable curricula.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Pillar 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-brand-900 mb-4 font-bold text-lg border border-gray-100">01</div>
+                        <h4 class="font-display font-bold text-brand-900 mb-2">University Delivery</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Successfully delivered rigorous 20-hour and 40-hour academic AI curricula directly in Delhi University colleges.</p>
+                    </div>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-brand-900 mb-4 font-bold text-lg border border-gray-100">02</div>
+                        <h4 class="font-display font-bold text-brand-900 mb-2">End-to-End Curricula</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Built complete curricula covering AI foundations, prompt engineering, deep research, computer vision, ethics, and portfolio development.</p>
+                    </div>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-brand-900 mb-4 font-bold text-lg border border-gray-100">03</div>
+                        <h4 class="font-display font-bold text-brand-900 mb-2">Complete Training IP</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Created rich, reusable educational IP including slide decks, programming labs, projects, assessments, and capstone activities.</p>
+                    </div>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-brand-900 mb-4 font-bold text-lg border border-gray-100">04</div>
+                        <h4 class="font-display font-bold text-brand-900 mb-2">Rigorous Quality</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Structured learning backed by a decade in enterprise AI operations, model validation, and delivery frameworks.</p>
+                    </div>
+                </div>
+                <!-- Pillar 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-brand-900 mb-4 font-bold text-lg border border-gray-100">05</div>
+                        <h4 class="font-display font-bold text-brand-900 mb-2">Verifiable Surveys</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">All metrics are extracted from transparent, standard college student spreadsheet surveys with verified response rates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Displaying Delhi University college delivery timelines... -->
+    <section id="proof" class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-500">PROVEN COLLEGE TIMELINE</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight mt-3">Trusted by Educational Institutions</h2>
+                <p class="text-gray-600 mt-4 text-base">We don't sell speculative workshops. These are highly structured curricula designed, delivered, and verified at premier institutions.</p>
+            </div>
+
+            <!-- Timeline Structure -->
+            <div class="relative timeline-line max-w-4xl mx-auto">
+                
+                <!-- Timeline Milestone 1 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-16 md:space-x-12 reveal">
+                    <div class="absolute left-[15px] md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center font-display font-bold text-xs z-10">
+                        1
+                    </div>
+                    <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right mt-1">
+                        <span class="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-xs font-bold tracking-wide mb-2 uppercase">20 Hours</span>
+                        <h3 class="text-xl font-display font-bold text-brand-900">Maharaja Agrasen College</h3>
+                        <p class="text-gray-500 text-sm mt-1">Delhi University</p>
+                    </div>
+                    <div class="w-full md:w-1/2 pl-12 md:pl-12 mt-4 md:mt-1">
+                        <div class="bg-brand-50 p-6 rounded-2xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold text-gray-400 block mb-3 uppercase">Delivered Curriculum</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Prompt Engineering</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">AI Productivity</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Responsible AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Milestone 2 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-16 md:space-x-12 reveal delay-100">
+                    <div class="absolute left-[15px] md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center font-display font-bold text-xs z-10">
+                        2
+                    </div>
+                    <!-- Order reversed on desktop to alternate side -->
+                    <div class="w-full md:w-1/2 pl-12 md:pl-12 mt-4 md:mt-1 md:order-last">
+                        <span class="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-xs font-bold tracking-wide mb-2 uppercase">20 Hours</span>
+                        <h3 class="text-xl font-display font-bold text-brand-900">Institute of Home Economics</h3>
+                        <p class="text-gray-500 text-sm mt-1">Delhi University</p>
+                    </div>
+                    <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right mt-4 md:mt-1">
+                        <div class="bg-brand-50 p-6 rounded-2xl border border-gray-100 shadow-sm inline-block text-left md:text-right w-full">
+                            <span class="text-xs font-bold text-gray-400 block mb-3 uppercase">Delivered Curriculum</span>
+                            <div class="flex flex-wrap md:justify-end gap-2">
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Applied AI Workflow Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Milestone 3 -->
+                <div class="relative flex flex-col md:flex-row items-start reveal delay-200">
+                    <div class="absolute left-[15px] md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center font-display font-bold text-xs z-10">
+                        3
+                    </div>
+                    <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right mt-1">
+                        <span class="inline-block px-3 py-1 rounded-full bg-brand-900 text-white text-xs font-bold tracking-wide mb-2 uppercase">40 Hours</span>
+                        <h3 class="text-xl font-display font-bold text-brand-900">Shivaji College</h3>
+                        <p class="text-gray-500 text-sm mt-1">Delhi University</p>
+                    </div>
+                    <div class="w-full md:w-1/2 pl-12 md:pl-12 mt-4 md:mt-1">
+                        <div class="bg-brand-50 p-6 rounded-2xl border border-gray-100 shadow-sm">
+                            <span class="text-xs font-bold text-gray-400 block mb-3 uppercase">Delivered Curriculum</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Machine Learning</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Deep Learning</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Computer Vision</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">NLP</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Prompt Engineering</span>
+                                <span class="px-2.5 py-1 rounded bg-white border border-gray-200/50 text-xs text-gray-700 font-medium">Portfolio Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Rendering validated student feedback from DU xlsx responses... -->
+    <section class="py-24 bg-brand-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-500 block mb-2">VERIFIED DATASHEET PORTAL</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight">Verified Feedback From Colleges</h2>
+                <p class="text-gray-500 mt-4">Actual verified survey data compiled from standard Delhi University college program feedback spreadsheets.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Maharaja Agrasen College Card -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex items-center space-x-2 text-indigo-600 mb-4">
+                            <i data-lucide="sheet" class="w-4 h-4"></i>
+                            <span class="text-xs font-semibold uppercase tracking-wider">Agrasen Survey</span>
+                        </div>
+                        <h4 class="font-display font-extrabold text-brand-900 text-lg mb-1">Maharaja Agrasen College</h4>
+                        <p class="text-xs text-gray-400 mb-6 font-mono break-all">Feedback Maharaja Agrasen college (DU)  (Responses).xlsx</p>
+                        
+                        <div class="space-y-6 text-sm text-gray-600 italic">
+                            <p class="relative pl-4 border-l-2 border-indigo-500">"The 20-hour curriculum cleared up my confusion on prompt engineering. Writing structured prompts with variables feels like a superpower now."</p>
+                            <p class="relative pl-4 border-l-2 border-indigo-500">"This program completely restructured my research workflows. Excellent delivery guidelines and practical assessment structures."</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400 font-semibold">
+                        <span>96.8% Career Relevance</span>
+                        <span class="text-emerald-500">Verified ✓</span>
+                    </div>
+                </div>
+
+                <!-- Institute of Home Economics Card -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col justify-between reveal delay-100">
+                    <div>
+                        <div class="flex items-center space-x-2 text-indigo-600 mb-4">
+                            <i data-lucide="sheet" class="w-4 h-4"></i>
+                            <span class="text-xs font-semibold uppercase tracking-wider">IHE Survey</span>
+                        </div>
+                        <h4 class="font-display font-extrabold text-brand-900 text-lg mb-1">Institute of Home Economics</h4>
+                        <p class="text-xs text-gray-400 mb-6 font-mono break-all">Feedback - IHE (D.U.) (Responses).xlsx</p>
+                        
+                        <div class="space-y-6 text-sm text-gray-600 italic">
+                            <p class="relative pl-4 border-l-2 border-indigo-500">"We designed real AI automation scripts that we can apply directly in our home science analytics projects. Real-world validation at its best!"</p>
+                            <p class="relative pl-4 border-l-2 border-indigo-500">"I appreciated the emphasis on safe and ethical AI tools. Databloom teaches how to verify AI truth and avoid bias."</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400 font-semibold">
+                        <span>98.1% Practical Value</span>
+                        <span class="text-emerald-500">Verified ✓</span>
+                    </div>
+                </div>
+
+                <!-- Shivaji College Card -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col justify-between reveal delay-200">
+                    <div>
+                        <div class="flex items-center space-x-2 text-indigo-600 mb-4">
+                            <i data-lucide="sheet" class="w-4 h-4"></i>
+                            <span class="text-xs font-semibold uppercase tracking-wider">Shivaji Survey</span>
+                        </div>
+                        <h4 class="font-display font-extrabold text-brand-900 text-lg mb-1">Shivaji College</h4>
+                        <p class="text-xs text-gray-400 mb-6 font-mono break-all">Feedback - Shivaji College (D.U.) (Responses).xlsx</p>
+                        
+                        <div class="space-y-6 text-sm text-gray-600 italic">
+                            <p class="relative pl-4 border-l-2 border-indigo-500">"40 hours of actual, rigorous project building. Our portfolio development and GitHub pushes actually make us hireable in the market."</p>
+                            <p class="relative pl-4 border-l-2 border-indigo-500">"Computer Vision and NLP concepts were presented using real Python sandbox playgrounds instead of speculative code files."</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400 font-semibold">
+                        <span>95.9% Hands-on Coding</span>
+                        <span class="text-emerald-500">Verified ✓</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Building modern outcome-oriented learning systems... -->
+    <section id="learning-systems" class="py-32 bg-white relative border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-400">OUTCOME ARCHITECTURE</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight mt-3">Structured Learning Systems</h2>
+                <p class="text-gray-500 mt-4">Instead of short workshops, we design end-to-end outcome engines for schools, universities, professionals, and enterprises.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Journey Card 1 -->
-                <div class="spotlight-wrapper p-8 reveal cursor-pointer h-full flex flex-col group">
-                    <div class="spotlight-content flex flex-col h-full">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center mb-6 transition-colors group-hover:bg-brand-900 group-hover:text-white">
-                            <i data-lucide="user" class="w-4 h-4"></i>
-                        </div>
-                        <h3 class="text-xl font-display font-bold text-brand-900 mb-3">Student</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">Kickstart your tech career. Build a portfolio of real AI applications before graduation.</p>
-                        <a href="#programs" class="text-sm font-semibold text-brand-900 flex items-center group-hover:translate-x-1 transition-transform">
-                            View Path <i data-lucide="arrow-right" class="ml-1 w-3.5 h-3.5"></i>
-                        </a>
+                <!-- System 1 -->
+                <div class="spotlight-wrapper p-8 h-full flex flex-col justify-between group">
+                    <div class="spotlight-content">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-500 block mb-2">FOR SCHOOLS</span>
+                        <h3 class="text-xl font-display font-extrabold text-brand-900 mb-3 group-hover:text-blue-500 transition-colors">AI Foundations</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Building early computational logic, machine intelligence basics, and structured problem-solving thinking for young learners.</p>
+                    </div>
+                    <div class="spotlight-content pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs font-bold text-brand-900 uppercase">Interactive Lab IP Included</span>
+                        <i data-lucide="sparkles" class="w-4 h-4 text-blue-500"></i>
                     </div>
                 </div>
 
-                <!-- Journey Card 2 -->
-                <div class="spotlight-wrapper p-8 reveal delay-100 cursor-pointer h-full flex flex-col group">
-                    <div class="spotlight-content flex flex-col h-full">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center mb-6 transition-colors group-hover:bg-brand-900 group-hover:text-white">
-                            <i data-lucide="briefcase" class="w-4 h-4"></i>
-                        </div>
-                        <h3 class="text-xl font-display font-bold text-brand-900 mb-3">Professional</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">10x your productivity. Automate complex workflows and build autonomous agents.</p>
-                        <a href="#programs" class="text-sm font-semibold text-brand-900 flex items-center group-hover:translate-x-1 transition-transform">
-                            View Path <i data-lucide="arrow-right" class="ml-1 w-3.5 h-3.5"></i>
-                        </a>
+                <!-- System 2 -->
+                <div class="spotlight-wrapper p-8 h-full flex flex-col justify-between group border-brand-900/10 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                    <div class="spotlight-content">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 block mb-2">FOR COLLEGES</span>
+                        <h3 class="text-xl font-display font-extrabold text-brand-900 mb-3 group-hover:text-emerald-500 transition-colors">AI Workforce Readiness</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Direct path alignment focusing on prompt engineering, deep research methodology, GitHub portfolios, and practical engineering skills.</p>
+                    </div>
+                    <div class="spotlight-content pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs font-bold text-brand-900 uppercase">DU Validated Syllabus</span>
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-500"></i>
                     </div>
                 </div>
 
-                <!-- Journey Card 3 -->
-                <div class="spotlight-wrapper p-8 reveal delay-200 cursor-pointer h-full flex flex-col group">
-                    <div class="spotlight-content flex flex-col h-full">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center mb-6 transition-colors group-hover:bg-brand-900 group-hover:text-white">
-                            <i data-lucide="building-2" class="w-4 h-4"></i>
-                        </div>
-                        <h3 class="text-xl font-display font-bold text-brand-900 mb-3">Enterprise</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">Transform your organization. Strategic consulting and custom workforce upskilling.</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="text-sm font-semibold text-brand-900 flex items-center group-hover:translate-x-1 transition-transform">
-                            Book Strategy <i data-lucide="arrow-right" class="ml-1 w-3.5 h-3.5"></i>
-                        </a>
+                <!-- System 3 -->
+                <div class="spotlight-wrapper p-8 h-full flex flex-col justify-between group">
+                    <div class="spotlight-content">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-500 block mb-2">FOR PROFESSIONALS</span>
+                        <h3 class="text-xl font-display font-extrabold text-brand-900 mb-3 group-hover:text-purple-500 transition-colors">AI Professional Transformation</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Equipping individuals with automation pipelines, cognitive workflows, custom knowledge bases (RAG), and agentive platforms.</p>
+                    </div>
+                    <div class="spotlight-content pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs font-bold text-brand-900 uppercase">Productivity Acceleration</span>
+                        <i data-lucide="activity" class="w-4 h-4 text-purple-500"></i>
+                    </div>
+                </div>
+
+                <!-- System 4 -->
+                <div class="spotlight-wrapper p-8 h-full flex flex-col justify-between group">
+                    <div class="spotlight-content">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-500 block mb-2">FOR CXOs</span>
+                        <h3 class="text-xl font-display font-extrabold text-brand-900 mb-3 group-hover:text-indigo-500 transition-colors">AI Leadership</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Executive strategies to navigate LLM cost structures, architecture scalability, proprietary dataset risks, and talent restructuring.</p>
+                    </div>
+                    <div class="spotlight-content pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs font-bold text-brand-900 uppercase">Decision Frameworks</span>
+                        <i data-lucide="crown" class="w-4 h-4 text-indigo-500"></i>
+                    </div>
+                </div>
+
+                <!-- System 5 -->
+                <div class="spotlight-wrapper p-8 h-full flex flex-col justify-between group">
+                    <div class="spotlight-content">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-red-500 block mb-2">FOR ENTERPRISES</span>
+                        <h3 class="text-xl font-display font-extrabold text-brand-900 mb-3 group-hover:text-red-500 transition-colors">AI Implementation</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Designing localized systems, fine-tuning structures, customized knowledge bases, and deploying model pipelines across key departments.</p>
+                    </div>
+                    <div class="spotlight-content pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs font-bold text-brand-900 uppercase">Workflow Systems Architecture</span>
+                        <i data-lucide="git-branch" class="w-4 h-4 text-red-500"></i>
+                    </div>
+                </div>
+
+                <!-- System 6 -->
+                <div class="spotlight-wrapper p-8 h-full flex flex-col justify-between group">
+                    <div class="spotlight-content">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-600 block mb-2">FOR INSTITUTIONS</span>
+                        <h3 class="text-xl font-display font-extrabold text-brand-900 mb-3 group-hover:text-yellow-600 transition-colors">AI Ethics & Responsible AI</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Establishing safety standards, model alignment strategies, bias prevention algorithms, and transparent AI system boundaries.</p>
+                    </div>
+                    <div class="spotlight-content pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span class="text-xs font-bold text-brand-900 uppercase">Compliance Framework</span>
+                        <i data-lucide="shield-check" class="w-4 h-4 text-yellow-600"></i>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="programs" class="py-32 bg-white relative">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-900 tracking-tight">Programs & Consulting</h2>
-                <p class="text-gray-500 mt-3 text-sm font-medium">Focused curriculums over generic courses.</p>
-            </div>
-
-            <div class="space-y-6">
-                
-                <!-- Program 1 (21 Hour) -->
-                <div class="spotlight-wrapper p-8 reveal">
-                    <div class="spotlight-content flex flex-col md:flex-row md:items-start justify-between">
-                        <div class="mb-6 md:mb-0">
-                            <div class="flex items-center space-x-3 mb-2">
-                                <h3 class="text-xl font-display font-bold text-brand-900">AI Job Ready</h3>
-                                <span class="px-2.5 py-0.5 rounded-md bg-gray-100 text-[10px] font-semibold text-gray-600 uppercase tracking-wide">21 Hours</span>
+            <!-- Pre-existing Razorpay Purchase Integration with redone minimal spotlight wrappers -->
+            <div class="mt-16 border-t border-gray-100 pt-16">
+                <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Purchase Databloom Master Curriculums Directly</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Master Package 1 -->
+                    <div class="spotlight-wrapper p-6 flex flex-col justify-between border border-gray-100">
+                        <div class="spotlight-content">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="font-display font-bold text-brand-900 text-lg">AI Job Ready System</h4>
+                                <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-gray-100 text-gray-600 uppercase">21 Hours</span>
                             </div>
-                            <p class="text-gray-500 text-sm mb-4">Core AI fundamentals designed for students.</p>
-                            <div class="text-2xl font-display font-bold text-brand-900">₹2,499</div>
+                            <p class="text-sm text-gray-500 mb-6">Comprehensive curriculum designed for student path acceleration.</p>
+                            <div class="text-2xl font-display font-extrabold text-brand-900 mb-6">₹2,499</div>
                         </div>
-                        
-                        <div class="w-full md:w-64 flex flex-col gap-3">
-                            <div class="w-full flex justify-center razorpay-wrapper">
-                                <form>
-                                    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async></script>
-                                </form>
-                            </div>
-
-                            <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:bg-gray-50 transition-all flex items-center justify-between group">
-                                <span>Curriculum</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                            </button>
+                        <div class="spotlight-content razorpay-wrapper">
+                            <form>
+                                <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Pb3yNef9g0rp" async></script>
+                            </form>
                         </div>
                     </div>
                     
-                    <div class="expand-content mt-4">
-                        <div class="expand-inner">
-                            <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> AI Fundamentals & History</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Prompt Engineering Basics</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Using LLMs (ChatGPT/Gemini)</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Practical Micro-Projects</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Career Path Guidance</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Completion Certificate</div>
+                    <!-- Master Package 2 -->
+                    <div class="spotlight-wrapper p-6 flex flex-col justify-between border border-gray-100">
+                        <div class="spotlight-content">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="font-display font-bold text-brand-900 text-lg">AI Mastery System</h4>
+                                <span class="px-2 py-0.5 rounded text-[9px] font-bold bg-brand-900 text-white uppercase">33 Hours</span>
                             </div>
+                            <p class="text-sm text-gray-500 mb-6">Professional grade agentive workflows and cognitive pipelines.</p>
+                            <div class="text-2xl font-display font-extrabold text-brand-900 mb-6">₹6,999</div>
+                        </div>
+                        <div class="spotlight-content razorpay-wrapper">
+                            <form>
+                                <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async></script>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-                <!-- Program 2 (33 Hour) -->
-                <div class="spotlight-wrapper p-8 reveal delay-100 border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200"></div>
-                    <div class="spotlight-content flex flex-col md:flex-row md:items-start justify-between">
-                        <div class="mb-6 md:mb-0">
-                            <div class="flex items-center space-x-3 mb-2">
-                                <h3 class="text-xl font-display font-bold text-brand-900">AI Mastery</h3>
-                                <span class="px-2.5 py-0.5 rounded-md bg-brand-900 text-[10px] font-semibold text-white uppercase tracking-wide">Most Popular</span>
-                            </div>
-                            <p class="text-gray-500 text-sm mb-4">Advanced workflow automation and agent building.</p>
-                            <div class="text-2xl font-display font-bold text-brand-900">₹6,999</div>
-                        </div>
-                        
-                        <div class="w-full md:w-64 flex flex-col gap-3">
-                            <div class="w-full flex justify-center razorpay-wrapper">
-                                <form>
-                                    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T9Q7MnG5Mozusl" async></script>
-                                </form>
-                            </div>
-                            
-                            <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:bg-gray-50 transition-all flex items-center justify-between group">
-                                <span>Curriculum</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="expand-content mt-4">
-                        <div class="expand-inner">
-                            <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="flex items-center text-sm text-brand-900 font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-gray-400"></i> Everything in Job Ready</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Advanced Prompt Engineering</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Autonomous AI Agents</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> API Integrations & Webhooks</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Custom Knowledge Bases (RAG)</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Capstone Portfolio Project</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Program 3 (Enterprise) -->
-                <div class="spotlight-wrapper p-8 reveal delay-200">
-                    <div class="spotlight-content flex flex-col md:flex-row md:items-start justify-between">
-                        <div class="mb-6 md:mb-0">
-                            <div class="flex items-center space-x-3 mb-2">
-                                <h3 class="text-xl font-display font-bold text-brand-900">Corporate / College</h3>
-                                <span class="px-2.5 py-0.5 rounded-md bg-gray-100 text-[10px] font-semibold text-gray-600 uppercase tracking-wide">Custom</span>
-                            </div>
-                            <p class="text-gray-500 text-sm mb-4">Faculty development and corporate upskilling.</p>
-                            <div class="text-lg font-display font-bold text-gray-400">Custom Pricing</div>
-                        </div>
-                        
-                        <div class="w-full md:w-64 flex flex-col gap-3">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full px-5 py-3 rounded-full bg-white border border-gray-200 text-brand-900 text-sm font-medium hover:border-gray-400 hover:bg-gray-50 transition-all text-center flex items-center justify-center">
-                                Book Consultation
-                            </a>
-                            <button onclick="toggleExpand(this)" class="w-full px-5 py-3 rounded-full bg-transparent text-gray-500 text-sm font-medium hover:text-brand-900 transition-colors flex items-center justify-center">
-                                View Capabilities <i data-lucide="chevron-down" class="w-4 h-4 ml-2 transition-transform duration-300"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="expand-content mt-4">
-                        <div class="expand-inner">
-                            <div class="pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Custom Curriculum Design</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> On-Premise Workshops</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Faculty Development Programs</div>
-                                <div class="flex items-center text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-gray-300 mr-3"></div> Strategic Implementation Consulting</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <section id="workflow" class="py-32 bg-brand-50 border-y border-gray-100/50">
+    <!-- STREAMING_CHUNK:Designing inside the classroom experiences... -->
+    <section class="py-24 bg-brand-50 border-y border-gray-100">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-24 reveal">
-                <h2 class="text-3xl font-display font-bold text-brand-900 tracking-tight">The Databloom Methodology</h2>
-            </div>
-
-            <div class="relative max-w-4xl mx-auto">
-                <div class="hidden md:block absolute top-8 left-[10%] w-[80%] h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent z-0"></div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-                    <div class="flex flex-col items-center text-center reveal">
-                        <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm z-10 transition-transform hover:scale-110 duration-300">
-                            <i data-lucide="book-open" class="w-5 h-5 text-brand-900"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-500">REAL LEARNING AT WORK</span>
+                    <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 mt-2 tracking-tight">Inside the Classroom</h2>
+                    <p class="text-gray-600 mt-4 leading-relaxed">Students don't sit through passive, slide-heavy lectures. They actively build, experiment, break, and re-engineer under practitioner-led curriculum guidelines.</p>
+                </div>
+                <div class="lg:col-span-7 reveal delay-100">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3 p-3 hover:bg-brand-50 rounded-xl transition-colors">
+                            <div class="w-5 h-5 rounded-full bg-brand-900 flex-shrink-0 flex items-center justify-center text-white text-[10px]">✓</div>
+                            <span class="text-sm font-semibold text-gray-800">Build prompts with variable parameters</span>
                         </div>
-                        <h4 class="font-display font-bold text-brand-900 mb-1">Learn</h4>
-                        <p class="text-xs text-gray-500 font-medium">Master the underlying concepts.</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center reveal delay-100">
-                        <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm z-10 transition-transform hover:scale-110 duration-300">
-                            <i data-lucide="hammer" class="w-5 h-5 text-brand-900"></i>
+                        <div class="flex items-start space-x-3 p-3 hover:bg-brand-50 rounded-xl transition-colors">
+                            <div class="w-5 h-5 rounded-full bg-brand-900 flex-shrink-0 flex items-center justify-center text-white text-[10px]">✓</div>
+                            <span class="text-sm font-semibold text-gray-800">Research using advanced AI workflows</span>
                         </div>
-                        <h4 class="font-display font-bold text-brand-900 mb-1">Build</h4>
-                        <p class="text-xs text-gray-500 font-medium">Construct practical solutions.</p>
-                    </div>
-
-                    <div class="flex flex-col items-center text-center reveal delay-200">
-                        <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-6 shadow-sm z-10 transition-transform hover:scale-110 duration-300">
-                            <i data-lucide="rocket" class="w-5 h-5 text-brand-900"></i>
+                        <div class="flex items-start space-x-3 p-3 hover:bg-brand-50 rounded-xl transition-colors">
+                            <div class="w-5 h-5 rounded-full bg-brand-900 flex-shrink-0 flex items-center justify-center text-white text-[10px]">✓</div>
+                            <span class="text-sm font-semibold text-gray-800">Construct personal GitHub portfolios</span>
                         </div>
-                        <h4 class="font-display font-bold text-brand-900 mb-1">Deploy</h4>
-                        <p class="text-xs text-gray-500 font-medium">Integrate into workflows.</p>
-                    </div>
-
-                    <div class="flex flex-col items-center text-center reveal delay-300">
-                        <div class="w-16 h-16 bg-brand-900 border border-brand-900 rounded-2xl flex items-center justify-center mb-6 shadow-lg z-10 transition-transform hover:scale-110 duration-300">
-                            <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+                        <div class="flex items-start space-x-3 p-3 hover:bg-brand-50 rounded-xl transition-colors">
+                            <div class="w-5 h-5 rounded-full bg-brand-900 flex-shrink-0 flex items-center justify-center text-white text-[10px]">✓</div>
+                            <span class="text-sm font-semibold text-gray-800">Build deployed AI applications</span>
                         </div>
-                        <h4 class="font-display font-bold text-brand-900 mb-1">Automate</h4>
-                        <p class="text-xs text-gray-500 font-medium">Scale output exponentially.</p>
+                        <div class="flex items-start space-x-3 p-3 hover:bg-brand-50 rounded-xl transition-colors">
+                            <div class="w-5 h-5 rounded-full bg-brand-900 flex-shrink-0 flex items-center justify-center text-white text-[10px]">✓</div>
+                            <span class="text-sm font-semibold text-gray-800">Engage in structured AI ethics debates</span>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3 hover:bg-brand-50 rounded-xl transition-colors">
+                            <div class="w-5 h-5 rounded-full bg-brand-900 flex-shrink-0 flex items-center justify-center text-white text-[10px]">✓</div>
+                            <span class="text-sm font-semibold text-gray-800">Analyze real-world corporate case studies</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-gray-100">
-                <div class="reveal">
-                    <div class="text-4xl md:text-5xl font-display font-bold text-brand-900 tracking-tighter mb-1">1k<span class="text-gray-300">+</span></div>
-                    <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-widest">Learners</div>
+    <!-- STREAMING_CHUNK:Creating transformation roadmaps and behavioral shifts... -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-400">THE DIFFERENTIATOR</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight mt-3">Our Learning Philosophy</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 text-center">
+                <div class="p-6 rounded-2xl bg-brand-50 border border-gray-100 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-2xl font-bold font-display text-brand-900 block mb-2">01</span>
+                    <span class="text-sm font-extrabold text-gray-800 block">Think</span>
                 </div>
-                <div class="reveal delay-100">
-                    <div class="text-4xl md:text-5xl font-display font-bold text-brand-900 tracking-tighter mb-1">25<span class="text-gray-300">+</span></div>
-                    <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-widest">Institutions</div>
+                <div class="p-6 rounded-2xl bg-brand-50 border border-gray-100 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-2xl font-bold font-display text-brand-900 block mb-2">02</span>
+                    <span class="text-sm font-extrabold text-gray-800 block">Reason</span>
                 </div>
-                <div class="reveal delay-200">
-                    <div class="text-4xl md:text-5xl font-display font-bold text-brand-900 tracking-tighter mb-1">50<span class="text-gray-300">+</span></div>
-                    <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-widest">Workshops</div>
+                <div class="p-6 rounded-2xl bg-brand-50 border border-gray-100 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-2xl font-bold font-display text-brand-900 block mb-2">03</span>
+                    <span class="text-sm font-extrabold text-gray-800 block">Question</span>
                 </div>
-                <div class="reveal delay-300">
-                    <div class="text-4xl md:text-5xl font-display font-bold text-brand-900 tracking-tighter mb-1">4.8</div>
-                    <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-widest flex items-center justify-center">
-                        Rating <i data-lucide="star" class="w-3 h-3 ml-1 fill-gray-300 text-gray-300"></i>
+                <div class="p-6 rounded-2xl bg-brand-50 border border-gray-100 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-2xl font-bold font-display text-brand-900 block mb-2">04</span>
+                    <span class="text-sm font-extrabold text-gray-800 block">Create</span>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-50 border border-gray-100 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-2xl font-bold font-display text-brand-900 block mb-2">05</span>
+                    <span class="text-sm font-extrabold text-gray-800 block">Build</span>
+                </div>
+                <div class="p-6 rounded-2xl bg-brand-50 border border-gray-100 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-2xl font-bold font-display text-brand-900 block mb-2">06</span>
+                    <span class="text-sm font-extrabold text-gray-800 block">Collaborate</span>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mt-10">All Done Responsibly.</p>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Developing corporate organization and CSR divisions... -->
+    <section class="py-24 bg-brand-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-500">THE PATH TO MASTERY</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight mt-3">The Transformation Roadmap</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
+                <!-- BEFORE -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-red-100/50 shadow-sm flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-100">
+                            <span class="w-8 h-8 rounded-full bg-red-50 text-red-500 flex items-center justify-center font-bold text-sm">❌</span>
+                            <h3 class="font-display font-bold text-lg text-gray-400">Before Databloom</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-sm text-gray-500"><span class="mr-3 text-red-400">●</span> Uses ChatGPT randomly without logical context</li>
+                            <li class="flex items-start text-sm text-gray-500"><span class="mr-3 text-red-400">●</span> Blindly copies and pastes generic AI responses</li>
+                            <li class="flex items-start text-sm text-gray-500"><span class="mr-3 text-red-400">●</span> Lacks structured variable prompt frameworks</li>
+                            <li class="flex items-start text-sm text-gray-500"><span class="mr-3 text-red-400">●</span> Fails to verify data truth accuracy and output boundaries</li>
+                            <li class="flex items-start text-sm text-gray-500"><span class="mr-3 text-red-400">●</span> Doesn't build reproducible real-world portfolio projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CONNECTOR ARROW -->
+                <div class="lg:col-span-2 flex items-center justify-center reveal delay-100">
+                    <div class="w-12 h-12 rounded-full bg-brand-900 text-white flex items-center justify-center transform rotate-90 lg:rotate-0">
+                        <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                    </div>
+                </div>
+
+                <!-- AFTER -->
+                <div class="lg:col-span-5 bg-brand-900 p-8 rounded-3xl shadow-xl flex flex-col justify-between text-white reveal delay-200">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-white/10">
+                            <span class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">✓</span>
+                            <h3 class="font-display font-bold text-lg text-white">After Databloom</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-sm text-gray-300"><span class="mr-3 text-emerald-400">●</span> Works seamlessly across multiple frontier LLM models</li>
+                            <li class="flex items-start text-sm text-gray-300"><span class="mr-3 text-emerald-400">●</span> Crafts enterprise structured prompt architectures</li>
+                            <li class="flex items-start text-sm text-gray-300"><span class="mr-3 text-emerald-400">●</span> Engineers custom workflow automation and agent pipelines</li>
+                            <li class="flex items-start text-sm text-gray-300"><span class="mr-3 text-emerald-400">●</span> Employs ethical AI guidelines and systemic data guardrails</li>
+                            <li class="flex items-start text-sm text-gray-300"><span class="mr-3 text-emerald-400">●</span> Showcases structured GitHub portfolios solving business problems</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="spotlight-wrapper p-10 md:p-12 flex flex-col md:flex-row items-center gap-10 reveal">
-                <!-- Founder Portrait (Uses JS IMAGE_CONFIG) -->
-                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-50 flex-shrink-0 relative overflow-hidden border border-gray-100 shadow-md flex items-center justify-center">
-                    <img id="founder-img" alt="Founder Portrait" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/eeeeee/333333?text=Founder'">
+    <!-- STREAMING_CHUNK:Designing executive corporate enterprise capability segment... -->
+    <section class="py-32 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 block mb-2">FOR ENTERPRISES & CORPORATES</span>
+                    <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight leading-tight">
+                        Building AI-Ready Organizations
+                    </h2>
+                    <p class="text-gray-600 mt-6 leading-relaxed">
+                        Your people don't need another generic AI presentation. They need capability. We design customized AI transformation programs for teams across finance, HR, operations, customer support, project management, and leadership.
+                    </p>
+                    
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-100 rounded text-xs text-gray-600 font-semibold">Financial Modeling</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-100 rounded text-xs text-gray-600 font-semibold">HR Workflows</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-100 rounded text-xs text-gray-600 font-semibold">Support Automation</span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-100 rounded text-xs text-gray-600 font-semibold">Project Scoping</span>
+                    </div>
                 </div>
-                
-                <div class="text-center md:text-left">
-                    <h3 class="text-2xl font-display font-bold text-brand-900 mb-1 tracking-tight">Led by Verified Expertise</h3>
-                    <p class="text-gray-500 font-semibold text-[11px] tracking-widest uppercase mb-5">Founder, Databloom AI & Tech</p>
-                    
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium max-w-lg">
-                        At Databloom AI & Tech, we don't measure success by how many AI tools you know—we measure it by the problems you can solve. Inspired by world-class teaching methodologies and grounded in enterprise AI experience, our programs develop the mindset, systems thinking, and practical skills needed to design intelligent solutions in any industry.                    </p>
-                    
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-900 hover:text-gray-600 transition-colors group">
-                        Book a Strategy Call <i data-lucide="arrow-right" class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                <div class="lg:col-span-7 reveal delay-100">
+                    <div class="p-8 bg-brand-50 rounded-3xl border border-gray-100 space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-gray-200/50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-alert" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-brand-900 text-sm">Security & Privacy First</h4>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">All curriculum structures strictly leverage secure local sandboxes and strict company privacy guidelines.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-gray-200/50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="sliders" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-brand-900 text-sm">Targeted Department Workflows</h4>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">No generic tool demonstrations. We tailor modules precisely to the software pipelines your team operates daily.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-gray-200/50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="users" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-brand-900 text-sm">Strategic Governance Guidance</h4>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">Fostering ethical decision trees and data usage limits across multi-tier organization scales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Constructing CSR movement: AI Literacy for India... -->
+    <section class="py-24 bg-brand-50 border-y border-gray-100 relative">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-500 block mb-3">SOCIAL RESPONSIBILITY</span>
+                <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brand-900 tracking-tight">
+                    AI Literacy for India
+                </h2>
+                <p class="text-gray-600 mt-6 text-base leading-relaxed">
+                    Partner with Databloom to equip students and underserved communities with practical AI skills through structured, measurable learning programs. Together, we can prevent an AI access gap and democratize compute capability.
+                </p>
+                <div class="mt-10">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="inline-flex items-center px-6 py-3.5 rounded-full bg-brand-900 text-white font-bold text-sm hover:bg-gray-800 transition-all shadow-sm">
+                        Propose CSR Partnership <i data-lucide="mail" class="ml-2 w-4 h-4"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="consultation" class="py-32 relative bg-brand-50 overflow-hidden text-center border-t border-gray-100">
+    <!-- STREAMING_CHUNK:Rendering founder experience parameters and biography... -->
+    <section class="py-32 bg-white relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="spotlight-wrapper p-10 md:p-12 flex flex-col md:flex-row items-center gap-10 reveal">
+                
+                <!-- Elegant Circular Showcase Container -->
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-50 flex-shrink-0 relative overflow-hidden border border-gray-200 shadow-md flex items-center justify-center">
+                    <img src="Gemini_Generated_Image_3bvsa13bvsa13bvs.png" alt="Founder Portrait" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/eeeeee/333333?text=Founder'">
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <span class="text-[10px] font-bold tracking-widest uppercase text-gray-400 block mb-1">FOUNDER SHOWCASE</span>
+                    <h3 class="text-2xl font-display font-bold text-brand-900 tracking-tight">Designed by Practitioners</h3>
+                    <p class="text-gray-500 font-semibold text-[11px] tracking-widest uppercase mb-6">Databloom AI & Tech Development</p>
+                    
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
+                        I built Databloom because most AI courses teach tools while skipping critical analytical judgment. After a decade inside enterprise operations, LLM validation, model quality analysis, and executing Generative AI educational systems for organizations across the US, I saw how easily speculative workshop claims fall flat.
+                        Our learning systems are built directly on real-world practitioner experiences to foster authentic cognitive transformation. Databloom brings that same delivery rigor to students, universities, and teams across India.
+                    </p>
+
+                    <div class="border-t border-gray-100 pt-6">
+                        <p class="text-xs font-bold text-gray-400 uppercase mb-3">Syllabus Built By Professionals With Experience In:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-gray-50 border border-gray-200/50 text-[10px] font-bold text-gray-600 rounded">Enterprise Operations</span>
+                            <span class="px-2.5 py-1 bg-gray-50 border border-gray-200/50 text-[10px] font-bold text-gray-600 rounded">Model Quality Analysis</span>
+                            <span class="px-2.5 py-1 bg-gray-50 border border-gray-200/50 text-[10px] font-bold text-gray-600 rounded">AI Development & LLMs</span>
+                            <span class="px-2.5 py-1 bg-gray-50 border border-gray-200/50 text-[10px] font-bold text-gray-600 rounded">Higher Education Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STREAMING_CHUNK:Final movement invitation and bottom footer... -->
+    <section class="py-32 relative bg-brand-50 overflow-hidden text-center border-t border-gray-100">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white opacity-60 blur-[80px] rounded-full pointer-events-none"></div>
         
-        <div class="max-w-2xl mx-auto px-6 relative z-10 reveal">
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-brand-900 tracking-tighter mb-6">
-                Ready to adapt?
+        <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
+            <h2 class="text-3xl md:text-5xl font-display font-extrabold text-brand-900 tracking-tight leading-tight mb-6">
+                The next generation will work with AI every day.<br>
+                Will they merely use AI...<br class="hidden sm:block"> or will they know how to think with it?
             </h2>
-            <p class="text-gray-500 mb-10 text-sm font-medium">Join the professionals building the next era of technology.</p>
+            <p class="text-gray-500 mb-10 text-base font-semibold">Let's build that future together.</p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#programs" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center">
-                    Enroll Now
+                <a href="#systems" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-sm bg-brand-900 text-white hover:bg-gray-800 transition-all shadow-md">
+                    Explore Systems
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-sm bg-white border border-gray-200 text-brand-900 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-sm">
                     Book Consultation
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white py-10 border-t border-gray-100">
+    <!-- STREAMING_CHUNK:Rendering navigation footer with verified logo... -->
+    <footer class="bg-white py-12 border-t border-gray-100">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-gray-400">
-            <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                <!-- Footer Corporate Logo (Uses JS IMAGE_CONFIG) -->
-                <img id="footer-logo" alt="Databloom Logo" class="w-6 h-6 object-contain" onerror="this.src='https://placehold.co/100x100/111111/ffffff?text=DB'">
+            <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                <img src="Logo for DATABLOOM A.png" alt="Databloom Logo" class="w-6 h-6 object-contain" onerror="this.src='https://placehold.co/100x100/111111/ffffff?text=DB'">
                 <span class="text-brand-900 font-bold font-display tracking-tight text-sm">Databloom</span>
                 <span class="ml-2">&copy; 2026.</span>
             </div>
             <div class="flex space-x-6">
-                <a href="#programs" class="hover:text-brand-900 transition-colors">Programs</a>
+                <a href="#philosophy" class="hover:text-brand-900 transition-colors">Philosophy</a>
+                <a href="#learning-systems" class="hover:text-brand-900 transition-colors">Learning Systems</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9R6kUpV7sg_JauunugNx-VkcmGl7Km4K6mT3_HxrLGk52ng/viewform?usp=sharing&ouid=115445748390750860430" target="_blank" class="hover:text-brand-900 transition-colors">Consulting</a>
-                <a href="#" class="hover:text-brand-900 transition-colors">Privacy</a>
-                <a href="#" class="hover:text-brand-900 transition-colors">Terms</a>
+                <a href="#" class="hover:text-brand-900 transition-colors">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
+    <!-- STREAMING_CHUNK:Writing modal and dynamic interaction scripts... -->
     <!-- Unified Success Modal (Handles both Payment and Enquiry) -->
     <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/40 backdrop-blur-sm p-4 transition-opacity">
         <div class="bg-white rounded-3xl p-10 max-w-md w-full shadow-2xl relative border border-gray-100 text-center transform transition-all">
@@ -602,10 +963,10 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 10) {
                 navbar.classList.add('shadow-[0_4px_20px_rgba(0,0,0,0.03)]');
-                navbar.querySelector('div.absolute').classList.replace('bg-white/60', 'bg-white/80');
+                navbar.querySelector('div.absolute').classList.replace('bg-white/60', 'bg-white/70');
             } else {
                 navbar.classList.remove('shadow-[0_4px_20px_rgba(0,0,0,0.03)]');
-                navbar.querySelector('div.absolute').classList.replace('bg-white/80', 'bg-white/60');
+                navbar.querySelector('div.absolute').classList.replace('bg-white/70', 'bg-white/60');
             }
         });
 
